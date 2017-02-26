@@ -44,7 +44,7 @@ require 'header.php';
 </div>
 
 <div class="container-fluid">
-<div class="row" style="background-color:purple; color:white;">
+<div class="row" style="background-color: #8a0aa6  ; color:white;">
 <div class="col-md-12 col-sm-12">
 <?php 
 echo '<div align="right">';
@@ -68,7 +68,7 @@ echo '</div>';
 </br>
 <div class="col-md-8 col-sm-8">
 
-<div class="alert alert-success"> 
+<div class="alert alert-info"> 
 <table class="tabel">
 <tr>
 <td><font size=5><b>Ticket Per Person </font></b>
@@ -97,7 +97,7 @@ echo '</div>';
 </table>
 </div>
 </br>
-			<input type="submit" class="form-control btn btn-danger" name="btnbook" value="BOOK TICKET">
+			<input type="submit" class="form-control btn btn-info" name="btnbook" value="BOOK TICKET">
 			
 </br>
 </br>
@@ -132,7 +132,7 @@ echo '</div>';
 			<textarea rows="2" cols="27" name="comment">
 			</textarea></br>
 			<div align="right">
-			<input type="submit" class="form-control btn btn-danger" name="btncomment" value="Submit">
+			<input type="submit" class="form-control btn btn-info" name="btncomment" value="Submit">
 			</div>
 		</form>
 		<?php 
