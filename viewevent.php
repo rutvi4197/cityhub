@@ -1,0 +1,181 @@
+<?php 
+	session_start();
+	require 'database.php';
+$obj=new database();
+$event_id=$_REQUEST["id"];
+$res=$obj->eventbyiddis($event_id);
+while($row=mysql_fetch_assoc($res))
+{
+	$event_name=$row["event_name"];
+	$event_logo=$row["event_logo"];
+	$event_slogan=$row["event_slogan"];
+	$event_des=$row["event_des"];
+	$venue_name=$row["venue_name"];
+	$venue_add=$row["venue_address"];
+	$city_name=$row["city_name"];
+	$pincode=$row["pincode"];
+	$event_date=$row["event_date"];
+	$event_time=$row["event_time"];
+	$event_price=$row["event_price"];
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<link href="Content/bootstrap.css" rel="stylesheet"/>
+<script src="Scripts/jquery-1.9.1.js"></script>
+<script src="Scripts/bootstrap.js"></script>
+</head>
+<body>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+
+require 'header.php';
+
+?>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<img src="<?php echo $event_logo; ?>" height="300" width="1500">
+</div>
+</div>
+
+<div class="container-fluid">
+<div class="row" style="background-color:purple; color:white;">
+<div class="col-md-12 col-sm-12">
+<?php 
+echo '<div align="right">';
+echo '<div align="left">';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;<font size=6 >'.$event_name.' - '.$city_name.'</font>';
+echo '</div>';
+echo  '<font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;</br>Direction</span></font></br>';
+echo '<div align="left">';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;<font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>';
+echo '</div >';
+
+echo '</div>';
+
+?>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+</br>
+</br>
+<div class="col-md-8 col-sm-8">
+
+<div class="alert alert-success"> 
+<table class="tabel">
+<tr>
+<td><font size=5><b>Ticket Per Person </font></b>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td><font size=5><b>| INR <?php echo $event_price; ?></font></b>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>
+<form  action ="viewevent.php?id=<?php echo $event_id;  ?>" method="post" >
+<select name="no" class="form-control">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+</tr>
+</table>
+</div>
+</br>
+			<input type="submit" class="form-control btn btn-danger" name="btnbook" value="BOOK TICKET">
+			
+</br>
+</br>
+ 
+	<center>
+	<font size=6 color="black">About The Event</font>
+	</center>
+	</br></br>
+		<?php
+
+		echo '<font size=4>'.$event_des.'</font>';
+
+		?>
+	
+	
+</div>
+<div class="col-md-4 col-sm-4">
+<center>
+	 <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><font size=5>Event Id : <?php echo $event_id; ?></font></button>
+		
+  </div>
+	</br></br>
+	
+	<font size=5>	<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Contact Us:</font>
+	
+  </br></br>
+	<font size=5>Page Views : 89
+  </br></br>
+		
+			<label>Enter Comment Below:</label>
+			<textarea rows="2" cols="27" name="comment">
+			</textarea></br>
+			<div align="right">
+			<input type="submit" class="form-control btn btn-danger" name="btncomment" value="Submit">
+			</div>
+		</form>
+		<?php 
+			
+				if(isset($_POST["btncomment"]))
+				{
+					$obj1=new database();
+				$comment=$_POST["comment"];
+				echo $comment;
+				$date=date("d-m-Y");
+				$email=$_SESSION["email"];
+				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
+				if($res1==1)
+				{
+				header('Location:viewevent.php?id='.$event_id.'');
+				}
+				}
+		
+		?>
+		
+			</br></br>
+			<font size=5>Comments </font>
+			</br>
+			<?php 
+				$obj2=new database();
+				$res2=$obj2->getcomment($event_id);
+				while($row=mysql_fetch_assoc($res2))
+				{
+					echo '<div class="alert alert-info" role="alert">'.$row["comment_desc"].'</div>';
+				}
+			
+			?>
+			
+		
+		
+		
+</div>
+
+</div>
+</div>
+</div>
+
+
+</body>
+
+</html>
