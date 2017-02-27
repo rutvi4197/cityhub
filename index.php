@@ -17,7 +17,7 @@ $obj=new database();
 <div class="row">
 <div class="col-md-12 col-sm-12">
 <?php 
-if($_SESSION["email"]!="")
+if(isset($_SESSION["email"]))
 {
 	require 'headerwithlogin.php';
 	

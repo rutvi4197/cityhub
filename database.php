@@ -61,10 +61,18 @@ class Database
 		return $res;
 	database::disconnect();
 	}
-	public function getAllCity()
+	public function getallvenue()
 	{
 		$con=database::connect();
-		$res=mysql_query("select * from city_tbl",$con);
+		$res=mysql_query("select * from venue_tbl ORDER BY pk_venue_id DESC;",$con);
+		return $res;
+	database::disconnect();
+	}
+	
+	public function createvenue($venue_name,$venue_add,$city,$pincode)
+	{	$venue_id="null";
+		$con=database::connect();
+		$res=mysql_query("insert into venue_tbl values('$venue_id','$venue_name','$venue_add','$city','$pincode')",$con);
 		return $res;
 	database::disconnect();
 	}
@@ -88,6 +96,13 @@ class Database
 	{
 		$con=database::connect();
 		$res=mysql_query("select * from offer_tbl",$con);
+		return $res;
+	database::disconnect();
+	}
+	public function getAllCity()
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from city_tbl",$con);
 		return $res;
 	database::disconnect();
 	}
