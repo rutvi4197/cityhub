@@ -3,8 +3,7 @@
 	require 'database.php';
 	$obj=new database();
 	$cat_id=$_REQUEST["id"];
-	
-	echo "Cat is".$cat_id;
+
 ?>
 
 <!DOCTYPE html>

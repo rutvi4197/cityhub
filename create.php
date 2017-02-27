@@ -46,15 +46,10 @@
 		
 		<div class="form">
 			<form method="post" action="#">
-
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="text" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
 					
-					<label><font color="black" size=2>Event Logo</font></label>
+					<label><font color="black" size=2>Event Name</font></label>
 					</br>
-					<input type="text" placeholder="Event Logo" name="txtlogo" class="form-control" required/> 
+					<input type="text" placeholder="Event Title" name="txtname" class="form-control" required/> 
 					</br>
 							
 					<label><font color="black" size=2>Event Slogan</font></label>
@@ -64,85 +59,118 @@
 					
 					<label><font color="black" size=2>Event Description</font></label>
 					</br>
-					<textarea rows="5" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control">
+					<textarea rows="8.5" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control">
 					</textarea>
 					</br>
 					
-					
-					<label><font color="black" size=2>Select Venue</font></label>
+					<label><font color="black" size=2>Event Venue</font></label>
 					</br>
-					<select name="txtcity" class="form-control" >
+					<input type="text" placeholder="Event Venue" name="txtvenue" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Event Date</font></label>
+					</br>
+					<input type="text" placeholder="Event Date" name="txtdate" class="form-control" required/> 
+					</br>
+					
+		</div>
+	</div>
+	
+	<div class="col-md-6 col-sm-6">	
+						
+						
+					<label><font color="black" size=2>Event Logo</font></label>
+					</br>
+					<input type="text" placeholder="Event Logo" name="txtlogo" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Event Logo</font></label>
+					</br>
+					<input type="text" placeholder="Event Logo" name="txtimage" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Event Time</font></label>
+					</br>
+					<input type="text" placeholder="Event Time" name="txttime" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Event Ticket</font></label>
+					</br>
+					<input type="text" placeholder="Event Price" name="txtticket" class="form-control" required/> 
+					</br>
+				
+					<label><font color="black" size=2>Event Price</font></label>
+					</br>
+					<input type="price" placeholder="Event Price" name="txtprice" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Select Category</font></label>
+					</br>
+					<select name="txtcat" class="form-control" >
 								<?php
 									$obj=new database();
-									$res=$obj->getAllCity();
+									$res=$obj->getAllCat();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
-										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+										echo '<option value='.$row["pk_cat_id"].'>'.$row["cat_name"].'</option>';
 									}
 								?>
 					</select>	
 					</br>
 					
-					<label><font color="black" size=2>Event Title</font></label>
+					<label><font color="black" size=2>Select Offer</font></label>
 					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					<label><font color="black" size=2>Event Title</font></label>
-					</br>
-					<input type="email" placeholder="Event Title" name="txttitle" class="form-control" required/> 
-					</br>
-					
-					
+					<select name="txtoffer" class="form-control" >
+								<?php
+									$obj=new database();
+									$res=$obj->getAllOffer();
+									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+									{
+										echo '<option value='.$row["pk_offer_id"].'>'.$row["offer_name"].'</option>';
+									}
+								?>
+					</select>	
+		
+		
+	</div>
+		
+	</div>
+	</div>
+	<br>
+		<div>
+				<center><input type="submit" name="btncreate" value="Create" class="btn btn-success"/></center>
 			</form>
 		</div>
-	</div>
-	
-	<div class="col-md-6 col-sm-6">
-		<div>
-			<h4><b>NEW CUSTOMERS</b></h4>
-			<p>By creating an account with our Website, you will be able to
-			   book and create Events and do payment procedures faster...
-			</p>
-			<a class="btn btn-success" href="signup.php">Create an Account</a>
-		</div>
-	</div>
-	
-	</div>
-	</div>
 	
 	<?php
-	if(isset($_POST["btnlogin"]))
+	if(isset($_POST["btncreate"]))
 	{
-		$email=$_POST["txtemail"];
-		$pwd=$_POST["txtpwd"];
+		$pk_event_id="Null";
+		$event_name=$_POST["txtname"];
+		$event_logo=$_POST["txtlogo"];
+		$event_image=$_POST["txtimage"];
+		$event_slogan=$_POST["txtslogan"];
+		$event_des=$_POST["txtdes"];
+		$fk_venue_id=$_POST["txtvenue"];
+		$event_date=$_POST["txtdate"];
+		$event_time=$_POST["txttime"];
+		$event_ticket=$_POST["txtticket"];
+		$event_price=$_POST["txtprice"];
+		$fk_cat_id=$_POST["txtcat"];
+		$fk_email_id=$_SESSION["email"];
+		$fk_offer_id=$_POST["txtoffer"];
+		$event_cnt="0";
+		$flag="0";
+		
+		
 		$obj=new Database();
-		$res=$obj->login($email,$pwd);
+		$res=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
+		$event_slogan,$event_des,$fk_venue_id,$event_date,$event_time,$event_ticket,
+		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag);
 
 		$cnt=mysql_num_rows($res);
 		if($cnt==1)
 		{
-			$_SESSION["email"]=$email;
 			header('Location:index.php');
 		}
 		else
