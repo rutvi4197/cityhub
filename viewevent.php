@@ -31,7 +31,15 @@ while($row=mysql_fetch_assoc($res))
 <div class="col-md-12 col-sm-12">
 <?php 
 
-require 'header.php';
+if($_SESSION["email"]!="")
+{
+	require 'headerwithlogin.php';
+	
+}
+else
+{
+	require 'header.php';
+}
 
 ?>
 </div>
@@ -113,7 +121,18 @@ echo ' <table>
 		echo '<font size=4>'.$event_des.'</font>';
 
 		?>
-	
+		</br></br>
+	<font size=5>Comments </font>
+			</br>
+			<?php 
+				$obj2=new database();
+				$res2=$obj2->getcomment($event_id);
+				while($row=mysql_fetch_assoc($res2))
+				{
+					echo '<font size="3"><div class="alert alert-info" role="alert">'.$row["comment_desc"].'</font></div>';
+				}
+			
+			?>
 	
 </div>
 <div class="col-md-4 col-sm-4">
@@ -156,17 +175,7 @@ echo ' <table>
 		?>
 		
 			</br></br>
-			<font size=5>Comments </font>
-			</br>
-			<?php 
-				$obj2=new database();
-				$res2=$obj2->getcomment($event_id);
-				while($row=mysql_fetch_assoc($res2))
-				{
-					echo '<div class="alert alert-info" role="alert">'.$row["comment_desc"].'</div>';
-				}
 			
-			?>
 			
 		
 		

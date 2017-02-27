@@ -54,7 +54,13 @@ class Database
 		return $res;
 	database::disconnect();
 	}
-	
+	public function getuserdetail($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);
+		return $res;
+	database::disconnect();
+	}
 	public function getAllCity()
 	{
 		$con=database::connect();
