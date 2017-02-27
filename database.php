@@ -68,7 +68,39 @@ class Database
 		return $res;
 	database::disconnect();
 	}
-		public function getcomment($event_id)
+	
+	public function createevent($pk_event_id,$event_name,$event_logo,$event_image,
+								$event_slogan,$event_des,$fk_venue_id,$event_date,
+								$event_time,$event_ticket,$event_price,$fk_cat_id,
+								$fk_email_id,$fk_offer_id,$event_cnt,$flag)
+	{
+		$con=database::connect();
+		$res=mysql_query("insert into event_tbl values('$pk_event_id','$event_name','$event_logo','$event_image',
+								'$event_slogan','$event_des','$fk_venue_id','$event_date',
+								'$event_time','$event_ticket','$event_price','$fk_cat_id',
+								'$fk_email_id','$fk_offer_id','$event_cnt','$flag')",$con);		
+		return $res;
+	database::disconnect();
+	}
+	
+	
+	public function getAllOffer()
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from offer_tbl",$con);
+		return $res;
+	database::disconnect();
+	}
+	
+	public function getAllCat()
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from cat_tbl",$con);
+		return $res;
+	database::disconnect();
+	}
+	
+	public function getcomment($event_id)
 	{
 		$con=database::connect();
 		$res=mysql_query("select c.*,u.* from comment_tbl as c,user_tbl as u where c.fk_event_id='$event_id' and c.fk_email_id=u.pk_email_id ",$con);
