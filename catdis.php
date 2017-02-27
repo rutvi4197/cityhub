@@ -3,11 +3,6 @@
 	require 'database.php';
 	$obj=new database();
 	$cat_id=$_REQUEST["id"];
-<<<<<<< HEAD
-
-=======
->>>>>>> 383f2a597ec5adef7cfeccaff6c47de121774758
-
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +21,7 @@
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
 	<?php 
-		if($_SESSION["email"]!="")
+		if(isset($_SESSION["email"]))
 		{
 		require 'headerwithlogin.php';
 	

@@ -60,7 +60,7 @@
 	<div class="col-md-6 col-sm-6">
 		
 		<div class="form">
-			<form method="post" action="#">
+			<form method="post" action="#" enctype="multipart/form-data">
 					
 					<label><font color="black" size=2>Event Name</font></label>
 					</br>
@@ -114,14 +114,14 @@
 	<div class="col-md-6 col-sm-6">	
 						
 						
-					<label><font color="black" size=2>Event Logo</font></label>
+					<label><font color="black" size=2>Select Event Logo</font></label>
 					</br>
-					<input type="text" placeholder="Event Logo" name="txtlogo" class="form-control" required/> 
+					<input type="file" name="txtlogo" />
 					</br>
 					
 					<label><font color="black" size=2>Event Image</font></label>
 					</br>
-					<input type="text" placeholder="Event Logo" name="txtimage" class="form-control" required/> 
+				<input type="file" name="txtimage" />
 					</br>
 					
 					<table class="tabel">
@@ -289,10 +289,14 @@
 	<?php
 	if(isset($_POST["btncreate"]))
 	{
-		$pk_event_id="Null";
+		$rand1=rand(1,1000);
+		$rand2=rand(1,1000);
+			$pk_event_id="Null";
 		$event_name=$_POST["txtname"];
-		$event_logo=$_POST["txtlogo"];
-		$event_image=$_POST["txtimage"];
+		$event_logo="images/".$_FILES["txtlogo"]["name"];
+		$ext=pathinfo($event_logo,PATHINFO_EXTENSION);
+		$event_image="images/".$_FILES["txtimage"]["name"];
+		$ext1=pathinfo($event_image,PATHINFO_EXTENSION);
 		$event_slogan=$_POST["txtslogan"];
 		$event_des=$_POST["txtdes"];
 		$venue_name=$_POST["txtvenuename"];
@@ -318,6 +322,12 @@
 		$event_cnt="0";
 		$flag="0";
 		$cnt=1;
+		if($ext=="jpg" || $ext=="jpeg" || $ext=="png" || $ext1=="jpg" || $ext1=="png" || $ext1=="jpeg")
+		{
+			if(move_uploaded_file($_FILES["txtlogo"]["tmp_name"],$event_logo))
+			{
+				if(move_uploaded_file($_FILES["txtimage"]["tmp_name"],$event_image))
+			{
 		$obj=new database();
 		$res=$obj->getallvenue();
 		while($row=mysql_fetch_assoc($res))
@@ -331,13 +341,14 @@
 			$cnt=$cnt+1;
 			
 		}
+		$event_last_date="";
 		$obj=new database();
 		$res2=$obj->createvenue($venue_name,$venue_add,$city,$pincode);
 		//$abc=mysql_num_rows($res2);
 		$obj=new database();
 		$res1=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
 		$event_slogan,$event_des,$fk_venue_id,$event_date,$event_time,$event_ticket,
-		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag);
+		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag,$event_last_date);
 
 																																													$cnt=1;
 		if($cnt==1)
@@ -347,6 +358,9 @@
 		else
 		{
 			echo"something went wrong";
+		}
+			}
+		}
 		}
 		
 		

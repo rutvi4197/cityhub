@@ -95,13 +95,13 @@ class Database
 	public function createevent($pk_event_id,$event_name,$event_logo,$event_image,
 								$event_slogan,$event_des,$fk_venue_id,$event_date,
 								$event_time,$event_ticket,$event_price,$fk_cat_id,
-								$fk_email_id,$fk_offer_id,$event_cnt,$flag)
+								$fk_email_id,$fk_offer_id,$event_cnt,$flag,$event_last_date)
 	{
 		$con=database::connect();
 		$res=mysql_query("insert into event_tbl values('$pk_event_id','$event_name','$event_logo','$event_image',
 								'$event_slogan','$event_des','$fk_venue_id','$event_date',
 								'$event_time','$event_ticket','$event_price','$fk_cat_id',
-								'$fk_email_id','$fk_offer_id','$event_cnt','$flag')",$con);		
+								'$fk_email_id','$fk_offer_id','$event_cnt','$flag','$event_last_date')",$con);		
 		return $res;
 	database::disconnect();
 	}
