@@ -151,7 +151,7 @@
 		$event_image=$_POST["txtimage"];
 		$event_slogan=$_POST["txtslogan"];
 		$event_des=$_POST["txtdes"];
-		$fk_venue_id=$_POST["txtvenue"];
+		$fk_venue_id="";
 		$event_date=$_POST["txtdate"];
 		$event_time=$_POST["txttime"];
 		$event_ticket=$_POST["txtticket"];
@@ -161,7 +161,6 @@
 		$fk_offer_id=$_POST["txtoffer"];
 		$event_cnt="0";
 		$flag="0";
-		
 		
 		$obj=new Database();
 		$res=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
