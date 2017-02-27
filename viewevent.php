@@ -47,16 +47,18 @@ require 'header.php';
 <div class="row" style="background-color: #8a0aa6  ; color:white;">
 <div class="col-md-12 col-sm-12">
 <?php 
-echo '<div align="right">';
-echo '<div align="left">';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;<font size=6 >'.$event_name.' - '.$city_name.'</font>';
-echo '</div>';
-echo  '<font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;</br>Direction</span></font></br>';
-echo '<div align="left">';
-echo '&nbsp;&nbsp;&nbsp;&nbsp;<font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>';
-echo '</div >';
-
-echo '</div>';
+echo ' <table>
+		<tr>
+		<td ><font size=6 >'.$event_name.' - '.$city_name.'</font>
+		
+		<td style="text-align:center;" ><font size=5"><span  class="glyphicon glyphicon-map-marker"></span></font>
+		</tr>
+		<tr>
+		<td><font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>
+		
+		<td style="text-align:right"><font size=5">Direction</font>
+		</tr> 
+</table>';
 
 ?>
 </div>

@@ -13,6 +13,15 @@ class Database
 		return self::$con;
 	}
 	
+	public function getCatByEvent($cat_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from event_tbl where fk_cat_id=$cat_id and flag=1 ORDER BY pk_event_id DESC;",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	public function maindis()
 	{
 		$con=database::connect();
@@ -46,6 +55,21 @@ class Database
 	database::disconnect();
 	}
 	
+	public function getAllCity()
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from city_tbl",$con);
+		return $res;
+	database::disconnect();
+	}
+		public function getcomment($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select c.*,u.* from comment_tbl as c,user_tbl as u where c.fk_event_id='$event_id' and c.fk_email_id=u.pk_email_id ",$con);
+		return $res;
+	database::disconnect();
+	}
+	
 	
 	public function signup($email,$pwd,$mobile,$name,$city,$type,$photo)
 	{
@@ -61,25 +85,10 @@ class Database
 		return $res;
 	database::disconnect();
 	}
-	public function insertcomment($event_id,$email,$comment,$date)
-	{
-		$con=database::connect();
-		$res=mysql_query("insert into comment_tbl values(0,'$event_id','$email','$comment','$date')",$con);
-		return $res;
-	database::disconnect();
-	}
-	public function getcomment($event_id)
-	{
-		$con=database::connect();
-		$res=mysql_query("select c.*,u.* from comment_tbl as c,user_tbl as u where fk_event_id='$event_id' and c.fk_email_id=u.pk_email_id",$con);
-		return $res;
-	database::disconnect();
-	}
 	public static function disconnect()
 	{
 		mysql_close(self::$con);
 		self::$con=NULL;
 	}
-	
 }
 ?>
