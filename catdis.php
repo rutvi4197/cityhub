@@ -3,10 +3,7 @@
 	require 'database.php';
 	$obj=new database();
 	$cat_id=$_REQUEST["id"];
-<<<<<<< HEAD
-	
-=======
->>>>>>> c593939c7030e4c18017291f3fef807a3311aa83
+
 
 ?>
 

@@ -31,7 +31,7 @@ while($row=mysql_fetch_assoc($res))
 <div class="col-md-12 col-sm-12">
 <?php 
 
-if($_SESSION["email"]!="")
+if(isset($_SESSION["email"])!="")
 {
 	require 'headerwithlogin.php';
 	

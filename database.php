@@ -21,6 +21,14 @@ class Database
 	database::disconnect();
 	
 	}
+	public function insertcomment($event_id,$email,$comment,$date)
+	{
+		$con=database::connect();
+		$res=mysql_query("insert into comment_tbl values('null','$event_id','$email','$comment','$date')",$con);
+		return $res;
+	database::disconnect();
+	
+	}
 	
 	public function maindis()
 	{
