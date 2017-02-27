@@ -17,8 +17,15 @@ $obj=new database();
 <div class="row">
 <div class="col-md-12 col-sm-12">
 <?php 
-
-require 'header.php';
+if($_SESSION["email"]!="")
+{
+	require 'headerwithlogin.php';
+	
+}
+else
+{
+	require 'header.php';
+}
 
 ?>	
 </div>
@@ -120,6 +127,14 @@ require 'catheader.php';
 
 
 	?>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+
+require 'footer.php';
+?>
 </div>
 </div>
 </body>
