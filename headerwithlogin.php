@@ -28,7 +28,7 @@
 		
 		?> "height=40px width=40px   class="img-circle" style="margin-top:5px;"/> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Change Your Profile</a></li>
+            <li><a href="changepass.php">Change Your Profile</a></li>
             <li><a href="#">Past Event</a></li>
             <li><a href="#">Your Wallet</a></li>
             <li><a href="logout.php">Logout</a></li>

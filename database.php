@@ -77,6 +77,13 @@ class Database
 	database::disconnect();
 	}
 	
+	public function changePassword($email,$pass)
+	{		$con=database::connect();
+			$res=mysql_query("update user_tbl set user_password='$pass' where pk_email_id='$email' ",$con);
+			return $res;
+			database::disconnect();
+	}
+	
 	public function createevent($pk_event_id,$event_name,$event_logo,$event_image,
 								$event_slogan,$event_des,$fk_venue_id,$event_date,
 								$event_time,$event_ticket,$event_price,$fk_cat_id,
