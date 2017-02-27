@@ -1,5 +1,12 @@
 <?php 
 	session_start();
+	if(isset($_SESSION["email"]))
+	{
+	}
+	else{
+		
+		header('Location:login.php');
+	}
 	require 'database.php';
 	$obj=new database();
 ?>
@@ -20,7 +27,7 @@
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
 	<?php 
-		if($_SESSION["email"]!="")
+		if(isset($_SESSION["email"])!="")
 		{
 		require 'headerwithlogin.php';
 	
@@ -71,15 +78,35 @@
 					</textarea>
 					</br>
 					
-					<label><font color="black" size=2>Event Venue</font></label>
+					<label><font color="black" size=2>Venue Name</font></label>
 					</br>
-					<input type="text" placeholder="Event Venue" name="txtvenue" class="form-control" required/> 
+					<input type="text" placeholder="Venue Name" name="txtvenuename" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Event Date</font></label>
+					<label><font color="black" size=2>Venue Address</font></label>
 					</br>
-					<input type="text" placeholder="Event Date" name="txtdate" class="form-control" required/> 
+					<input type="text" placeholder="Venue Address" name="txtvenueaddress" class="form-control" required/> 
 					</br>
+					
+					<label><font color="black" size=2>Pincode</font></label>
+					</br>
+					<input type="number" placeholder="Pincode" name="txtpincode" class="form-control" required/> 
+					</br>
+					
+					<label><font color="black" size=2>Select City</font></label>
+					</br>
+					<select name="txtcity" class="form-control" >
+								<?php
+									$obj=new database();
+									$res=$obj->getAllCity();
+									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+									{
+										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+									}
+								?>
+					</select>	
+		
+	
 					
 		</div>
 	</div>
@@ -92,16 +119,125 @@
 					<input type="text" placeholder="Event Logo" name="txtlogo" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Event Logo</font></label>
+					<label><font color="black" size=2>Event Image</font></label>
 					</br>
 					<input type="text" placeholder="Event Logo" name="txtimage" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Event Time</font></label>
-					</br>
-					<input type="text" placeholder="Event Time" name="txttime" class="form-control" required/> 
-					</br>
+					<table class="tabel">
+					<tr>
+					<td><label><font color="black" size=2>Event Date (dd-mm-yy) </font></label>
+					<td>
+					<select name="day" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="0">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+					</select>
 					
+					<td>
+					<select name="month" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="0">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					</select>
+					
+					<td>
+					<select name="year" class="form-control">
+					<option value="2017">2017</option>
+					</select>
+					
+					
+					</tr>
+					</table>
+					</br>
+
+
+					<table class="tabel">
+					<tr>
+					<td><label><font color="black" size=2>Event Time </font></label>
+					<td>
+					<select name="hour" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="0">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					</select>
+
+					
+					<td>
+					<select name="min" class="form-control">
+					<option value="0">0</option>
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+					<option value="35">35</option>
+					<option value="40">40</option>
+					<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+					</select>
+	
+					
+					<td>
+					<select name="ampm" class="form-control">
+					<option value="AM">AM</option>
+					<option value="PM">PM</option>
+					</select>
+
+					
+					</tr>
+					</table>
+					</br>
+
+
 					<label><font color="black" size=2>Event Ticket</font></label>
 					</br>
 					<input type="text" placeholder="Event Price" name="txtticket" class="form-control" required/> 
@@ -116,7 +252,7 @@
 					</br>
 					<select name="txtcat" class="form-control" >
 								<?php
-									$obj=new database();
+									
 									$res=$obj->getAllCat();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
@@ -159,9 +295,21 @@
 		$event_image=$_POST["txtimage"];
 		$event_slogan=$_POST["txtslogan"];
 		$event_des=$_POST["txtdes"];
-		$fk_venue_id=$_POST["txtvenue"];
-		$event_date=$_POST["txtdate"];
-		$event_time=$_POST["txttime"];
+		$venue_name=$_POST["txtvenuename"];
+		$venue_add=$_POST["txtvenueaddress"];
+		$pincode=$_POST["txtpincode"];
+		$city=$_POST["txtcity"];
+	
+		$day=$_POST["day"];
+		$month=$_POST["month"];
+		$year=$_POST["year"];
+		$event_date=$day."/".$month."/".$year;		
+		
+		$hour=$_POST["hour"];
+		$min=$_POST["min"];
+		$ampm=$_POST["ampm"];
+		$event_time=$hour.":".$min." ".$ampm;		
+	
 		$event_ticket=$_POST["txtticket"];
 		$event_price=$_POST["txtprice"];
 		$fk_cat_id=$_POST["txtcat"];
@@ -169,14 +317,29 @@
 		$fk_offer_id=$_POST["txtoffer"];
 		$event_cnt="0";
 		$flag="0";
+		$cnt=1;
+		$obj=new database();
+		$res=$obj->getallvenue();
+		while($row=mysql_fetch_assoc($res))
+		{
 		
-		
-		$obj=new Database();
-		$res=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
+			if($cnt==1)
+			{
+					$fk_venue_id=$row["pk_venue_id"]+1;
+					break;
+			}
+			$cnt=$cnt+1;
+			
+		}
+		$obj=new database();
+		$res2=$obj->createvenue($venue_name,$venue_add,$city,$pincode);
+		//$abc=mysql_num_rows($res2);
+		$obj=new database();
+		$res1=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
 		$event_slogan,$event_des,$fk_venue_id,$event_date,$event_time,$event_ticket,
 		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag);
 
-		$cnt=mysql_num_rows($res);
+																																													$cnt=1;
 		if($cnt==1)
 		{
 			header('Location:index.php');
@@ -185,6 +348,8 @@
 		{
 			echo"something went wrong";
 		}
+		
+		
 	}		
 	?>
 	
