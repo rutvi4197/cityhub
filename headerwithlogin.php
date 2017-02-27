@@ -14,7 +14,7 @@
 	
 
 	?>	
-        <a href="#" style="margin-top:15px;"><font size="15" color="red">&nbsp;&nbsp;&nbsp;CityHub</font></a>
+        <a href="index.php" style="margin-top:15px;"><font size="15" color="red">&nbsp;&nbsp;&nbsp;CityHub</font></a>
 
       
       <ul class="nav navbar-nav navbar-right">
