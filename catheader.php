@@ -11,8 +11,7 @@
 		$res=$obj->catdis();
 		while($row=mysql_fetch_assoc($res))
 		{
-			echo '
-		<li><a href="catdis.php?id='.$row["pk_cat_id"].'"><font size="5.5">'.$row["cat_name"].'</font></a></li>';
+			echo '<li><a href="catdis.php?id='.$row["pk_cat_id"].'"><font size="5.5">'.$row["cat_name"].'</font></a></li>';
 		}
 	?>
 		

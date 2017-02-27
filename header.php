@@ -12,7 +12,7 @@
       
       <ul class="nav navbar-nav navbar-right">
 	  <li style="margin-top:15px;"><a href="login.php"><font size="5" color="black">&nbsp;Login</font></a></li>
-        <li style="margin-top:5px;"><a href="#"><button type="button" class="btn btn-danger navbar-btn">Create An Event</button></a></li>
+        <li style="margin-top:5px;"><a href="create.php"><button type="button" class="btn btn-danger navbar-btn">Create An Event</button></a></li>
         
       </ul>
 	  
