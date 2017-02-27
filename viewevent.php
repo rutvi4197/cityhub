@@ -1,24 +1,25 @@
 <?php 
 	session_start();
 	require 'database.php';
-$obj=new database();
-$event_id=$_REQUEST["id"];
-$res=$obj->eventbyiddis($event_id);
-while($row=mysql_fetch_assoc($res))
-{
-	$event_name=$row["event_name"];
-	$event_logo=$row["event_logo"];
-	$event_slogan=$row["event_slogan"];
-	$event_des=$row["event_des"];
-	$venue_name=$row["venue_name"];
-	$venue_add=$row["venue_address"];
-	$city_name=$row["city_name"];
-	$pincode=$row["pincode"];
-	$event_date=$row["event_date"];
-	$event_time=$row["event_time"];
-	$event_price=$row["event_price"];
-}
+	$obj=new database();
+	$event_id=$_REQUEST["id"];
+	$res=$obj->eventbyiddis($event_id);
+	while($row=mysql_fetch_assoc($res))
+	{
+		$event_name=$row["event_name"];
+		$event_logo=$row["event_logo"];
+		$event_slogan=$row["event_slogan"];
+		$event_des=$row["event_des"];
+		$venue_name=$row["venue_name"];
+		$venue_add=$row["venue_address"];
+		$city_name=$row["city_name"];
+		$pincode=$row["pincode"];
+		$event_date=$row["event_date"];
+		$event_time=$row["event_time"];
+		$event_price=$row["event_price"];
+	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@ while($row=mysql_fetch_assoc($res))
 <script src="Scripts/jquery-1.9.1.js"></script>
 <script src="Scripts/bootstrap.js"></script>
 </head>
+
 <body>
 <div class="row">
 <div class="col-md-12 col-sm-12">
@@ -72,6 +74,7 @@ echo ' <table>
 </div>
 </div>
 </div>
+
 <div class="container">
 <div class="row">
 </br>
@@ -107,7 +110,7 @@ echo ' <table>
 </table>
 </div>
 </br>
-			<input type="submit" class="form-control btn btn-info" name="btnbook" value="BOOK TICKET">
+			<center><a href="payment.php?id=<?php echo $event_id;?>"><input type="button" name="btnbook" class="btn btn-primary" value="Book Now" style="height:50px;width:130px;margin-right:20px;"> </a></center>
 			
 </br>
 </br>
@@ -175,10 +178,6 @@ echo ' <table>
 		?>
 		
 			</br></br>
-			
-			
-		
-		
 		
 </div>
 

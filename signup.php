@@ -121,7 +121,7 @@
 		$mobile=$_POST["txtmob"];
 		$city=$_POST["txtcity"];
 		
-		$photo="null";
+		$photo="";
 		$type="User";
 		
 		if($pwd==$repwd)
@@ -131,7 +131,6 @@
 			if($res==1)
 			{
 				$_SESSION["email"]=$email;
-				
 			}
 			else
 			{
