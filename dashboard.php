@@ -72,7 +72,7 @@
 		<tr>
 			<td><a href="pastevent.php"><font size=6>Past events</font></a>
 		</tr>
-
+		<hr>
 		</table>
 
 		
@@ -114,8 +114,10 @@
 		echo '<div class="panel panel-info" style="width: 700px;" >
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
-		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
-		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
+		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].' &nbsp;  - &nbsp;  '.$row["venue_address"].'</font></br>
+		<font size=4>Event City  : &nbsp;'.$row["city_name"].'</font></br>
+		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font></br>
+		<font size=4>Event Price  : &nbsp;'.$row["event_price"].'</font></br>
 		<hr>
 		<div class="col-md-3 col-sm-3">
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
@@ -153,8 +155,10 @@
 		echo '<div class="panel panel-info" style="width: 700px;">
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
-		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
-		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
+		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].' &nbsp;  - &nbsp;  '.$row["venue_address"].'</font></br>
+		<font size=4>Event City  : &nbsp;'.$row["city_name"].'</font></br>
+		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font></br>
+		<font size=4>Event Price  : &nbsp;'.$row["event_price"].'</font></br>
 		<hr>
 		<div class="col-md-3 col-sm-3">
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
