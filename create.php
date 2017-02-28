@@ -288,9 +288,8 @@
 	<?php
 	if(isset($_POST["btncreate"]))
 	{
-		$rand1=rand(1,1000);
-		$rand2=rand(1,1000);
-			$pk_event_id="Null";
+		
+		$pk_event_id="Null";
 		$event_name=$_POST["txtname"];
 		$event_logo="images/".$_FILES["txtlogo"]["name"];
 		$ext=pathinfo($event_logo,PATHINFO_EXTENSION);
@@ -306,7 +305,7 @@
 		$day=$_POST["day"];
 		$month=$_POST["month"];
 		$year=$_POST["year"];
-		$event_date=$day."/".$month."/".$year;		
+		$event_date=$day."-".$month."-".$year;		
 		
 		$hour=$_POST["hour"];
 		$min=$_POST["min"];
@@ -341,15 +340,14 @@
 			
 		}
 		$event_last_date="";
-		$obj=new database();
-		$res2=$obj->createvenue($venue_name,$venue_add,$city,$pincode);
+		$obj1=new database();
+		$res2=$obj1->createvenue($venue_name,$venue_add,$city,$pincode);
 		//$abc=mysql_num_rows($res2);
 		$obj=new database();
 		$res1=$obj->createevent($pk_event_id,$event_name,$event_logo,$event_image,
 		$event_slogan,$event_des,$fk_venue_id,$event_date,$event_time,$event_ticket,
 		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag,$event_last_date);
-
-																																													$cnt=1;
+																																														$cnt=1;
 		if($cnt==1)
 		{
 			header('Location:index.php');
