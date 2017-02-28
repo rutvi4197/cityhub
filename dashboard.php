@@ -14,7 +14,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Login
+		Dashboard
 	</title>
 </head>
 
