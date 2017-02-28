@@ -1,7 +1,8 @@
 <?php 
 session_start();
-	$email_id=$_SESSION["email"];
+	$email=$_SESSION["email"];
 	$event_id=$_REQUEST["id"];
+	require 'database.php';
  ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,15 @@ session_start();
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
 	<?php 
-		require 'header.php';
+		if(isset($_SESSION["email"]))
+		{
+		require 'headerwithlogin.php';
+	
+		}
+		else
+		{
+			require 'header.php';
+		}
 	?>		
 	</div>
 	</div>

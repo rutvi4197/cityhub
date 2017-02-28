@@ -57,11 +57,11 @@ else
 <div class="row" style="background-color: #8a0aa6  ; color:white;">
 <div class="col-md-12 col-sm-12">
 <?php 
-echo ' <table>
+echo ' <table width=100%>
 		<tr>
 		<td ><font size=6 >'.$event_name.' - '.$city_name.'</font>
 		
-		<td style="text-align:center;" ><font size=5"><span  class="glyphicon glyphicon-map-marker"></span></font>
+		<td style="text-align:right;" ><font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;&nbsp;</span></font>
 		</tr>
 		<tr>
 		<td><font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>
@@ -165,9 +165,16 @@ echo ' <table>
 				{
 					$obj1=new database();
 				$comment=$_POST["comment"];
-				echo $comment;
+				
 				$date=date("d-m-Y");
+				if(isset($_SESSION["email"]))
+				{
 				$email=$_SESSION["email"];
+				}
+				else
+				{
+					header('Location:login.php');
+				}
 				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
 				if($res1==1)
 				{
