@@ -72,7 +72,7 @@
 		<tr>
 			<td><a href="pastevent.php"><font size=6>Past events</font></a>
 		</tr>
-
+`		<hr>
 		</table>
 
 		
@@ -111,10 +111,11 @@
 			$cnt2=$row1["cnt"];
 				
 			}
-		echo '<div class="panel panel-info">
+		echo '<div class="panel panel-info" style="width:700px;">
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
-		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
+		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'&nbsp;  - &nbsp;  '.$row["venue_address"].'</font></br>
+		<font size=4>Event City  : &nbsp;'.$row["city_name"].'</font></br>
 		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
 		<hr>
 		<div class="col-md-3 col-sm-3">
@@ -123,7 +124,7 @@
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
-		<center><font size=4>Tickets Booked    </br>
+		<center><font size=4>Tickets Sold   </br>
 		<table class="table" border=1 style="width:60px; height:35px;">
 		<tr>
 		<td "><center>
@@ -150,10 +151,11 @@
 			$cnt2=$row1["cnt"];
 				
 			}
-		echo '<div class="panel panel-info">
+		echo '<div class="panel panel-info" style="width:700px">
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
-		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
+		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'&nbsp;  - &nbsp;  '.$row["venue_address"].'</font></br>
+		<font size=4>Event City  : &nbsp;'.$row["city_name"].'</font></br>
 		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
 		<hr>
 		<div class="col-md-3 col-sm-3">
@@ -162,7 +164,7 @@
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
-		<center><font size=4>Tickets Booked  </br>
+		<center><font size=4>Tickets sold </br>
 		<table class="table" border=1 style="width:60px; height:35px;">
 		<tr>
 		<td "><center>
