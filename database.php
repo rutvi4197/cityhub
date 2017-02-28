@@ -64,6 +64,22 @@ class Database
 	
 	}
 	
+	public function getBookcntByEvent($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select sum(ticket_cnt)'cnt' from book_tbl where fk_event_id='$event_id' group by(fk_event_id) ",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	public function checkadmin($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from event_tbl where fk_email_id='$email'",$con);
+		return $res;
+	database::disconnect();
+	}
+	
 	public function offerdis()
 	{
 		$con=database::connect();

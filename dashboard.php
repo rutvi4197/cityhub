@@ -50,7 +50,7 @@
 		
 		<table>
 		<tr>
-			<td><a href="#"><font size=6>Organizer View</font></a>
+			<td><a href="dashboard.php"><font size=6>Organizer View</font></a>
 		</tr>
 		<tr>
 			<td>&nbsp;
@@ -60,7 +60,7 @@
 		</tr>
 		
 		<tr>
-			<td><a href="#"><font size=6>Organizer View</font></a>
+			<td><a href="upcomingevent.php"><font size=6>Upcoming events</font></a>
 		</tr>
 		<tr>
 			<td>&nbsp;
@@ -69,7 +69,7 @@
 			<td><hr>
 		</tr>
 		<tr>
-			<td><a href="#"><font size=6>Organizer View</font></a>
+			<td><a href="pastevent.php"><font size=6>Past events</font></a>
 		</tr>
 
 		</table>
@@ -83,13 +83,35 @@
 	
 	
 	<?php 
-	
-	$obj=new Database();
+	$cnt2=0;
+	$obj=new database();
 	$res=$obj->getEventByUser($email);
 	while($row=mysql_fetch_assoc($res))
 	{
+		$da=(int)date("d");
+		$month=(int)date("m");
+		$year=(int)date("Y");
+		$d=$row["event_date"];
+		$arr=explode("-",$d);
+		$d1=(int)$arr[0];
+		$m1=(int)$arr[1];
+		$y1=(int)$arr[2];
+		if($y1>=$year)
+		{
+			if($m1==$month)
+			{
+				if($d1>=$da)
+				{
+						$id=$row["pk_event_id"];
+			$obj=new database();
+			$res1=$obj->getBookcntByEvent($id);
+			while($row1=mysql_fetch_assoc($res1))
+			{
+			$cnt2=$row1["cnt"];
+				
+			}
 		echo '<div class="panel panel-info">
-		<div class="panel-heading">'.$row["event_name"].'</div>';
+		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
 		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
 		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
@@ -100,7 +122,52 @@
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
-		<center><font size=4>Tickets Booked     : &nbsp;'.$row["cnt"].'</font></br><br></center>
+		<center><font size=4>Tickets Booked    </br>
+		<table class="table" border=1 style="width:60px; height:35px;">
+		<tr>
+		<td "><center>
+		'.$cnt2.'
+		</tr></center>
+		</table>
+		</font></br><br></center>
+		
+		</div>
+		</div>
+		</div>';
+	$cnt2=0;
+					
+				}
+			}
+			if($m1>$month)
+			{
+				
+			$id=$row["pk_event_id"];
+			$obj=new database();
+			$res1=$obj->getBookcntByEvent($id);
+			while($row1=mysql_fetch_assoc($res1))
+			{
+			$cnt2=$row1["cnt"];
+				
+			}
+		echo '<div class="panel panel-info">
+		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
+		echo '<div class="panel-body">
+		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
+		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
+		<hr>
+		<div class="col-md-3 col-sm-3">
+		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
+		<input type="submit" name="btnmanage" value="Manage" class="btn btn-success"/>				 
+		</div>
+		
+		<div class="col-md-9 col-sm-9">
+		<center><font size=4>Tickets Booked  </br>
+		<table class="table" border=1 style="width:60px; height:35px;">
+		<tr>
+		<td "><center>
+		'.$cnt2.'
+		</tr></center>
+		</table></font></br><br></center>
 		
 		</div>
 		
@@ -110,7 +177,11 @@
 	</div>
 	
 	</div>';
+	$cnt2=0;
+		}
 	}
+	}
+	
 	?>	
 	</div>
 	</div>

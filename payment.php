@@ -1,10 +1,8 @@
 <?php 
 session_start();
-<<<<<<< HEAD
+
 	$email=$_SESSION["email"];
 	$event_id=$_REQUEST["id"];
-	require 'database.php';
-=======
 	require 'database.php';
 	$obj=new database();
 	
@@ -20,7 +18,7 @@ session_start();
 		$event_time=$row["event_time"];
 		$event_price=$row["event_price"];
 	}
->>>>>>> 691116fd0900e5e24701b98ed1bf3a067129c5a4
+
  ?>
 <!DOCTYPE html>
 <html>
