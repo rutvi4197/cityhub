@@ -38,7 +38,7 @@
 	
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
-		<center><font font size="15" color="red"> Dashboard </font></center>
+		<center><font font size="15" color="red"> Past Event Created By You </font></center>
 		<hr>
 	</div>
 	</div>
@@ -80,8 +80,8 @@
 	
 	
 	<div class="col-md-9 col-sm-9">
-
-	</br>
+		</br>
+	
 	
 	<?php 
 	$cnt2=0;
@@ -97,11 +97,11 @@
 		$d1=(int)$arr[0];
 		$m1=(int)$arr[1];
 		$y1=(int)$arr[2];
-		if($y1>=$year)
+		if($y1<=$year)
 		{
 			if($m1==$month)
 			{
-				if($d1>=$da)
+				if($d1<=$da)
 				{
 						$id=$row["pk_event_id"];
 			$obj=new database();
@@ -111,7 +111,7 @@
 			$cnt2=$row1["cnt"];
 				
 			}
-		echo '<div class="panel panel-info" style="width: 700px;" >
+		echo '<div class="panel panel-info">
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
 		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
@@ -139,7 +139,7 @@
 					
 				}
 			}
-			if($m1>$month)
+			if($m1<$month)
 			{
 				
 			$id=$row["pk_event_id"];
@@ -150,7 +150,7 @@
 			$cnt2=$row1["cnt"];
 				
 			}
-		echo '<div class="panel panel-info" style="width: 700px;">
+		echo '<div class="panel panel-info">
 		<div class="panel-heading"><center>'.$row["event_name"].'</center></div>';
 		echo '<div class="panel-body">
 		<font size=4>Event Venue  : &nbsp;'.$row["venue_name"].'</font></br>
