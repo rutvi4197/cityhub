@@ -74,7 +74,7 @@
 					
 					<label><font color="black" size=2>Event Description</font></label>
 					</br>
-					<textarea rows="8.5" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control">
+					<textarea rows="9" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control">
 					</textarea>
 					</br>
 					
@@ -92,21 +92,6 @@
 					</br>
 					<input type="number" placeholder="Pincode" name="txtpincode" class="form-control" required/> 
 					</br>
-					
-					<label><font color="black" size=2>Select City</font></label>
-					</br>
-					<select name="txtcity" class="form-control" >
-								<?php
-									$obj=new database();
-									$res=$obj->getAllCity();
-									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
-									{
-										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
-									}
-								?>
-					</select>	
-		
-	
 					
 		</div>
 	</div>
@@ -247,6 +232,20 @@
 					</br>
 					<input type="price" placeholder="Event Price" name="txtprice" class="form-control" required/> 
 					</br>
+					
+					<label><font color="black" size=2>Select City</font></label>
+					</br>
+					<select name="txtcity" class="form-control" >
+								<?php
+									$obj=new database();
+									$res=$obj->getAllCity();
+									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+									{
+										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+									}
+								?>
+					</select>	
+		
 					
 					<label><font color="black" size=2>Select Category</font></label>
 					</br>
