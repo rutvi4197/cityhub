@@ -70,9 +70,9 @@
 			<td><hr>
 		</tr>
 		<tr>
-			<td><a href="pastevent.php"><font size=6>Past events</font></a>
+			<td><a href="pastevent.php"><font size=6>Past events</font></a><hr>
 		</tr>
-`		<hr>
+		
 		</table>
 
 		
@@ -120,7 +120,7 @@
 		<hr>
 		<div class="col-md-3 col-sm-3">
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<input type="submit" name="btnmanage" value="Manage" class="btn btn-success"/>				 
+			 
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
@@ -159,8 +159,10 @@
 		<font size=4>Event Date   : &nbsp;'.$row["event_date"].'</br>   Event Time : &nbsp;'.$row["event_time"].' </font>
 		<hr>
 		<div class="col-md-3 col-sm-3">
+		
+		</br></br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<input type="submit" name="btnmanage" value="Manage" class="btn btn-success"/>				 
+			 
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
