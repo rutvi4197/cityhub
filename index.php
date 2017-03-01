@@ -74,8 +74,36 @@ require 'catheader.php';
 </div>
 <div class="row">
 <div class="col-md-3 col-sm-3">
-</br>
 <center><h1>Offers For You</h1></center>
+
+</div>
+<div class="col-md-7 col-sm-7">
+<center><h1>Upcoming Events</h1></center>
+
+</div>
+<div class="col-md-2 col-sm=2" style="margin-top:20px">
+
+<form action="#" method="post"> 
+		<select name="txtcity" class="form-control" onChange="window.location='search.php?id='+this.value">
+		<option >Select City</option>
+								<?php
+									$obj=new database();
+									$res=$obj->getAllCity();
+									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+									{
+										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+									}
+								?>
+					</select>	
+					</form>
+					
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3 col-sm-3">
+</br>
+
 </br>
 <?php
 
@@ -104,7 +132,6 @@ require 'catheader.php';
 </div>
 <div class="col-md-9 col-sm-9">
 </br>
-<center><h1>Upcoming Events</h1></center>
 </br>
 	<?php
 	$mng=0;

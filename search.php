@@ -2,9 +2,7 @@
 	session_start();
 	require 'database.php';
 	$obj=new database();
-	$email=$_SESSION["email"];
 	$city=$_REQUEST["id"];
-	
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +13,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Login
+		Category Wise Display
 	</title>
 </head>
 
@@ -23,11 +21,11 @@
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
 	<?php 
-		if(isset($_SESSION["email"])!="")
+		if(isset($_SESSION["email"]))
 		{
-	require 'headerwithlogin.php';
+		require 'headerwithlogin.php';
 	
-	}
+		}
 	else
 	{
 	require 'header.php';
@@ -44,16 +42,20 @@
 	?> 
 	</div>
 	</div>
-	
-	<div class="row">
-	<div class="col-md-10 col-sm-10">
-		<center><font font size="15" color="red"> Upcoming Event </font></center>
-		
-		</div>
-		<div class="col-md-2 col-sm-2" >
-		</br>
-		<form action="#" method="post"> 
-		<select name="txtcity" class="form-control" onChange="window.location='upcomingeventsearch.php?id='+this.value">
+	</div>
+<div class="row">
+<div class="col-md-3 col-sm-3">
+<center><h1>Offers For You</h1></center>
+
+</div>
+<div class="col-md-7 col-sm-7">
+<center><h1>Upcoming Events</h1></center>
+
+</div>
+<div class="col-md-2 col-sm=2" style="margin-top:20px">
+
+<form action="#" method="post"> 
+		<select name="txtcity" class="form-control" onChange="window.location='search.php?id='+this.value">
 		<option >Select City</option>
 								<?php
 									$obj=new database();
@@ -65,51 +67,43 @@
 								?>
 					</select>	
 					</form>
-		</div>
-		
-	</div>
-	</div>
+					
+</div>
+</div>
 
-	
-	<div class="container-fluid">
-	<div class="row">
-	<div class="col-md-3 col-sm-3">
-		
-		
-		<table>
-		<tr>
-			<td><a href="dashboard.php"><font size=6>Organizer View</font></a>
-		</tr>
-		<tr>
-			<td>&nbsp;
-		</tr>
-		<tr>
-			<td><hr>
-		</tr>
-		
-		<tr>
-			<td><a href="upcomingevent.php"><font size=6>Upcoming events</font></a>
-		</tr>
-		<tr>
-			<td>&nbsp;
-		</tr>
-		<tr>
-			<td><hr>
-		</tr>
-		<tr>
-			<td><a href="pastevent.php"><font size=6>Past events</font></a><hr>
-		</tr>
-		
-		</table>
+<div class="row">
+<div class="col-md-3 col-sm-3">
+</br>
+</br>
+<?php
 
-		
+	$cnt=1;
+	$res=$obj->offerdis();
+	while($row=mysql_fetch_assoc($res))
+	{
+		if($cnt>3)
+		{
+				break;
+		}
+		echo '
+    <div class="thumbnail">
+      <img src="'.$row["offer_photo"].'" height="100" width="250">
+      <div class="caption">
+        <h3>Promocode :<font color="red"> '.$row["offer_promocode"].'</font></h3>
+        <h3>Price :<font color="red"> '.$row["offer_price"].'</font></h3>
+      </div>
+    </div>
+  ';
+  $cnt=$cnt+1;
+	}
+	?>
+
 	</div>
-	
-	
-	<div class="col-md-9 col-sm-9">
-		</br>
-	
-	
+<div class="col-md-8 col-sm-6">
+</br>
+
+</br>
+
 	<?php 
 	$flag=0;
 	$mng=0;
@@ -175,10 +169,8 @@
 	
 	
 	?>	
-	</div>
-	</div>
-	</div>
-	
+
 	
 </body>
+</html>
 </html>

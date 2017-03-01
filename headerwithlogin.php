@@ -13,23 +13,22 @@
 		$res=$obj->getuserdetail($email);
 	
 
-	?>	
-        <a href="index.php" style="margin-top:15px;"><font size="15" color="red">&nbsp;&nbsp;&nbsp;CityHub</font></a>
-
+	?>	<br>
+        <a href="index.php" style="margin-top:15px; margin-left:25px;"><font size="15" color="red">CityHub</font></a>
       
       <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:5px;"><a href="create.php"><button type="button" class="btn btn-danger navbar-btn">Create An Event</button></a></li>
+        <li ><a href="create.php"><button type="button" class="btn btn-danger navbar-btn">Create An Event</button></a></li>
 		<?php 
    $obj=new database();
 		$res1=$obj->checkadmin($email);
 		$cnt=mysql_num_rows($res1);
 		if($cnt>=1)
 		{
-			echo '  <li style="margin-top:5px;"><a href="dashboard.php"><button type="button" class="btn btn-info navbar-btn">Dashboard</button></a></li>';
+			echo '  <li ><a href="dashboard.php"><button type="button" class="btn btn-info navbar-btn">Dashboard</button></a></li>';
 		}
    
    ?>
-       <li style="margin-top:15px;" class="dropdown">
+       <li  class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?php 
 			while($row=mysql_fetch_assoc($res))
 			{
