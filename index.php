@@ -102,15 +102,31 @@ require 'catheader.php';
 
 	?>
 </div>
-<div class="col-md-8 col-sm-6">
+<div class="col-md-9 col-sm-9">
 </br>
 <center><h1>Upcoming Events</h1></center>
 </br>
 	<?php
-
+	$mng=0;
 	$res=$obj->maindis();
 	while($row=mysql_fetch_assoc($res))
 	{
+		if($mng<12)
+		{
+		$da=(int)date("d");
+		$month=(int)date("m");
+		$year=(int)date("Y");
+		$d=$row["event_date"];
+		$arr=explode("-",$d);
+		$d1=(int)$arr[0];
+		$m1=(int)$arr[1];
+		$y1=(int)$arr[2];
+		if($y1>=$year)
+		{
+			if($m1==$month)
+			{
+				if($d1>=$da)
+				{
 		echo '
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -124,7 +140,28 @@ require 'catheader.php';
     </div>
   </div>';
 	}
-
+			}
+				if($m1>=$month)
+				{
+		echo '
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="'.$row["event_logo"].'" height="500" width="500">
+	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
+      <div class="caption">
+        <h3><b>'.$row["event_name"].'</b></h3>
+        <p>'.$row["event_des"].'</p>
+      </div>
+	  </a>
+    </div>
+  </div>';
+			}
+			
+			
+		}
+		$mng=$mng+1;
+		}
+	}
 
 	?>
 </div>

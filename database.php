@@ -33,11 +33,21 @@ class Database
 	public function maindis()
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.pk_event_id,e.event_logo,e.event_name,e.event_des,c.city_name from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ORDER BY pk_event_id DESC;",$con);
+		$res=mysql_query("select e.*,c.city_name from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ORDER BY pk_event_id DESC;",$con);
 		return $res;
 	database::disconnect();
 	
 	}
+	
+	public function citywisedis($city)
+	{
+		$con=database::connect();
+		$res=mysql_query("select e.*,c.* from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and c.pk_city_id='$city' and flag=1 ORDER BY pk_event_id DESC;",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	public function catdis()
 	{
 		$con=database::connect();
@@ -54,13 +64,12 @@ class Database
 	database::disconnect();
 	
 	}
-	public function eventbyiddis($id)
+	public function getAllUserBookById($id)
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where pk_event_id='$id' and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ",$con);
+		$res=mysql_query("select b.*,u.* from book_tbl as b,user_tbl as u where fk_event_id='$id' and u.pk_email_id=b.fk_email_id",$con);
 		return $res;
-	database::disconnect();
-	
+		database::disconnect();
 	}
 	
 	

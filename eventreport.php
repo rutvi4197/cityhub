@@ -14,7 +14,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Dashboard
+		Event Report 
 	</title>
 </head>
 
@@ -48,7 +48,7 @@
 	
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
-		<center><font font size="15" color="red"> Event Report </font></center>
+		<center><font size="15" color="red"> Event Report </font></center>
 		<hr>
 	</div>
 	</div>
@@ -91,55 +91,88 @@
 	
 	<div class="col-md-9 col-sm-9">
 		
-		dskjuhhih
-	 
+	<?php 
+	$obj1=new database();
+	$res=$obj1->getAllUserBookById($pk_event_id);
+	$totqty=0;
+	$totamnt=0;
+	$totpaid=0;
+	while($row=mysql_fetch_assoc($res))
+	{
+		$ticket_cnt=$row["ticket_cnt"];
+		$amnt=$row["ticket_amnt"];
+		$totqty=$ticket_cnt+$totqty;
+		$totamnt=$amnt+$totamnt;
+		
+	}
+	?>
+	<center>
+	<table class="table" border="1" style="width:650px;">
+		<tr>
+			<td><center>Total Quantity</center>
+			<td><center>Total Amount</center>
+			<td><center>Total Discount</center>
+			<td><center>Total Paid</center>
+			
+		</tr>
+		<tr>
+			<td><center><?php echo "$totqty";?></center>
+			<td><center><?php echo "$totamnt";?></center>
+			<td><center><?php echo "$totamnt";?></center>
+			<td><center><?php echo "$totamnt";?></center>
+			
+		</tr>
+	
+	</table>
+		</center>
+	
 	</div>
 	
 	
 	<div class="col-md-9 col-sm-9">
-		
+		<h1 ><font color="red"><center>Details</center></font></h1>
+		</br>
 		<table class="table">
 			<tr>
 			<td>Sr No.
 			<td>Date
-			<td>Contact Details
+			<td>User Name
+			<td>User Email Id
+			<td>User Contact Number
 			<td>Qty
 			<td>Amount
-			<td>Discount
 			<td>Paid
 			</tr>
 	
 	<?php 
 	$obj=new database();
-	$res=$obj->eventbyiddis($pk_event_id);
+	$res=$obj->getAllUserBookById($pk_event_id);
+	$sr=1;
 	while($row=mysql_fetch_assoc($res))
 	{
-		$event_name=$row["event_name"];
-		$event_logo=$row["event_logo"];
-		$event_slogan=$row["event_slogan"];
-		$event_des=$row["event_des"];
-		$venue_name=$row["venue_name"];
-		$venue_add=$row["venue_address"];
-		$city_name=$row["city_name"];
-		$pincode=$row["pincode"];
-		$event_date=$row["event_date"];
-		$event_time=$row["event_time"];
-		$event_price=$row["event_price"];
-	
+		$user_mobile_no=$row["user_mobile_no"];
+		$ticket_cnt=$row["ticket_cnt"];
+		$amnt=$row["ticket_amnt"];
+		$ticket_amnt=$amnt/$ticket_cnt;
+		$paid=$ticket_amnt*$ticket_cnt;
+		$user_name=$row["user_name"];
+		$pk_email_id=$row["pk_email_id"];
+		
 		echo '
 			<tr>
-				<td>1
-				<td>2
-				<td>3
-				<td>4
-				<td>5
-				<td>5
-				<td>6
-			
+				<td>'.$sr.'
+				<td>25-02-1997
+				<td>'.$user_name.'
+				<td>'.$pk_email_id.'
+				<td>'.$user_mobile_no.'
+				<td>'.$ticket_cnt.'
+				<td>'.$ticket_amnt.'
+				<td>'.$paid.'
 			</tr>
 			
 		
 		';
+		$sr=$sr+1;
 	}
 	
 	?>	

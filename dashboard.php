@@ -81,8 +81,9 @@
 		</tr>
 		<tr>
 			<td><a href="pastevent.php"><font size=6>Past events</font></a>
+			<hr>
 		</tr>
-		<hr>
+		
 		</table>
 
 		
@@ -130,6 +131,7 @@
 		<font size=4>Event Price  : &nbsp;'.$row["event_price"].'</font></br>
 		<hr>
 		<div class="col-md-3 col-sm-3">
+		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
 
 			
@@ -175,6 +177,7 @@
 		<font size=4>Event Price  : &nbsp;'.$row["event_price"].'</font></br>
 		<hr>
 		<div class="col-md-3 col-sm-3">
+		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
 		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
 		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
