@@ -160,15 +160,15 @@ require 'catheader.php';
       <img src="'.$row["event_logo"].'" height="500" width="500">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
-        <h3><b>'.$row["event_name"].'</b></h3>
-        <p>'.$row["event_des"].'</p>
+        <h4><b>'.$row["event_name"].'</b></h4>
+        
       </div>
 	  </a>
     </div>
   </div>';
 	}
 			}
-				if($m1>=$month)
+				else if($m1>=$month)
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
@@ -176,8 +176,7 @@ require 'catheader.php';
       <img src="'.$row["event_logo"].'" height="500" width="500">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
-        <h3><b>'.$row["event_name"].'</b></h3>
-        <p>'.$row["event_des"].'</p>
+        <h4><b>'.$row["event_name"].'</b></h4>
       </div>
 	  </a>
     </div>
@@ -186,8 +185,9 @@ require 'catheader.php';
 			
 			
 		}
-		$mng=$mng+1;
+		
 		}
+		$mng=$mng+1;
 	}
 
 	?>

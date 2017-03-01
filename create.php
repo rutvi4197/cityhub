@@ -241,7 +241,7 @@
 									$res=$obj->getAllCity();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
-										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+										echo '<option value="'.$row["pk_city_id"].'">'.$row["city_name"].'</option>';
 									}
 								?>
 					</select>	
@@ -255,7 +255,7 @@
 									$res=$obj->getAllCat();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
-										echo '<option value='.$row["pk_cat_id"].'>'.$row["cat_name"].'</option>';
+										echo '<option value="'.$row["pk_cat_id"].'">'.$row["cat_name"].'</option>';
 									}
 								?>
 					</select>	
@@ -269,7 +269,7 @@
 									$res=$obj->getAllOffer();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
-										echo '<option value='.$row["pk_offer_id"].'>'.$row["offer_name"].'</option>';
+										echo '<option value="'.$row["pk_offer_id"].'">'.$row["offer_name"].'</option>';
 									}
 								?>
 					</select>	

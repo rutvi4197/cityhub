@@ -46,13 +46,7 @@
 	</div>
 	</div>
 	
-	<div class="row">
-	<div class="col-md-12 col-sm-12">
-		<center><font size="15" color="red"> Event Report </font></center>
-		<hr>
-	</div>
-	</div>
-
+	
 	
 	<div class="container-fluid">
 	<div class="row">
@@ -90,7 +84,8 @@
 
 	
 	<div class="col-md-9 col-sm-9">
-		
+		<center><font size="10" color="red"> Event Report </font></center>
+		</br>
 	<?php 
 	$obj1=new database();
 	$res=$obj1->getAllUserBookById($pk_event_id);
@@ -109,10 +104,10 @@
 	<center>
 	<table class="table" border="1" style="width:650px;">
 		<tr>
-			<td><center>Total Quantity</center>
-			<td><center>Total Amount</center>
-			<td><center>Total Discount</center>
-			<td><center>Total Paid</center>
+			<td><b><center>Total Quantity</center>
+			<td><b><center>Total Amount</center>
+			<td><b><center>Total Discount</center>
+			<td><b><center>Total Paid</center>
 			
 		</tr>
 		<tr>
@@ -130,18 +125,18 @@
 	
 	
 	<div class="col-md-9 col-sm-9">
-		<h1 ><font color="red"><center>Details</center></font></h1>
+		<h2 ><font color="red"><center>Details</center></font></h2>
 		</br>
 		<table class="table">
 			<tr>
-			<td>Sr No.
-			<td>Date
-			<td>User Name
-			<td>User Email Id
-			<td>User Contact Number
-			<td>Qty
-			<td>Amount
-			<td>Paid
+			<td><b><center>Sr No.</center>
+			<td><b><center>Date</center>
+			<td><b><center>User Name</center>
+			<td><b><center>User Email Id</center>
+			<td><b><center>User Contact Number</center>
+			<td><b><center>Qty</center>
+			<td><b><center>Amount</center>
+			<td><b><center>Paid</center>
 			</tr>
 	
 	<?php 
@@ -160,14 +155,14 @@
 		
 		echo '
 			<tr>
-				<td>'.$sr.'
-				<td>25-02-1997
-				<td>'.$user_name.'
-				<td>'.$pk_email_id.'
-				<td>'.$user_mobile_no.'
-				<td>'.$ticket_cnt.'
-				<td>'.$ticket_amnt.'
-				<td>'.$paid.'
+				<td><center>'.$sr.'
+				<td><center>25-02-1997
+				<td><center>'.$user_name.'
+				<td><center>'.$pk_email_id.'
+				<td><center>'.$user_mobile_no.'
+				<td><center>'.$ticket_cnt.'
+				<td><center>'.$ticket_amnt.'
+				<td><center>'.$paid.'
 			</tr>
 			
 		

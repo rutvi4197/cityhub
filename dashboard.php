@@ -134,10 +134,17 @@
 		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
 
-			
-		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
-		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
-		</form>
+			<a href="eventreport.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
+			<tr>
+				<td style="background-color:lightblue;"><center>Manage</td>
+			</tr>
+			</table></a>
+		</br>
+		<a href="updateevent.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
+			<tr>
+				<td style="background-color:lightblue;"><center>Update</td>
+			</tr>
+			</table></a>
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
@@ -179,9 +186,17 @@
 		<div class="col-md-3 col-sm-3">
 		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
-		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
-		</form>
+		<a href="eventreport.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
+			<tr>
+				<td style="background-color:lightblue;"><center>Manage</td>
+			</tr>
+			</table></a>
+			</br>
+			<a href="updateevent.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
+			<tr>
+				<td style="background-color:lightblue;"><center>Update</td>
+			</tr>
+			</table></a>
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
