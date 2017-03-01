@@ -64,6 +64,14 @@ class Database
 	database::disconnect();
 	
 	}
+	public function getAllUserBookById($id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select b.*,u.* from book_tbl as b,user_tbl as u where fk_event_id='$id' and u.pk_email_id=b.fk_email_id",$con);
+		return $res;
+		database::disconnect();
+	}
+	
 	
 	public function getEventByUser($email)
 	{

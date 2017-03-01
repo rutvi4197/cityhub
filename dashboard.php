@@ -14,17 +14,18 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Login
+		Dashboard
 	</title>
 </head>
 
 <body>
+
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
 	<?php 
 		if(isset($_SESSION["email"])!="")
 		{
-	require 'headerwithlogin.php';
+		require 'headerwithlogin.php';
 	
 	}
 	else
@@ -34,6 +35,7 @@
 	?>		
 	</div>
 	</div>
+
 
 
 	<div class="row">
@@ -131,6 +133,8 @@
 		<div class="col-md-3 col-sm-3">
 		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
+
+			
 		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
 		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
 		</form>
