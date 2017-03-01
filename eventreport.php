@@ -3,7 +3,7 @@
 	require 'database.php';
 	$obj=new database();
 	$email=$_SESSION["email"];
-	$pk_event_id=$_POST["id"];
+	$pk_event_id=$_REQUEST["id"];
 ?>
 
 <!DOCTYPE html>
@@ -87,15 +87,65 @@
 
 		
 	</div>
+
 	
+	<div class="col-md-9 col-sm-9">
+		
+		dskjuhhih
+	 
+	</div>
 	
 	
 	<div class="col-md-9 col-sm-9">
+		
+		<table class="table">
+			<tr>
+			<td>Sr No.
+			<td>Date
+			<td>Contact Details
+			<td>Qty
+			<td>Amount
+			<td>Discount
+			<td>Paid
+			</tr>
+	
+	<?php 
+	$obj=new database();
+	$res=$obj->eventbyiddis($pk_event_id);
+	while($row=mysql_fetch_assoc($res))
+	{
+		$event_name=$row["event_name"];
+		$event_logo=$row["event_logo"];
+		$event_slogan=$row["event_slogan"];
+		$event_des=$row["event_des"];
+		$venue_name=$row["venue_name"];
+		$venue_add=$row["venue_address"];
+		$city_name=$row["city_name"];
+		$pincode=$row["pincode"];
+		$event_date=$row["event_date"];
+		$event_time=$row["event_time"];
+		$event_price=$row["event_price"];
+	
+		echo '
+			<tr>
+				<td>1
+				<td>2
+				<td>3
+				<td>4
+				<td>5
+				<td>5
+				<td>6
+			
+			</tr>
 			
 		
-		
-	</div>
+		';
+	}
 	
+	?>	
+	</table>
+	</div>
+
 	
 </body>
 </html>

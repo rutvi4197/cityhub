@@ -54,6 +54,15 @@ class Database
 	database::disconnect();
 	
 	}
+	public function eventbyiddis($id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where pk_event_id='$id' and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	
 	public function getEventByUser($email)
 	{

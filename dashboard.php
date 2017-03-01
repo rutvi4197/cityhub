@@ -131,8 +131,11 @@
 		<hr>
 		<div class="col-md-3 col-sm-3">
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<input type="submit" name="btnmanage" value="Manage" class="btn btn-success"/>
+
 			
+		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
+		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
+		</form>
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
@@ -173,7 +176,9 @@
 		<hr>
 		<div class="col-md-3 col-sm-3">
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<input type="submit" name="btnmanage" value="Manage" class="btn btn-success"/>				 
+		<form action="eventreport.php?id='.$row["pk_event_id"].'" method="post">
+		<button type="submit" class="btn btn-success"  aria-haspopup="true">Manage</button>				 			 
+		</form>
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
