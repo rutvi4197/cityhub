@@ -73,10 +73,10 @@ class Database
 	
 	}
 	
-	public function updateevent($event_id,$event_name,$event_slogan,$event_des,$event_date,$event_time,$event_ticket,$event_price)
+	public function updateevent($event_id,$event_name,$event_des,$event_date,$event_time,$event_ticket,$event_price)
 	{
 		$con=database::connect();
-		$res=mysql_query("update event_tbl set event_name='$event_name',event_slogan='$event_slogan',
+		$res=mysql_query("update event_tbl set event_name='$event_name',
 						event_des='$event_des',event_date='$event_date',event_time='$event_time',event_ticket='$event_ticket',
 						event_price='$event_price' where pk_event_id='$event_id' ",$con);
 		return $res;
@@ -156,13 +156,13 @@ class Database
 	}
 	
 	public function createevent($pk_event_id,$event_name,$event_logo,$event_image,
-								$event_slogan,$event_des,$fk_venue_id,$event_date,
+								$event_des,$fk_venue_id,$event_date,
 								$event_time,$event_ticket,$event_price,$fk_cat_id,
 								$fk_email_id,$fk_offer_id,$event_cnt,$flag,$event_last_date)
 	{
 		$con=database::connect();
 		$res=mysql_query("insert into event_tbl values('$pk_event_id','$event_name','$event_logo','$event_image',
-								'$event_slogan','$event_des','$fk_venue_id','$event_date',
+								'$event_des','$fk_venue_id','$event_date',
 								'$event_time','$event_ticket','$event_price','$fk_cat_id',
 								'$fk_email_id','$fk_offer_id','$event_cnt','$flag','$event_last_date')",$con);		
 		return $res;

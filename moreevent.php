@@ -1,48 +1,46 @@
 <?php 
 	session_start();
-	require 'database.php';
-	$obj=new database();
-	$city=$_REQUEST["id"];
-?>
 
+	$_SESSION["num"]=$_SESSION["num"]+6;
+	
+require 'database.php';
+$obj=new database();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <link href="Content/bootstrap.css" rel="stylesheet"/>
 <script src="Scripts/jquery-1.9.1.js"></script>
 <script src="Scripts/bootstrap.js"></script>
-
 	<title>
-		Category Wise Display
+		Main Page
 	</title>
 </head>
-
 <body>
-	<div class="row">
-	<div class="col-md-12 col-sm-12">
-	<?php 
-		if(isset($_SESSION["email"]))
-		{
-		require 'headerwithlogin.php';
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+if(isset($_SESSION["email"]))
+{
+	require 'headerwithlogin.php';
 	
-		}
-	else
-	{
+}
+else
+{
 	require 'header.php';
-	}
-	?>		
-	</div>
-	</div>
+}
 
+?>	
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+require 'catheader.php';
+?> 
+</div>
+</div>
 
-	<div class="row">
-	<div class="col-md-12 col-sm-12">
-	<?php 
-		require 'catheader.php';
-	?> 
-	</div>
-	</div>
-	</div>
 <div class="row">
 <div class="col-md-3 col-sm-3">
 <center><h1>Offers For You</h1></center>
@@ -74,6 +72,7 @@
 <div class="row">
 <div class="col-md-3 col-sm-3">
 </br>
+
 </br>
 <?php
 
@@ -96,24 +95,27 @@
   ';
   $cnt=$cnt+1;
 	}
+
+
 	?>
-
-	</div>
-<div class="col-md-8 col-sm-6">
+	</br></br>
+	<center>
+		<a href="moreoffer.php"><table class="table" border="2" style="width:50%;" >
+			<tr>
+				<td style="background-color:lightblue;width:150px"><center>More Offers</td>
+			</tr>
+			</table></a>
+			</center>
+</div>
+<div class="col-md-9 col-sm-9">
 </br>
-
 </br>
-
-	<?php 
-	$flag=0;
+	<?php
 	$mng=0;
-	
-		
-		$obj=new database();
-		$res=$obj->citywisedis($city);
-		while($row=mysql_fetch_assoc($res))
+	$res=$obj->maindis();
+	while($row=mysql_fetch_assoc($res))
 	{
-		if($mng<9)
+		if($mng<$_SESSION["num"])
 		{
 		$da=(int)date("d");
 		$month=(int)date("m");
@@ -131,8 +133,8 @@
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail" style="height:250px">
-      <img src="'.$row["event_logo"].'" style="height:150px">
+    <div class="thumbnail" style="height:200px">
+      <img src="'.$row["event_logo"].'" style="height:150px" >
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
         <h4><b>'.$row["event_name"].'</b></h4>
@@ -143,16 +145,15 @@
   </div>';
 	}
 			}
-				if($m1>$month)
+				else if($m1>=$month)
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail" style="height:250px">
-      <img src="'.$row["event_logo"].'" style="height:150px">
+    <div class="thumbnail" style="height:200px">
+      <img src="'.$row["event_logo"].'" style="height:100px;">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
         <h4><b>'.$row["event_name"].'</b></h4>
-       
       </div>
 	  </a>
     </div>
@@ -161,16 +162,34 @@
 			
 			
 		}
-		$mng=$mng+1;
-		}
-	$flag=1;
 		
+		}
+		$mng=$mng+1;
 	}
-	
-	
-	?>	
 
+	?>
 	
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<center>
+		<a href="moreevent.php"><table class="table" border="2" style="width:20%;" >
+			<tr>
+				<td style="background-color:lightblue;width:150px"><center>More Event</td>
+			</tr>
+			</table></a>
+			</center>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+
+require 'footer.php';
+?>
+</div>
+</div>
 </body>
-</html>
+
 </html>

@@ -105,8 +105,8 @@
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="'.$row["event_logo"].'" height="500" width="500">
+    <div class="thumbnail" style="height:250px">
+      <img src="'.$row["event_logo"].'" style="height:150px">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
         <h4><b>'.$row["event_name"].'</b></h4>
@@ -121,8 +121,8 @@
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="'.$row["event_logo"].'" height="500" width="500">
+    <div class="thumbnail" style="height:250px">
+      <img src="'.$row["event_logo"].'"style="height:150px">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
         <h4><b>'.$row["event_name"].'</b></h4>

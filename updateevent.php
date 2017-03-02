@@ -15,7 +15,7 @@
 	{
 		$event_name=$row["event_name"];
 		$event_logo=$row["event_logo"];
-		$event_slogan=$row["event_slogan"];
+	
 		$event_des=$row["event_des"];
 		$venue_id=$row["fk_venue_id"];
 		$venue_name=$row["venue_name"];
@@ -85,11 +85,7 @@
 					<input type="text" placeholder="Event Title" name="txtname" class="form-control" value="<?php echo $event_name; ?>" required/> 
 					</br>
 							
-					<label><font color="black" size=2>Event Slogan</font></label>
-					</br>
-					<input type="text" placeholder="Event Slogan" name="txtslogan" class="form-control" value="<?php echo $event_slogan; ?>" required/> 
-					</br>
-					
+	
 					<label><font color="black" size=2>Event Description</font></label>
 					</br>
 					<textarea rows="9" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control"><?php echo $event_des; ?>
@@ -203,7 +199,7 @@
 				
 		
 		$event_name=$_POST["txtname"];
-		$event_slogan=$_POST["txtslogan"];
+		
 		$event_des=$_POST["txtdes"];
 		$event_date=$_POST["txtdate"];		
 		$event_time=$_POST["txttime"];		
@@ -212,7 +208,7 @@
 		
 	
 		$obj=new database();
-		$res1=$obj->updateevent($event_id,$event_name,$event_slogan,$event_des,$event_date,$event_time,$event_ticket,$event_price);
+		$res1=$obj->updateevent($event_id,$event_name,$event_des,$event_date,$event_time,$event_ticket,$event_price);
 																																														$cnt=1;
 		if($cnt==1)
 		{
