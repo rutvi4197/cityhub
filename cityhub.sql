@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2017 at 12:04 PM
+-- Generation Time: Mar 01, 2017 at 11:54 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `book_tbl` (
   `ticket_cnt` int(11) DEFAULT NULL,
   `ticket_amnt` int(11) DEFAULT NULL,
   PRIMARY KEY (`pk_book_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `book_tbl`
@@ -42,7 +42,8 @@ INSERT INTO `book_tbl` (`pk_book_id`, `fk_email_id`, `fk_event_id`, `ticket_cnt`
 (1, 'shahritu2111@gmail.com', 1, 10, 1000),
 (3, 'priyanshsheth1997@gmail.com', 1, 5, 500),
 (4, 'shahritu2111@gmail.com', 3, 7, 700),
-(5, 'priyanshsheth1997@gmail.com', 3, 5, 500);
+(5, 'priyanshsheth1997@gmail.com', 3, 5, 500),
+(6, 'riyashah157@gmail.com', 10, 3, 300);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `comment_tbl` (
   `comment_desc` varchar(100) NOT NULL,
   `comment_date` varchar(15) NOT NULL,
   PRIMARY KEY (`pk_comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `comment_tbl`
@@ -127,7 +128,12 @@ INSERT INTO `comment_tbl` (`pk_comment_id`, `fk_event_id`, `fk_email_id`, `comme
 (9, 3, 'shahritu2111@gmail.com', 'hiiiii', '10-1-2017'),
 (10, 3, 'shahritu2111@gmail.com', 'helllo', '10-1-2017'),
 (16, 11, 'shahritu@gmail.com', '			xyz', '26-02-2017'),
-(17, 1, 'shahritu@gmail.com', 'abc', '26-02-2017');
+(17, 1, 'shahritu@gmail.com', 'abc', '26-02-2017'),
+(18, 3, '', '			hiii', '27-02-2017'),
+(19, 3, '', '			ssssd', '28-02-2017'),
+(20, 11, 'shahritu2111@gmail.com', 'hiii	', '28-02-2017'),
+(21, 11, 'shahritu2111@gmail.com', 'spp	', '28-02-2017'),
+(22, 11, 'shahritu2111@gmail.com', '			fgbvb', '01-03-2017');
 
 -- --------------------------------------------------------
 
@@ -154,18 +160,21 @@ CREATE TABLE IF NOT EXISTS `event_tbl` (
   `flag` int(3) DEFAULT NULL,
   `event_last_date` varchar(20) NOT NULL,
   PRIMARY KEY (`pk_event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `event_tbl`
 --
 
 INSERT INTO `event_tbl` (`pk_event_id`, `event_name`, `event_logo`, `event_image`, `event_slogan`, `event_des`, `fk_venue_id`, `event_date`, `event_time`, `event_ticket`, `event_price`, `fk_cat_id`, `fk_email_id`, `fk_offer_id`, `event_cnt`, `flag`, `event_last_date`) VALUES
-(1, 'C', 'images/img2.jpg', '', 'no slogan', 'Event is about studied c.', 1, '15-12-2016', '10:30AM', 20, 200, 1, 'shahritu2111@gmail.com', 1, 0, 1, ''),
-(3, 'Angular 2', 'images/image1.jpg', '', '', 'We will learning new language Angular 2', 1, '28-12-2016', '5:00PM', 50, 100, 5, 'priyanshsheth1997@gmail.com', 1, 0, 1, ''),
+(1, 'C', 'images/img2.jpg', '', 'no slogan', 'Event is about studied c.', 1, '02-03-2017', '10:30AM', 20, 200, 1, 'shahritu2111@gmail.com', 1, 0, 1, ''),
+(3, 'Angular 2', 'images/image1.jpg', '', '', 'We will learning new language Angular 2', 1, '28-12-2017', '5:00PM', 50, 100, 5, 'priyanshsheth1997@gmail.com', 1, 0, 1, ''),
 (9, 'Sql', 'images/img3.png', '', '"', 'sdchbdkszjdslanxj,samx', 1, '20-12-2012', '4:00PM', NULL, 100, NULL, 'shahriya157@gmail.com', NULL, 0, 2, ''),
-(10, 'General Knowledge', 'images/img4.jpg', '', '"', 'Seminar', 2, '28-01-2017', '4:00PM', NULL, 100, 1, 'shahritu2111@gmail.com', 2, 0, 0, ''),
-(11, 'Sql', 'images/image1.jpg', '', '"', 'sahxunksxiakj', 2, '20-12-2017', '4:00PM', NULL, 100, 3, 'shahritu2111@gmail.com', 2, 0, 1, '');
+(10, 'General Knowledge', 'images/img4.jpg', '', '"', 'Seminar', 2, '23-01-2017', '4:00PM', NULL, 100, 1, 'shahritu2111@gmail.com', 2, 0, 1, ''),
+(11, 'Sql', 'images/image1.jpg', '', '"', 'sahxunksxiakj', 2, '20-12-2017', '4:00PM', NULL, 100, 3, 'shahritu2111@gmail.com', 2, 0, 1, ''),
+(12, 'jjsdcujshkj', 'images/logo1.jpg', 'images/ritu.png', 'jhbjmohuuh', 'uhjdsdjokl,', 4, '8/5/2017', '9:0 AM', 100, 100, 6, '', 2, 0, 0, ''),
+(13, 'Rutvi', 'images/logo.jpg', 'images/Screenshot (17).png', 'Hiii helllo', 'hiii hjhdekjkdkxcjjsnxm\r\nkdslsczsmkn,\r\n\r\njdxks					', 5, '7-5-2017', '3:0 PM', 100, 100, 7, 'shahritu2111@gmail.com', 2, 0, 0, ''),
+(14, 'Priyansh', 'images/Screenshot (12).png', 'images/Screenshot (10).png', 'hdsbjzm', 'yghvbjsmxa;lcxkljllm,\r\nsxllkxcm,\r\ndskx,.mz\r\ndxkdzcm', 6, '16-5-2017', '8:50 AM', 100, 50, 2, 'shahritu2111@gmail.com', 1, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -300,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `venue_tbl` (
   `fk_city_id` int(11) DEFAULT NULL,
   `pincode` int(11) DEFAULT NULL,
   PRIMARY KEY (`pk_venue_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `venue_tbl`
@@ -308,7 +317,11 @@ CREATE TABLE IF NOT EXISTS `venue_tbl` (
 
 INSERT INTO `venue_tbl` (`pk_venue_id`, `venue_name`, `venue_address`, `fk_city_id`, `pincode`) VALUES
 (1, 'p-201 suyojan appartment', 'Commerce six road', 6, 380017),
-(2, 'c-25 titanium palace', 'nr,Anand Nagar', 9, 390015);
+(2, 'c-25 titanium palace', 'nr,Anand Nagar', 9, 390015),
+(3, 'jnmjk', 'k', 9, 380015),
+(4, 'jhn,', 'kjklk,', 9, 380015),
+(5, 'c-25 prena viraj tower-1', 'prena tirth derasar', 9, 380015),
+(6, 'jdxks,', 'ijk', 9, 380155);
 
 -- --------------------------------------------------------
 

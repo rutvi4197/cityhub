@@ -1,12 +1,16 @@
 <?php 
 session_start();
-
+	if(isset($_SESSION["email"]))
+	{
+		
+	}
+	else{
+		header('Location:login.php');
+	}
 	$email=$_SESSION["email"];
 	$event_id=$_REQUEST["id"];
 	require 'database.php';
 	$obj=new database();
-	
-	$email=$_SESSION["email"];
 	$event_id=$_REQUEST["id"];
 	$res=$obj->eventbyiddis($event_id);
 	while($row=mysql_fetch_assoc($res))

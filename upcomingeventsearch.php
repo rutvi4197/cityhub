@@ -110,16 +110,13 @@
 		</br>
 	
 	
-	<?php 
-	$flag=0;
+	<?php
 	$mng=0;
-	
-		
-		$obj=new database();
+	$obj=new database();
 		$res=$obj->citywisedis($city);
-		while($row=mysql_fetch_assoc($res))
+	while($row=mysql_fetch_assoc($res))
 	{
-		if($mng<6)
+		if($mng<$_SESSION["num"])
 		{
 		$da=(int)date("d");
 		$month=(int)date("m");
@@ -137,28 +134,27 @@
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="'.$row["event_logo"].'" height="500" width="500">
+    <div class="thumbnail" style="height:250px">
+      <img src="'.$row["event_logo"].'" style="height:150px" >
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
-        <h3><b>'.$row["event_name"].'</b></h3>
-        <p>'.$row["event_des"].'</p>
+        <h4><b>'.$row["event_name"].'</b></h4>
+        
       </div>
 	  </a>
     </div>
   </div>';
 	}
 			}
-				if($m1>=$month)
+				else if($m1>=$month)
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="'.$row["event_logo"].'" height="500" width="500">
+    <div class="thumbnail" style="height:250px">
+      <img src="'.$row["event_logo"].'" style="height:150px;">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
-        <h3><b>'.$row["event_name"].'</b></h3>
-        <p>'.$row["event_des"].'</p>
+        <h4><b>'.$row["event_name"].'</b></h4>
       </div>
 	  </a>
     </div>
@@ -167,14 +163,12 @@
 			
 			
 		}
-		$mng=$mng+1;
-		}
-	$flag=1;
 		
+		}
+		$mng=$mng+1;
 	}
-	
-	
-	?>	
+
+	?>
 	</div>
 	</div>
 	</div>

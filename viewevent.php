@@ -7,8 +7,7 @@
 	while($row=mysql_fetch_assoc($res))
 	{
 		$event_name=$row["event_name"];
-		$event_logo=$row["event_logo"];
-		$event_slogan=$row["event_slogan"];
+		$event_image=$row["event_image"];
 		$event_des=$row["event_des"];
 		$venue_name=$row["venue_name"];
 		$venue_add=$row["venue_address"];
@@ -49,7 +48,7 @@ else
 
 <div class="row">
 <div class="col-md-12 col-sm-12">
-<img src="<?php echo $event_logo; ?>" height="300" width="1500">
+<img src="<?php echo $event_image; ?>" height="300" width="1500">
 </div>
 </div>
 
