@@ -148,21 +148,20 @@
 		$user_mobile_no=$row["user_mobile_no"];
 		$ticket_cnt=$row["ticket_cnt"];
 		$amnt=$row["ticket_amnt"];
-		$ticket_amnt=$amnt/$ticket_cnt;
-		$paid=$ticket_amnt*$ticket_cnt;
+		
 		$user_name=$row["user_name"];
 		$pk_email_id=$row["pk_email_id"];
 		
 		echo '
 			<tr>
 				<td><center>'.$sr.'
-				<td><center>25-02-1997
+				<td><center>'.$row["book_date"].'
 				<td><center>'.$user_name.'
 				<td><center>'.$pk_email_id.'
 				<td><center>'.$user_mobile_no.'
 				<td><center>'.$ticket_cnt.'
-				<td><center>'.$ticket_amnt.'
-				<td><center>'.$paid.'
+				<td><center>'.$amnt.'
+				<td><center>'.$amnt.'
 			</tr>
 			
 		

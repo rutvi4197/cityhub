@@ -73,12 +73,13 @@ class Database
 	
 	}
 	
-	public function updateevent($event_id,$event_name,$event_des,$event_date,$event_time,$event_ticket,$event_price)
+	public function updateevent($event_id,$event_des,$event_name,$event_date,$event_time,
+		$event_ticket,$event_price)
 	{
 		$con=database::connect();
 		$res=mysql_query("update event_tbl set event_name='$event_name',
-						event_des='$event_des',event_date='$event_date',event_time='$event_time',event_ticket='$event_ticket',
-						event_price='$event_price' where pk_event_id='$event_id' ",$con);
+			event_date='$event_date',event_time='$event_time',
+			event_ticket='$event_ticket',event_price='$event_price' where pk_event_id='$event_id'",$con);
 		return $res;
 	database::disconnect();
 	

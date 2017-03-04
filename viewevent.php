@@ -131,7 +131,10 @@ echo ' <table width=100%>
 				$res2=$obj2->getcomment($event_id);
 				while($row=mysql_fetch_assoc($res2))
 				{
-					echo '<font size="3"><div class="alert alert-info" role="alert">'.$row["comment_desc"].'</font></div>';
+					echo '<div class="alert alert-info" role="alert">';
+					echo '<img src="'.$row["user_photo"].'" height=50px width=50px   class="img-circle" ">';
+					echo '<font size="3" color="red" style="margin-left:20px">'.$row["user_name"].'</font>';
+					echo '<font size="4"><p style="margin-left:100px">'.$row["comment_desc"].'</p></font></div>';
 				}
 			
 			?>
@@ -150,10 +153,9 @@ echo ' <table width=100%>
   </br></br>
 	<font size=5>Page Views : 89
   </br></br>
-		
-			<label>Enter Comment Below:</label>
-			<textarea rows="2" cols="27" name="comment">
-			</textarea></br>
+			<label>Enter Comment</label>
+			<textarea rows="3" cols="20" name="comment" placeholder="Enter Comment" class="form-control">
+			</textarea>
 			<div align="right">
 			<input type="submit" class="form-control btn btn-info" name="btncomment" value="Submit">
 			</div>
