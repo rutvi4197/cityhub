@@ -13,6 +13,18 @@ class Database
 		return self::$con;
 	}
 	
+	public function getAllUsersAndCity()
+	{		$con=database::connect();
+			$res=mysql_query("select c.*,u.* from user_tbl as u,city_tbl as c where u.fk_city_id=c.pk_city_id",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function getAllVenueAndCity()
+	{		$con=database::connect();
+			$res=mysql_query("select c.*,v.* from venue_tbl as v,city_tbl as c where v.fk_city_id=c.pk_city_id",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function getAllUsers()
 	{		$con=database::connect();
 			$res=mysql_query("select * from user_tbl",$con);
@@ -84,10 +96,22 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function addCat($cat)
+	{		$con=database::connect();
+			$res=mysql_query("insert into cat_tbl(cat_name) values('$cat')",$con);
+			return $res;
+			database::disconnect();
+	}
 
 	public function getAllWallet()
 	{		$con=database::connect();
 			$res=mysql_query("select * from wallet_tbl",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function getAllCat()
+	{		$con=database::connect();
+			$res=mysql_query("select * from cat_tbl",$con);
 			return $res;
 			database::disconnect();
 	}

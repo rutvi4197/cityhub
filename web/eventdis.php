@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center>Event Display </center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Event Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -68,6 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 				</thead>
 				
+				<tbody>
 				<?php
 							
 				$d=date("d-m-Y");	
@@ -85,7 +86,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '</tr>';
 				}						
 				
-				?>		
+				?>
+				
+			</tbody>
 			</table> 
 			
 										</div>
