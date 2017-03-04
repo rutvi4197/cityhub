@@ -16,7 +16,11 @@
                             <div class="menu">
 									<ul id="menu" >
 										<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li> 
-										<li><a href="eventdis.php"><i class="lnr lnr-pencil"></i> <span>Event Display</span></a></li> 
+										<li><a href="eventdis.php"><i class="lnr lnr-book"></i> <span>Event Display</span></a></li> 
+										<li><a href="userdis.php"><i class="lnr lnr-user"></i> <span>User Display</span></a></li> 
+										<li><a href="offerdis.php"><i class="lnr lnr-pencil"></i> <span>Offer Display</span></a></li> 
+										<li><a href="venuedis.php"><i class="lnr lnr-pencil"></i> <span>Venue Display</span></a></li> 
+										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span>Category Display</span></a></li> 
 									</ul>
 							</div>
 				</div>

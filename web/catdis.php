@@ -1,9 +1,7 @@
-     <!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php 
+	session_start();
+	include 'admindatabase.php';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,78 +40,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//skycons-icons-->
 </head> 
 <body>
-   <div class="page-container">
-   <!--/content-inner-->
-	<div class="left-content">
-	   <div class="inner-content">
-	   
-	   <?php include 'header.php' ?>
-					<!-- //header-ends -->
-						<div class="outter-wp">
-								<!--custom-widgets-->
-												<div class="custom-widgets">
-												   <div class="row-one">
-														<div class="col-md-3 widget">
-															<div class="stats-left ">
-																<h5>Today</h5>
-																<h4> Users</h4>
-															</div>
-															<div class="stats-right">
-																<label>90</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-mdl">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Visitors</h4>
-															</div>
-															<div class="stats-right">
-																<label> 85</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-thrd">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Tasks</h4>
-															</div>
-															<div class="stats-right">
-																<label>51</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-last">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Alerts</h4>
-															</div>
-															<div class="stats-right">
-																<label>30</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="clearfix"> </div>	
-													</div>
-												</div>
-									
+
+<?php include 'header.php'; ?>
+
+<?php include 'sidebar.php' ?>
+
+
+		<div class="page-container">
+			<div class="left-content">
+				<div class="inner-content">
+					<div class="outter-wp">
+						<div class="sub-heard-part"></div>
+							<div class="graph-visual tables-main">
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Category Display </font></center></h3>
+									<div class="graph">
+										<div class="tables">		
+			
+			
+				<div>
+					<a href="addcat.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
+				</div>
+			<br>	
+			<table class="table table-bordered">
+				
+				<thead>
+				<tr class="active">
+					<th><font size="3" color="blue"><b>Category Id</b></font>
+					<th><font size="3" color="blue"><b>Category Name</b></font>
+				</tr>
+				</thead>
+			
+			<tbody>
+				<?php
+							
+				$obj=new Database();
+				$res=$obj->getAllCat();
+				while($row=mysql_fetch_assoc($res))
+				{
+					echo '<tr>';
+					echo '<td><font size="4" color="black">'.$row["pk_cat_id"].'</font></td>';
+					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font></td>';
+					echo '</tr>';
+				}						
+				
+				?>	
+			</tbody>
+			</table> 
+			
+										</div>
 									</div>
-									 <!--footer section start-->
-										<footer>
-										   <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
-										</footer>
-									<!--footer section end-->
-								</div>
 							</div>
-						</div>
-				<!--//content-inner-->
-				<?php 
-				include 'sidebar.php';
-				?>
-							<script>
-							
-							
-							
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+<script>
 							var toggle = true;
 										
 							$(".sidebar-icon").click(function() {                
@@ -132,16 +114,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											
 											toggle = !toggle;
 										});
-							</script>
-<!--js -->
+</script>
 <link rel="stylesheet" href="css/vroom.css">
 <script type="text/javascript" src="js/vroom.js"></script>
 <script type="text/javascript" src="js/TweenLite.min.js"></script>
 <script type="text/javascript" src="js/CSSPlugin.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
-</body>
 </html>

@@ -1,9 +1,7 @@
-     <!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php 
+	session_start();
+	include 'admindatabase.php';
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,78 +40,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//skycons-icons-->
 </head> 
 <body>
-   <div class="page-container">
-   <!--/content-inner-->
-	<div class="left-content">
-	   <div class="inner-content">
-	   
-	   <?php include 'header.php' ?>
-					<!-- //header-ends -->
-						<div class="outter-wp">
-								<!--custom-widgets-->
-												<div class="custom-widgets">
-												   <div class="row-one">
-														<div class="col-md-3 widget">
-															<div class="stats-left ">
-																<h5>Today</h5>
-																<h4> Users</h4>
+
+<?php include 'header.php'; ?>
+
+<?php include 'sidebar.php' ?>
+
+
+		<div class="page-container">
+			<div class="left-content">
+				<div class="inner-content">
+					<div class="outter-wp">
+						<div class="sub-heard-part"></div>
+							<div class="graph-visual tables-main">
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Category  </font></center></h3>
+									<div class="graph">
+										<div class="tables">		
+			
+			
+										<div class="set-1">
+											<div class="graph-2 general">
+												<div class="grid-1">
+													<div class="form-body">
+													<form class="form-horizontal" method="post" action="addcat.php">
+														<div class="form-group">
+														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font></label>
+															<div class="col-sm-8">
+															
+															<input type="text" class="form-control1" id="focusedinput" name="txtcat" placeholder="Category Name"/>
+															<input type="submit" value="Add" name="btnadd"/>
+															
+															</form>
+															<?php 
+														
+															if(isset($_POST["btnadd"]))
+															{
+																
+																$cat=$_POST["txtcat"];
+																$obj=new Database();
+																$res=$obj->addCat($cat);
+																
+																if($res==1)
+																{
+																	header('location:catdis.php');
+																}
+																else
+																{
+																	echo $cat;
+																}
+															}	
+											
+															
+															
+															?>
 															</div>
-															<div class="stats-right">
-																<label>90</label>
-															</div>
-															<div class="clearfix"> </div>	
 														</div>
-														<div class="col-md-3 widget states-mdl">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Visitors</h4>
-															</div>
-															<div class="stats-right">
-																<label> 85</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-thrd">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Tasks</h4>
-															</div>
-															<div class="stats-right">
-																<label>51</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-last">
-															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Alerts</h4>
-															</div>
-															<div class="stats-right">
-																<label>30</label>
-															</div>
-															<div class="clearfix"> </div>	
-														</div>
-														<div class="clearfix"> </div>	
 													</div>
 												</div>
-									
+											</div>
+										</div>
+										</div>
 									</div>
-									 <!--footer section start-->
-										<footer>
-										   <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
-										</footer>
-									<!--footer section end-->
-								</div>
 							</div>
-						</div>
-				<!--//content-inner-->
-				<?php 
-				include 'sidebar.php';
-				?>
-							<script>
-							
-							
-							
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+<script>
 							var toggle = true;
 										
 							$(".sidebar-icon").click(function() {                
@@ -132,16 +125,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											
 											toggle = !toggle;
 										});
-							</script>
-<!--js -->
+</script>
 <link rel="stylesheet" href="css/vroom.css">
 <script type="text/javascript" src="js/vroom.js"></script>
 <script type="text/javascript" src="js/TweenLite.min.js"></script>
 <script type="text/javascript" src="js/CSSPlugin.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
-</body>
 </html>
