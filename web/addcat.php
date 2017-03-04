@@ -61,11 +61,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal">
+													<form class="form-horizontal" method="post" action="addcat.php">
 														<div class="form-group">
 														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font></label>
 															<div class="col-sm-8">
-															<form  method="post" action="addcat.php">
+															
 															<input type="text" class="form-control1" id="focusedinput" name="txtcat" placeholder="Category Name"/>
 															<input type="submit" value="Add" name="btnadd"/>
 															
