@@ -88,12 +88,21 @@
 		$pwd=$_POST["txtpwd"];
 		$obj=new Database();
 		$res=$obj->login($email,$pwd);
-
+		while($row=mysql_fetch_assoc($res))
+		{
+			$type=$row["user_type"];
+		}
 		$cnt=mysql_num_rows($res);
 		if($cnt==1)
 		{
 			$_SESSION["email"]=$email;
+			if($type=="user")
+			{
 			header('Location:index.php');
+			}
+			else{
+				header('Location:web/index.php');
+			}
 		}
 		else
 		{
