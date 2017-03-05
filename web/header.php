@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -77,12 +76,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																						?>" height=40px width=40px   class="img-circle">
 																						<?php echo $name; ?>
 																			</span>
+																			
+																			
 																			<ul class="dropdown">
 																				<li><a class="deutsch">Add  Admin</a></li>
+<<<<<<< HEAD
 																				<li><a href="logout.php"> Logout</a></li>
+=======
+																				<li><a class="english" href="logout.php"> Logout</a></li>
+>>>>>>> 99ddd1d1ad982744db1373f765e86dfbb53ff8cc
 																				
 																			</ul>
-																		</div>
+																			
+
+														</div>
 																<script type="text/javascript">
 			
 																	function DropDown(el) {
