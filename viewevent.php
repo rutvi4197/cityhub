@@ -3,6 +3,14 @@
 	require 'database.php';
 	$obj=new database();
 	$event_id=$_REQUEST["id"];
+	$res1=$obj->pageview($event_id);
+	if($res1==1)
+	{
+		
+	}
+	else{
+		echo 'pageview dnt work';
+	}
 	$res=$obj->eventbyiddis($event_id);
 	while($row=mysql_fetch_assoc($res))
 	{
@@ -15,6 +23,7 @@
 		$pincode=$row["pincode"];
 		$event_date=$row["event_date"];
 		$event_time=$row["event_time"];
+		$event_cnt=$row["event_cnt"];
 		$event_price=$row["event_price"];
 	}
 ?>
@@ -124,8 +133,24 @@ echo ' <table width=100%>
 
 		?>
 		</br></br>
-	<font size=5>Comments </font>
-			</br>
+		<?php 
+			$res=$obj->likedetail($event_id);
+			while($row=mysql_fetch_assoc($res))
+			{
+				$like=$row["likecnt"];
+				$dislike=$row["dislikecnt"];
+			}
+		
+		?>
+	<a href="addlike.php?id=<?php echo $event_id; ?>">	<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+</button></a>&nbsp;&nbsp;<font size="5" color="red"><?php echo $like; ?></font>&nbsp;&nbsp;
+<a href="adddislike.php?id=<?php echo $event_id; ?>"><button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+</button></a>&nbsp;&nbsp;<font size="5" color="red"><?php echo $dislike; ?></font>
+</br>
+	<font size=5 color="Red">Comments  </font>
+			</br></br>
 			<?php 
 				$obj2=new database();
 				$res2=$obj2->getcomment($event_id);
@@ -151,7 +176,7 @@ echo ' <table width=100%>
 	<font size=5>	<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Contact Us:</font>
 	
   </br></br>
-	<font size=5>Page Views : 89
+	<font size=5>Page Views : <?php echo $event_cnt; ?>
   </br></br>
 			<label>Enter Comment</label>
 			<textarea rows="3" cols="20" name="comment" placeholder="Enter Comment" class="form-control">
