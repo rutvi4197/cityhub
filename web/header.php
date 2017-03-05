@@ -1,9 +1,4 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -70,10 +65,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="nofitications-dropdown">
 											<li class="dropdown note dra-down">
 													   <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-																			<span>Italy</span>
+																			<span><img src="../<?php 
+																			$obj=new Database();
+                                                                                    $res=$obj->userdetail($_SESSION["email"]);                                          																			
+																				while($row=mysql_fetch_assoc($res))
+																						{
+																								echo $row["user_photo"];
+																								$name=$row["user_name"];
+																								
+																						}
+																						?>" height=40px width=40px   class="img-circle">
+																						<?php echo $name; ?>
+																			</span>
 																			<ul class="dropdown">
-																				<li><a class="deutsch">France</a></li>
-																				<li><a class="english"> Italy</a></li>
+																				<li><a class="deutsch">Add  Admin</a></li>
+																				<li><a class="english" href="../logout.php"> Logout</a></li>
 																				<li><a class="espana">Brazil</a></li>
 																				<li><a class="russian">Usa</a></li>
 

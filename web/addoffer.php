@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addoffer.php">
+													<form class="form-horizontal" method="post" action="addoffer.php" enctype="multipart/form-data">
 																										
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font></label>
@@ -87,26 +87,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Photo</b></font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtofferphpto" placeholder="Offer Photo"/>
+																<input type="file"   name="txtofferphoto" />
 															</div>
 														</div>
-														
-														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Event Name</b></font></label>
-															<div class="col-sm-8">
-																<select name="txteventname" class="form-control1" >
-																<?php
-																	$obj=new database();
-																	$res=$obj->getAllEvents();
-																	while($row=mysql_fetch_array($res,MYSQL_ASSOC))
-																	{
-																		echo '<option value="'.$row["pk_event_id"].'">'.$row["event_name"].'</option>';
-																	}
-																?>
-																</select>
-															</div>
-														</div>
-														
 														<div class="form-group">
 															<div class="col-sm-8">
 																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
@@ -121,10 +104,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																$fk_email_id="admin@gmail.com";
 																$offer_name=$_POST["txtoffername"];
 																$offer_price=$_POST["txtofferprice"];
-																$offer_promocode=$_POST["txtofferpromocode"];
-																$offer_photo=$_POST["txtofferphpto"];
-																$fk_event_id=$_POST["txteventname"];
-																
+																$offer_promocode=$_POST["txtofferpromocode"];															
+																$offer_photo="../offerimage/".$_FILES["txtofferphoto"]["name"];
+																$ext=pathinfo($offer_photo,PATHINFO_EXTENSION);
+																$fk_event_id=0;
+																if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
+																{
+																	if(move_uploaded_file($_FILES["txtofferphoto"]["tmp_name"],$offer_photo))
+																	{
+																		$offer_photo="offerimage/".$_FILES["txtofferphoto"]["name"];
 																$obj=new Database();
 																$res=$obj->addOffer($pk_offer_id,$fk_email_id,$offer_price,
 																$offer_promocode,$offer_photo,$fk_event_id,$offer_name);
@@ -135,7 +123,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																}
 																else
 																{
-																	echo $cat;
+																	echo "error";
+																}
+																	}
 																}
 															}	
 											
