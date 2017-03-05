@@ -73,12 +73,13 @@ class Database
 	
 	}
 	
-	public function updateevent($event_id,$event_name,$event_des,$event_date,$event_time,$event_ticket,$event_price)
+	public function updateevent($event_id,$event_des,$event_name,$event_date,$event_time,
+		$event_ticket,$event_price)
 	{
 		$con=database::connect();
 		$res=mysql_query("update event_tbl set event_name='$event_name',
-						event_des='$event_des',event_date='$event_date',event_time='$event_time',event_ticket='$event_ticket',
-						event_price='$event_price' where pk_event_id='$event_id' ",$con);
+			event_date='$event_date',event_time='$event_time',
+			event_ticket='$event_ticket',event_price='$event_price' where pk_event_id='$event_id'",$con);
 		return $res;
 	database::disconnect();
 	
@@ -200,7 +201,34 @@ class Database
 		return $res;
 	database::disconnect();
 	}
-	
+	public function pageview($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("update event_tbl set event_cnt=event_cnt+1 where pk_event_id='$event_id' ",$con);
+		return $res;
+	database::disconnect();
+	}
+	public function addlike($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("update like_tbl set likecnt=likecnt+1 where fk_event_id='$event_id' ",$con);
+		return $res;
+	database::disconnect();
+	}
+	public function adddislike($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("update like_tbl set dislikecnt=dislikecnt+1 where fk_event_id='$event_id' ",$con);
+		return $res;
+	database::disconnect();
+	}
+	public function likedetail($event_id)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from like_tbl where fk_event_id='$event_id' ",$con);
+		return $res;
+	database::disconnect();
+	}
 	
 	public function signup($email,$pwd,$mobile,$name,$city,$type,$photo)
 	{

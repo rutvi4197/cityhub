@@ -37,7 +37,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Create an Event
+		Edit Your Event
 	</title>
 </head>
 
@@ -132,7 +132,7 @@
 				
 					<label><font color="black" size=2>Event Price</font></label>
 					</br>
-					<input type="price" placeholder="Event Price" name="txtprice" class="form-control" value="<?php echo $event_price; ?>" required/> 
+					<input type="number" placeholder="Event Price" name="txtprice" class="form-control" value="<?php echo $event_price; ?>" required/> 
 					</br>
 					
 					<label><font color="black" size=2>Select City</font></label>
@@ -162,7 +162,7 @@
 	</div>
 	<br>
 		<div>
-				<center><input type="submit" name="btncreate" value="Create" class="btn btn-success"/></center>
+				<center><input type="submit" name="btncreate" value="Update" class="btn btn-success"/></center>
 			</form>
 		</div>
 	
@@ -199,18 +199,16 @@
 				
 		
 		$event_name=$_POST["txtname"];
-		
 		$event_des=$_POST["txtdes"];
 		$event_date=$_POST["txtdate"];		
 		$event_time=$_POST["txttime"];		
 		$event_ticket=$_POST["txtticket"];
 		$event_price=$_POST["txtprice"];
-		
-	
+																					
 		$obj=new database();
-		$res1=$obj->updateevent($event_id,$event_name,$event_des,$event_date,$event_time,$event_ticket,$event_price);
-																																														$cnt=1;
-		if($cnt==1)
+		$res1=$obj->updateevent($event_id,$event_des,$event_name,$event_date,$event_time,
+		$event_ticket,$event_price);																																														
+		if($res1==1)
 		{
 			header('Location:dashboard.php');
 		}

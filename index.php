@@ -149,6 +149,7 @@ require 'catheader.php';
 	{
 		if($mng<$_SESSION["num"])
 		{
+			
 		$da=(int)date("d");
 		$month=(int)date("m");
 		$year=(int)date("Y");
@@ -163,6 +164,7 @@ require 'catheader.php';
 			{
 				if($d1>=$da)
 				{
+				
 		echo '
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail" style="height:250px">
@@ -175,10 +177,12 @@ require 'catheader.php';
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 	}
 			}
-				else if($m1>=$month)
+			 if($m1>$month)
 				{
+			
 		echo '
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail" style="height:250px">
@@ -190,13 +194,14 @@ require 'catheader.php';
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 			}
 			
 			
 		}
 		
 		}
-		$mng=$mng+1;
+		
 	}
 
 	?>
