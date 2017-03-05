@@ -76,12 +76,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																						?>" height=40px width=40px   class="img-circle">
 																						<?php echo $name; ?>
 																			</span>
+																			
+																			
 																			<ul class="dropdown">
 																				<li><a class="deutsch">Add  Admin</a></li>
-																				<li><a class="english" href="../logout.php"> Logout</a></li>
+																				<li><a class="english" href="logout.php"> Logout</a></li>
 																				
 																			</ul>
-																		</div>
+																			
+
+														</div>
 																<script type="text/javascript">
 			
 																	function DropDown(el) {
