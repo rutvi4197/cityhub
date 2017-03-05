@@ -139,6 +139,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function userdetail($email)
+	{		$con=database::connect();
+			$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function addOffer($pk_offer_id,$fk_email_id,$offer_price,$offer_promocode,$offer_photo,$fk_event_id,$offer_name)
 	{		$con=database::connect();
 			$res=mysql_query("insert into offer_tbl values('$pk_offer_id','$fk_email_id','$offer_price','$offer_promocode','$offer_photo','$fk_event_id','$offer_name')",$con);
