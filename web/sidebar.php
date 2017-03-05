@@ -10,8 +10,17 @@
 					</header>
 							<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
 							<div class="down">	
-									  <a href="index.html"><img src="images/admin.jpg"></a>
-									  <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
+									  <a href="index.html"><img src="../<?php 
+																			$obj=new Database();
+                                                                                    $res=$obj->userdetail($_SESSION["email"]);                                          																			
+																				while($row=mysql_fetch_assoc($res))
+																						{
+																								echo $row["user_photo"];
+																								$name=$row["user_name"];
+																								
+																						}
+																						?>" height=100px width=100px></a>
+									  <a href="index.html"><span class=" name-caret"><?php echo $name; ?></span></a>
 							</div>
                             <div class="menu">
 									<ul id="menu" >
