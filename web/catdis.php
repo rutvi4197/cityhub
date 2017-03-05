@@ -5,13 +5,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Category Display</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
  <!-- Bootstrap Core CSS -->
+  
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -38,6 +39,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.easydropdown.js"></script>
 
 <!--//skycons-icons-->
+<link href="../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/jquery.dataTables_themeroller.css" rel="stylesheet">
+    <link href="../css/endless.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet"> 
+    <script src="../js/jquery-1.10.2.min.js"></script>
+	<script src="../Scripts/bootstrap.min.js"></script>
+	<script src='../js/jquery.dataTables.min.js'></script>
+
+    <script>
+        $(function () {
+            $('#dataTable').dataTable({
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers"
+            });
+
+            $('#chk-all').click(function () {
+                if ($(this).is(':checked')) {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', true);
+                        $(this).parent().parent().parent().addClass('selected');
+                    });
+                }
+                else {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', false);
+                        $(this).parent().parent().parent().removeClass('selected');
+                    });
+                }
+            });
+        });
+    </script>
 </head> 
 <body>
 
@@ -54,14 +86,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="graph-visual tables-main">
 								<h3 class="inner-tittle two"><center><font size="10" color="blue">Category Display </font></center></h3>
 									<div class="graph">
-										<div class="tables">		
+										<div class="tables" >		
 			
 			
 				<div>
 					<a href="addcat.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
 				</div>
 			<br>	
-			<table class="table table-bordered">
+			<table class="table table-bordered" id="dataTable">
 				
 				<thead>
 				<tr class="active">
@@ -71,8 +103,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<th><font size="3" color="blue"><b>Delete</b></font>
 				</tr>
 				</thead>
+				<tbody>
 			
-			<tbody>
 				<?php
 							
 				$obj=new Database();
