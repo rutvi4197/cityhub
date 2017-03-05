@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Event Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Approve/DisApprove </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -61,13 +61,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<tr class="active">
 					<td><font size="3" color="blue"><b>Event Name</b></font>
 					<td><font size="3" color="blue"><b>City Name</b></font>
-					<td><font size="3" color="blue"><b>Event Venue</b></font>
 					<td><font size="3" color="blue"><b>Category</b></font>
 					<td><font size="3" color="blue"><b>Event Date</b></font>
 					<td><font size="3" color="blue"><b>Price</b></font>
-					<td><font size="3" color="blue"><b>Book Details</b></font>
-					<td><font size="3" color="blue"><b>Comments</b></font>
-			
+					<td><font size="3" color="blue"><b>Approve</b></font>
 				</tr>
 				</thead>
 				
@@ -75,18 +72,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 							
 				$obj=new Database();
-				$res=$obj->getAllEventJoin();
+				$res=$obj->getAllEventByDisApproved();
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
-					echo '<td><a href="bookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: blue" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button></a>';
-					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span></button></a>';
+					echo '<td><a href="approve.php?id='.$row["pk_event_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
 					echo '</tr>';
 				}						
 				
