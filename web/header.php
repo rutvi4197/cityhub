@@ -80,9 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																			<ul class="dropdown">
 																				<li><a class="deutsch">Add  Admin</a></li>
 																				<li><a class="english" href="../logout.php"> Logout</a></li>
-																				<li><a class="espana">Brazil</a></li>
-																				<li><a class="russian">Usa</a></li>
-
+																				
 																			</ul>
 																		</div>
 																<script type="text/javascript">

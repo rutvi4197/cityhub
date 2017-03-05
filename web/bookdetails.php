@@ -64,7 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h3 class="inner-tittle two"><center><font size="10" color="blue">Book Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
-			<h4 class="inner-tittle two"><center><font size="5" color="green">Name : <?php echo "$event_name";?> </font></center></h4>
+			<h4 class="inner-tittle two"><center><font size="5" color="green">Name : <?php echo "$event_name";?>
+			</font></center></h4>
 								
 			<table class="table table-bordered">
 				<thead>
@@ -82,8 +83,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 				$obj=new Database();
 				$res=$obj->getAllBookEvent($pk_event_id);
+				$totcnt=0;
+				$totamnt=0;
 				while($row=mysql_fetch_assoc($res))
 				{
+					$cnt=$row["ticket_cnt"];
+					$amnt=$row["ticket_amnt"];
+					$totcnt=$totcnt+$cnt;
+					$totamnt=$totamnt+$amnt;
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["ticket_cnt"].'</font>';
@@ -94,10 +101,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				?>
 				
+		
 			</tbody>
 			</table> 
 			
 										</div>
+										<h4 class="inner-tittle two"><font size="5" color="black">Total Tickets Bought <b><u><?php echo "$totcnt "; ?></b></u> <br>Total Amount Paid <b><u><?php echo "$totamnt";?></u></b></font></h4>
+										
 									</div>
 							</div>
 					</div>

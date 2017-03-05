@@ -1,7 +1,3 @@
- <?php 
- session_start();
- include 'admindatabase.php';
- ?>
 <!DOCTYPE HTML>
 <html>
 <head>
