@@ -16,6 +16,7 @@
                             <div class="menu">
 									<ul id="menu" >
 										<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li> 
+										<li><a href="appdis.php"><i class="fa fa-tachometer"></i> <span>Approve/DisApprove</span></a></li> 
 										<li><a href="eventdis.php"><i class="lnr lnr-book"></i> <span>Event Display</span></a></li> 
 										<li><a href="userdis.php"><i class="lnr lnr-user"></i> <span>User Display</span></a></li> 
 										<li><a href="offerdis.php"><i class="lnr lnr-pencil"></i> <span>Offer Display</span></a></li> 

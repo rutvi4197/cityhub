@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	$pk_cat_id=$_REQUEST["id"];
 	include 'admindatabase.php';
 ?>
 <!DOCTYPE HTML>
@@ -52,45 +53,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Category Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Update Category  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
 			
-				<div>
-					<a href="addcat.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
-				</div>
-			<br>	
-			<table class="table table-bordered">
-				
-				<thead>
-				<tr class="active">
-					<th><font size="3" color="blue"><b>Category Id</b></font>
-					<th><font size="3" color="blue"><b>Category Name</b></font>
-					<th><font size="3" color="blue"><b>Update</b></font>
-					<th><font size="3" color="blue"><b>Delete</b></font>
-				</tr>
-				</thead>
-			
-			<tbody>
-				<?php
+													<?php
+														$obj=new Database();
+														$res=$obj->catEdit1($pk_cat_id);
+														while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+														{
+															$cat_id=$row["pk_cat_id"];		
+															$cat_name=$row["cat_name"];		
+														}
+														
+													 ?>
 							
-				$obj=new Database();
-				$res=$obj->getAllCat();
-				while($row=mysql_fetch_assoc($res))
-				{
-					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["pk_cat_id"].'</font></td>';
-					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font></td>';
-					echo '<td><a href="catedit.php?id='.$row["pk_cat_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></font></a></td>';
-					echo '<td><a href="catdel.php?id='.$row["pk_cat_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></font></a></td>';
-					echo '</tr>';
-				}						
-				
-				?>	
-			</tbody>
-			</table> 
-			
+										<div class="set-1">
+											<div class="graph-2 general">
+												<div class="grid-1">
+													<div class="form-body">
+													<form class="form-horizontal" method="post" action="catedit1.php">
+														<div class="form-group">
+														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font></label>
+															<div class="col-sm-8">
+														
+															<input type="text" class="form-control1" id="focusedinput" value="<?php echo $cat_name; ?>" name="txtcatname" placeholder="Category Name"/>
+															<input type="text" hidden class="form-control1" id="focusedinput" value="<?php echo $pk_cat_id; ?>" name="txtcatid" placeholder="Category Id"/>	
+															<button type="submit" class="btn btn-default" value="Update" name="btnupdate" >Update</button>
+															</div>
+														</div>
+													</form>
+													
+														
+													</div>
+												</div>
+											</div>
+										</div>
 										</div>
 									</div>
 							</div>

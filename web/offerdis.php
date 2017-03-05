@@ -55,7 +55,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<h3 class="inner-tittle two"><center><font size="10" color="blue">Offer Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
-			
+												
+										<div>
+											<a href="addoffer.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
+										</div>		
+																		
 			<table class="table table-bordered">
 				<thead>
 				<tr class="active">
@@ -63,6 +67,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<th><font size="3" color="blue"><b>Offer Promodoe</b></font>
 					<th><font size="3" color="blue"><b>Offer Price</b></font>
 					<th><font size="3" color="blue"><b>Offer Photo</b></font>
+					<th><font size="3" color="blue"><b>Update</b></font>
+					<th><font size="3" color="blue"><b>Delete</b></font>
 				</tr>
 				</thead>
 				
@@ -79,6 +85,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '<td><font size="4" color="black">'.$row["offer_promocode"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["offer_price"].'</font>';
 					echo '<td><center><img src="../'.$row["offer_photo"].'" height="100px" width="100px"></center>';
+					echo '<td><a href="offeredit.php?id='.$row["pk_offer_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></font></a></td>';
+					echo '<td><a href="offerdel.php?id='.$row["pk_offer_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></font></a></td>';
+		
 					echo '</tr>';
 				}						
 				

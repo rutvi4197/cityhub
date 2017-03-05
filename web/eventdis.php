@@ -60,28 +60,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<thead>
 				<tr class="active">
 					<td><font size="3" color="blue"><b>Event Name</b></font>
-					<td><font size="3" color="blue"><b>Event City</b></font>
-					<td><font size="3" color="blue"><b>Event Price</b></font>
-					<td><font size="3" color="blue"><b>Event Name</b></font>
-					<td><font size="3" color="blue"><b>Event City</b></font>
-					<td><font size="3" color="blue"><b>Event Price</b></font>
+					<td><font size="3" color="blue"><b>City Name</b></font>
+					<td><font size="3" color="blue"><b>Event Venue</b></font>
+					<td><font size="3" color="blue"><b>Category</b></font>
+					<td><font size="3" color="blue"><b>Event Date</b></font>
+					<td><font size="3" color="blue"><b>Price</b></font>
 				</tr>
 				</thead>
 				
 				<tbody>
 				<?php
 							
-				$d=date("d-m-Y");	
 				$obj=new Database();
-				$res=$obj->getAllEventByDate($d);
+				$res=$obj->getAllEventJoin();
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
 					echo '</tr>';
 				}						

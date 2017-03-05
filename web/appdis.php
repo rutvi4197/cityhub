@@ -52,42 +52,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Category Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Approve/DisApprove </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
-			
-				<div>
-					<a href="addcat.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
-				</div>
-			<br>	
 			<table class="table table-bordered">
-				
 				<thead>
 				<tr class="active">
-					<th><font size="3" color="blue"><b>Category Id</b></font>
-					<th><font size="3" color="blue"><b>Category Name</b></font>
-					<th><font size="3" color="blue"><b>Update</b></font>
-					<th><font size="3" color="blue"><b>Delete</b></font>
+					<td><font size="3" color="blue"><b>Event Name</b></font>
+					<td><font size="3" color="blue"><b>City Name</b></font>
+					<td><font size="3" color="blue"><b>Category</b></font>
+					<td><font size="3" color="blue"><b>Event Date</b></font>
+					<td><font size="3" color="blue"><b>Price</b></font>
+					<td><font size="3" color="blue"><b>Approve</b></font>
+					<td><font size="3" color="blue"><b>DisApprove</b></font>
 				</tr>
 				</thead>
-			
-			<tbody>
+				
+				<tbody>
 				<?php
 							
 				$obj=new Database();
-				$res=$obj->getAllCat();
+				$res=$obj->getAllEventByFlag();
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["pk_cat_id"].'</font></td>';
-					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font></td>';
-					echo '<td><a href="catedit.php?id='.$row["pk_cat_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></font></a></td>';
-					echo '<td><a href="catdel.php?id='.$row["pk_cat_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></font></a></td>';
+					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
+					echo '<td><a href="approve.php?id='.$row["pk_event_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
+					echo '<td><a href="disapprove.php?id='.$row["pk_event_id"].'"><button style="background-color: red" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>';
 					echo '</tr>';
 				}						
 				
-				?>	
+				?>
+				
 			</tbody>
 			</table> 
 			

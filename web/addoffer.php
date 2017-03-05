@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	include 'admindatabase.php';
 ?>
@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Category  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Offer  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -61,26 +61,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addcat.php">
+													<form class="form-horizontal" method="post" action="addoffer.php">
+																										
 														<div class="form-group">
-														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font></label>
 															<div class="col-sm-8">
-															
-															<input type="text" class="form-control1" id="focusedinput" name="txtcat" placeholder="Category Name"/>
-															<button type="submit" class="btn btn-default" value="Add" name="btnadd" >Add</button>
-													</form>
+																<input type="text" class="form-control1"  name="txtoffername" placeholder="Offer Name"/>
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font></label>
+															<div class="col-sm-8">
+																<input type="text" class="form-control1"  name="txtofferprice" placeholder="Offer Price"/>
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Promocode</b></font></label>
+															<div class="col-sm-8">
+																<input type="text" class="form-control1"  name="txtofferpromocode" placeholder="Offer Promocode"/>
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Photo</b></font></label>
+															<div class="col-sm-8">
+																<input type="text" class="form-control1"  name="txtofferphpto" placeholder="Offer Photo"/>
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Event Name</b></font></label>
+															<div class="col-sm-8">
+																<select name="txteventname" class="form-control1" >
+																<?php
+																	$obj=new database();
+																	$res=$obj->getAllEvents();
+																	while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+																	{
+																		echo '<option value="'.$row["pk_event_id"].'">'.$row["event_name"].'</option>';
+																	}
+																?>
+																</select>
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<div class="col-sm-8">
+																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+																<button type="submit" class="btn btn-default" value="Add" name="btnadd" >Add</button>
+															</div>
+														</div>
 															<?php 
 														
 															if(isset($_POST["btnadd"]))
 															{
+																$pk_offer_id="NULL";
+																$fk_email_id="admin@gmail.com";
+																$offer_name=$_POST["txtoffername"];
+																$offer_price=$_POST["txtofferprice"];
+																$offer_promocode=$_POST["txtofferpromocode"];
+																$offer_photo=$_POST["txtofferphpto"];
+																$fk_event_id=$_POST["txteventname"];
 																
-																$cat=$_POST["txtcat"];
 																$obj=new Database();
-																$res=$obj->addCat($cat);
+																$res=$obj->addOffer($pk_offer_id,$fk_email_id,$offer_price,
+																$offer_promocode,$offer_photo,$fk_event_id,$offer_name);
 																
 																if($res==1)
 																{
-																	header('location:catdis.php');
+																	header('location:offerdis.php');
 																}
 																else
 																{
@@ -91,8 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															
 															
 															?>
-															</div>
+															
 														</div>
+															</form>
 													</div>
 												</div>
 											</div>
