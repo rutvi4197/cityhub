@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Approve/DisApprove </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="blue">Past Event Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -61,34 +61,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<tr class="active">
 					<td><font size="3" color="blue"><b>Event Name</b></font>
 					<td><font size="3" color="blue"><b>City Name</b></font>
+					<td><font size="3" color="blue"><b>Event Venue</b></font>
 					<td><font size="3" color="blue"><b>Category</b></font>
 					<td><font size="3" color="blue"><b>Event Date</b></font>
 					<td><font size="3" color="blue"><b>Price</b></font>
-					<td><font size="3" color="blue"><b>Approve</b></font>
 					<td><font size="3" color="blue"><b>Delete</b></font>
+			
 				</tr>
 				</thead>
 				
 				<tbody>
-				<?php
-							
-				$obj=new Database();
-				$res=$obj->getAllEventByDisApproved();
-				while($row=mysql_fetch_assoc($res))
+				
+				<div class="col-md-9 col-sm-9">
+		</br>
+	
+	
+	<?php 
+	$obj=new database();
+	$res=$obj->getAllEventJoin();
+	while($row=mysql_fetch_assoc($res))
+	{
+		$da=(int)date("d");
+		$month=(int)date("m");
+		$year=(int)date("Y");
+		$d=$row["event_date"];
+		$arr=explode("-",$d);
+		$d1=(int)$arr[0];
+		$m1=(int)$arr[1];
+		$y1=(int)$arr[2];
+		if($y1<=$year)
+		{
+			if($m1==$month)
+			{
+				if($d1<=$da)
 				{
+			
 					echo '<tr>';
 					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
-					echo '<td><a href="approve.php?id='.$row["pk_event_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>';
 					echo '<td><a href="eventdel.php?id='.$row["pk_event_id"].'"><button style="background-color: red" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>';
 					echo '</tr>';
-				}						
-				
-				?>
-				
+
+					
+				}
+			}
+			if($m1<$month)
+			{
+					echo '<tr>';
+					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
+					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
+					echo '<td><a href="eventdel.php?id='.$row["pk_event_id"].'"><button style="background-color: red" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>';
+					echo '</tr>';
+			}
+	}
+	}
+	
+	?>	
+	</div>
+	
+	
 			</tbody>
 			</table> 
 			

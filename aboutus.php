@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+	session_start();
+	include 'database.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +13,29 @@
 </head>
 <form action="aboutus.php" method="post">
 <body>
-
+<div class="row">
+<div class="col-md-12 col-sm-12">
 <?php 
-include 'header1.php';
-include 'headerme.php';
-?>
+if(isset($_SESSION["email"]))
+{
+	require 'headerwithlogin.php';
+	
+}
+else
+{
+	require 'header.php';
+}
+
+?>	
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+require 'catheader.php';
+?> 
+</div>
+</div>
 
 <div class="container"> 
 <div class="row">

@@ -6,8 +6,7 @@
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <img src="logo.png" height="100" width="150"></img>
     </div>
-	<?php 
-	
+	<?php 	
 		$email=$_SESSION["email"];
 		$obj=new database();
 		$res=$obj->getuserdetail($email);

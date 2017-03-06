@@ -96,13 +96,19 @@ class Database
 	}
 	public function getAllEventJoin()
 	{		$con=database::connect();
-			$res=mysql_query("select e.*,v.*,c.*,c1.* from city_tbl as c1,event_tbl as e,cat_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c1.pk_city_id and e.fk_cat_id=c.pk_cat_id and e.flag=1",$con);
+			$res=mysql_query("select e.*,v.*,c.*,c1.* from city_tbl as c1,event_tbl as e,cat_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c1.pk_city_id and e.fk_cat_id=c.pk_cat_id",$con);
 			return $res;
 			database::disconnect();
 	}
 	public function getEventById($pk_event_id)
 	{		$con=database::connect();
 			$res=mysql_query("select * from event_tbl where pk_event_id='$pk_event_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function getAllActiveEvent()
+	{		$con=database::connect();
+			$res=mysql_query("select * from event_tbl where flag=1",$con);
 			return $res;
 			database::disconnect();
 	}
@@ -154,6 +160,12 @@ class Database
 	public function catDel($pk_cat_id)
 	{		$con=database::connect();
 			$res=mysql_query("delete from cat_tbl where pk_cat_id='$pk_cat_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function eventDel($pk_event_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from event_tbl where pk_event_id='$pk_event_id'",$con);
 			return $res;
 			database::disconnect();
 	}
