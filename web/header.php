@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Header</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -40,56 +40,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header-section">
 						<!--menu-right-->
 						<div class="top_menu">
-						        <div class="main-search">
-											<form>
-											   <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}" class="text"/>
-												<input type="submit" value="">
-											</form>
-									<div class="close"><img src="images/cross.png" /></div>
-								</div>
-									<div class="srch"><button></button></div>
-									<script type="text/javascript">
-										 $('.main-search').hide();
-										$('button').click(function (){
-											$('.main-search').show();
-											$('.main-search text').focus();
-										}
-										);
-										$('.close').click(function(){
-											$('.main-search').hide();
-										});
-									</script>
+						<img src="../logo.png" height="100" width="150" style="margin-left:20px"></img>
+						      <font size="7" style="margin-left:30px;margin-top:10px;"color="Red" > CityHub</font>
 							<!--/profile_details-->
 								<div class="profile_details_left">
-									<ul class="nofitications-dropdown">
-											<li class="dropdown note dra-down">
-													   <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-																			<span><img src="../<?php 
-																			$obj=new Database();
-                                                                                    $res=$obj->userdetail($_SESSION["email"]);                                          																			
-																				while($row=mysql_fetch_assoc($res))
-																						{
-																								echo $row["user_photo"];
-																								$name=$row["user_name"];
-																								
-																						}
-																						?>" height=40px width=40px   class="img-circle">
-																						<?php echo $name; ?>
+																				
+																			<span>
+																			<a href="#"><button  type="button" style="margin-top:20px;" class="btn btn-default" aria-label="Left Align"><font size="4" >Add new Admin</font></button></a>
+																			
+																			<a href="logout.php"><button  type="button"  style="margin-top:20px;" class="btn btn-default" aria-label="Left Align"><font size="4" >Logout</font></button></a>
 																			</span>
 																			
 																			
-																			<ul class="dropdown">
-																				<li><a class="deutsch">Add  Admin</a></li>
-<<<<<<< HEAD
-																				<li><a href="logout.php"> Logout</a></li>
-=======
-																				<li><a class="english" href="logout.php"> Logout</a></li>
->>>>>>> 99ddd1d1ad982744db1373f765e86dfbb53ff8cc
-																				
-																			</ul>
 																			
 
-														</div>
+														
 																<script type="text/javascript">
 			
 																	function DropDown(el) {
@@ -136,11 +101,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																	});
 
 																</script>
-										    </li>
+										   
 									     
 								   							   		
-							<div class="clearfix"></div>	
-								</ul>
+							
 							</div>
 							<div class="clearfix"></div>	
 							<!--//profile_details-->
