@@ -30,7 +30,8 @@
 										<li><a href="userdis.php"><i class="lnr lnr-user"></i> <span>User Display</span></a></li> 
 										<li><a href="offerdis.php"><i class="lnr lnr-pencil"></i> <span>Offer Display</span></a></li> 
 										<li><a href="venuedis.php"><i class="lnr lnr-pencil"></i> <span>Venue Display</span></a></li> 
-										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span>Category Display</span></a></li> 
+										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span>Category Display</span></a></li>
+										<li><a href="pastevent.php"><i class="lnr lnr-picture"></i> <span>Past Events</span></a></li> 
 										<li><a href="disapproved.php"><i class="fa fa-tachometer"></i> <span>DisApproved Events</span></a></li> 
 									</ul>
 							</div>
