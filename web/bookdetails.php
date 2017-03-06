@@ -46,11 +46,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/jquery.easydropdown.js"></script>
 
+<link href="../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/jquery.dataTables_themeroller.css" rel="stylesheet">
+    <link href="../css/endless.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet"> 
+    <script src="../js/jquery-1.10.2.min.js"></script>
+	<script src="../Scripts/bootstrap.min.js"></script>
+	<script src='../js/jquery.dataTables.min.js'></script>
+
+    <script>
+        $(function () {
+            $('#dataTable').dataTable({
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers"
+            });
+
+            $('#chk-all').click(function () {
+                if ($(this).is(':checked')) {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', true);
+                        $(this).parent().parent().parent().addClass('selected');
+                    });
+                }
+                else {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', false);
+                        $(this).parent().parent().parent().removeClass('selected');
+                    });
+                }
+            });
+        });
+    </script>
 <!--//skycons-icons-->
 </head> 
 <body>
 
-<?php include 'header.php'; ?>
+
 
 <?php include 'sidebar.php' ?>
 
@@ -58,6 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="page-container">
 			<div class="left-content">
 				<div class="inner-content">
+				<?php include 'header.php'; ?>
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
@@ -67,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h4 class="inner-tittle two"><center><font size="5" color="green">Name : <?php echo "$event_name";?>
 			</font></center></h4>
 								
-			<table class="table table-bordered">
+			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
 					<td><font size="3" color="blue"><b>Users</b></font>

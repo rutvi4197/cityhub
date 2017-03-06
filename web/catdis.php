@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.easydropdown.js"></script>
 
 <!--//skycons-icons-->
-<link href="../Content/bootstrap.min.css" rel="stylesheet">
+	<link href="../Content/bootstrap.min.css" rel="stylesheet">
     <link href="../css/jquery.dataTables_themeroller.css" rel="stylesheet">
     <link href="../css/endless.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet"> 
@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
 <body>
 
-<?php include 'header.php'; ?>
+
 
 <?php include 'sidebar.php' ?>
 
@@ -81,6 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="page-container">
 			<div class="left-content">
 				<div class="inner-content">
+				<?php include 'header.php'; ?>
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
