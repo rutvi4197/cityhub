@@ -48,7 +48,7 @@
 		<div class="form">
 			</br>
 			</br>
-			<form method="post" action="#">
+		<form method="post" action="#">
 
 					<label><font color="black" size=2>Email Address</font></label>
 					</br>
@@ -98,7 +98,8 @@
 								?>
 					</select>	
 					</br>
-		
+					
+					
 		</div>
 	</div>
 			
@@ -122,7 +123,7 @@
 		$city=$_POST["txtcity"];
 		
 		$photo="";
-		$type="User";
+		$type="user";
 		
 		if($pwd==$repwd)
 		{

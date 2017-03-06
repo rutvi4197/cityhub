@@ -12,6 +12,13 @@ class Database
 		mysql_select_db('cityhub',self::$con);
 		return self::$con;
 	}
+	public function signup($email,$pwd,$mobile,$name,$city,$type,$photo)
+	{
+		$con=database::connect();
+		$res=mysql_query("insert into user_tbl values('$email','$pwd','$mobile','$name','$city','$type','$photo')",$con);
+		return $res;
+	database::disconnect();
+	}
 	
 	public function getAllUsersAndCity()
 	{		$con=database::connect();
