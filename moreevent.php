@@ -133,7 +133,7 @@ require 'catheader.php';
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail" style="height:200px">
+    <div class="thumbnail" style="height:250px">
       <img src="'.$row["event_logo"].'" style="height:150px" >
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
@@ -150,7 +150,7 @@ require 'catheader.php';
 				{
 		echo '
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail" style="height:200px">
+    <div class="thumbnail" style="height:250px">
       <img src="'.$row["event_logo"].'" style="height:100px;">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">

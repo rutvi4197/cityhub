@@ -62,33 +62,33 @@
 		<div class="form">
 			<form method="post" action="#" enctype="multipart/form-data">
 					
-					<label><font color="black" size=2>Event Name</font></label>
+					<label><font color="black" size=2>Event Name</font><font color="red">*</font></label>
 					</br>
-					<input type="text" placeholder="Event Title" name="txtname" class="form-control" required/> 
+					<input type="text" placeholder="Event Title" name="txtname" class="form-control" maxlength="20"  required/> 
 					</br>
 					
-					<label><font color="black" size=2>Event Description</font></label>
+					<label><font color="black" size=2>Event Description</font><font color="red">*</font></label>
 					</br>
 					<textarea rows="10" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control">
 					</textarea>
 					</br>
 					
-					<label><font color="black" size=2>Venue Name</font></label>
+					<label><font color="black" size=2>Venue Name</font><font color="red">*</font></label>
 					</br>
 					<input type="text" placeholder="Venue Name" name="txtvenuename" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Venue Address</font></label>
+					<label><font color="black" size=2>Venue Address</font><font color="red">*</font></label>
 					</br>
 					<input type="text" placeholder="Venue Address" name="txtvenueaddress" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Pincode</font></label>
+					<label><font color="black" size=2>Pincode</font><font color="red">*</font></label>
 					</br>
-					<input type="number" placeholder="Pincode" name="txtpincode" class="form-control" required/> 
+					<input type="number" placeholder="Pincode" name="txtpincode" maxlength="6" class="form-control" required/> 
 					</br>
 					
-					<label><font color="black" size=2>Select City</font></label>
+					<label><font color="black" size=2>Select City</font><font color="red">*</font></label>
 					</br>
 					<select name="txtcity" class="form-control" >
 								<?php
@@ -108,19 +108,19 @@
 	<div class="col-md-6 col-sm-6">	
 						
 						
-					<label><font color="black" size=2>Select Event Logo</font></label>
+					<label><font color="black" size=2>Select Event Logo</font><font color="red">*</font></label>
 					</br>
 					<input type="file" name="txtlogo" />
 					</br>
 					
-					<label><font color="black" size=2>Event Image</font></label>
+					<label><font color="black" size=2>Event Image</font><font color="red">*</font></label>
 					</br>
 				<input type="file" name="txtimage" />
 					</br>
 					
 					<table class="tabel">
 					<tr>
-					<td><label><font color="black" size=2>Event Date (dd-mm-yy) </font></label>
+					<td><label><font color="black" size=2>Event Date (dd-mm-yy) </font><font color="red">*</font></label>
 					<td>
 					<select name="day" class="form-control">
 					<option value="01">1</option>
@@ -185,7 +185,7 @@
 
 					<table class="tabel">
 					<tr>
-					<td><label><font color="black" size=2>Event Time </font></label>
+					<td><label><font color="black" size=2>Event Time</font><font color="red">* </font></label>
 					<td>
 					<select name="hour" class="form-control">
 					<option value="1">1</option>
@@ -232,19 +232,19 @@
 					</br>
 
 
-					<label><font color="black" size=2>Event Ticket</font></label>
+					<label><font color="black" size=2>Event Ticket</font><font color="red">*</font></label>
 					</br>
-					<input type="text" placeholder="Event Price" name="txtticket" class="form-control" required/> 
+					<input type="number" placeholder="Event Price" name="txtticket" class="form-control" required/> 
 					</br>
 				
-					<label><font color="black" size=2>Event Price</font></label>
+					<label><font color="black" size=2>Event Price</font><font color="red">*</font></label>
 					</br>
-					<input type="price" placeholder="Event Price" name="txtprice" class="form-control" required/> 
+					<input type="number" placeholder="Event Price" name="txtprice" class="form-control" required/> 
 					</br>
 					
 					
 					
-					<label><font color="black" size=2>Select Category</font></label>
+					<label><font color="black" size=2>Select Category</font><font color="red">*</font></label>
 					</br>
 					<select name="txtcat" class="form-control" >
 								<?php
@@ -261,6 +261,7 @@
 					<label><font color="black" size=2>Select Offer</font></label>
 					</br>
 					<select name="txtoffer" class="form-control" >
+						<option value="0">Select offer</option>
 								<?php
 									$obj=new database();
 									$res=$obj->getAllOffer();
@@ -271,7 +272,7 @@
 								?>
 					</select>	
 					</br>
-					<label><font color="black" size=2>Last Date for Booking ticket</font></label>
+					<label><font color="black" size=2>Last Date for Booking ticket</font><font color="red">*</font></label>	
 					</br>
 					<input type="text" placeholder="Last date for boking ticket" name="txtbookticket" class="form-control" required/> 
 					</br>

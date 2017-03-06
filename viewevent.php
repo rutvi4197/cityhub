@@ -21,6 +21,7 @@
 		$venue_add=$row["venue_address"];
 		$city_name=$row["city_name"];
 		$pincode=$row["pincode"];
+		$fk_email_id=$row["fk_email_id"];
 		$event_date=$row["event_date"];
 		$event_time=$row["event_time"];
 		$event_cnt=$row["event_cnt"];
@@ -133,21 +134,8 @@ echo ' <table width=100%>
 
 		?>
 		</br></br>
-		<?php 
-			$res=$obj->likedetail($event_id);
-			while($row=mysql_fetch_assoc($res))
-			{
-				$like=$row["likecnt"];
-				$dislike=$row["dislikecnt"];
-			}
 		
-		?>
-	<a href="addlike.php?id=<?php echo $event_id; ?>">	<button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-</button></a>&nbsp;&nbsp;<font size="5" color="red"><?php echo $like; ?></font>&nbsp;&nbsp;
-<a href="adddislike.php?id=<?php echo $event_id; ?>"><button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-</button></a>&nbsp;&nbsp;<font size="5" color="red"><?php echo $dislike; ?></font>
+	
 </br>
 	<font size=5 color="Red">Comments  </font>
 			</br></br>
@@ -173,7 +161,7 @@ echo ' <table width=100%>
   </div>
 	</br></br>
 	
-	<font size=5>	<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Contact Us:</font>
+	<font size=5>	<span class="glyphicon glyphicon-envelope" aria-hidden="true">Contact Us On: <?php echo $fk_email_id; ?></span></font>
 	
   </br></br>
 	<font size=5>Page Views : <?php echo $event_cnt; ?>
