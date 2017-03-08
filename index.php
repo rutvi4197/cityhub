@@ -49,16 +49,33 @@ require 'catheader.php';
   </ol>
 
   <!-- Wrapper for slides -->
+  
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="images/main.jpg" alt="...">
+  
+  <?php
+  $img=1;
+  $res=$obj->getimage();
+  while($row=mysql_fetch_assoc($res))
+  {
+	  if($img==1)
+	  {
+	  echo '<div class="item active">
+      <img src="'.$row["image_photo"].'" alt="...">
       
-    </div>
-    <div class="item">
-      <img src="images/main.jpg" alt="...">
+    </div>';
+	  }
+	 else
+	 {		 
+    echo '<div class="item">
+      <img src="'.$row["image_photo"].'" alt="...">
       
-    </div>
-    ...
+    </div>';
+	 }
+	 $img=$img+1;
+  }
+	?>
+    
+    
   </div>
 
   <!-- Controls -->

@@ -4,7 +4,7 @@
 						<!--menu-right-->
 						<div class="top_menu">
 						<img src="../logo.png" height="100" width="150" style="margin-left:20px"></img>
-						      <font size="7" style="margin-left:30px;margin-top:10px;"color="Red" > CityHub</font>
+						      <font size="7" style="margin-left:30px;margin-top:10px;"color="#FF6347" > CityHub</font>
 							<!--/profile_details-->
 								<div class="profile_details_left">
 																				

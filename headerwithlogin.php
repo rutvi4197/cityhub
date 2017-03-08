@@ -35,11 +35,12 @@
 			}
 		
 		?> "height=40px width=40px   class="img-circle" style="margin-top:5px;"/> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+		
+		 <ul class="dropdown-menu">
             <li><a href="changepass.php">Change Your Password</a></li>
-            <li><a href="#">Past Event</a></li>
-        
-            <li><a href="logout.php">Logout</a></li>
+			<li><a href="pasteventuser.php">Past Event</a></li>
+            <li><a href="logout.php">Logout</a></li> 
+			
           </ul>
         </li>
       </ul>

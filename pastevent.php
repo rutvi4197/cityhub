@@ -109,7 +109,7 @@
 		{
 			if($m1==$month)
 			{
-				if($d1<=$da)
+				if($d1<$da)
 				{
 						$id=$row["pk_event_id"];
 			$obj=new database();

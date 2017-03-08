@@ -5,7 +5,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Event Display</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -83,21 +83,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Event Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="##FF6347">Event Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<td><font size="3" color="blue"><b>Event Name</b></font>
-					<td><font size="3" color="blue"><b>City Name</b></font>
-					<td><font size="3" color="blue"><b>Event Venue</b></font>
-					<td><font size="3" color="blue"><b>Category</b></font>
-					<td><font size="3" color="blue"><b>Event Date</b></font>
-					<td><font size="3" color="blue"><b>Price</b></font>
-					<td><font size="3" color="blue"><b>Book Details</b></font>
-					<td><font size="3" color="blue"><b>Comments</b></font>
+					<td><font size="3" color=#FF6347><b>Event Name</b></font>
+					<td><font size="3" color=#FF6347><b>City Name</b></font>
+					<td><font size="3" color=#FF6347><b>Event Venue</b></font>
+					<td><font size="3" color=#FF6347><b>Category</b></font>
+					<td><font size="3" color=#FF6347><b>Event Date</b></font>
+					<td><font size="3" color=#FF6347><b>Price</b></font>
+					<td><font size="3" color=#FF6347><b>Book Details</b></font>
+					<td><font size="3" color=#FF6347><b>Comments</b></font>
 			
 				</tr>
 				</thead>

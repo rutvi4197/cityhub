@@ -65,30 +65,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<form class="form-horizontal" method="post" action="addoffer.php" enctype="multipart/form-data">
 																										
 														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
 																<input type="text" class="form-control1"  name="txtoffername" placeholder="Offer Name"/>
 															</div>
 														</div>
 														
 														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
 																<input type="text" class="form-control1"  name="txtofferprice" placeholder="Offer Price"/>
 															</div>
 														</div>
 														
 														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Promocode</b></font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Promocode</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtofferpromocode" placeholder="Offer Promocode"/>
+																<input type="text" class="form-control1"  name="txtofferpromocode" placeholder="Offer Promocode" required/>
 															</div>
 														</div>
 														
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Photo</b></font></label>
 															<div class="col-sm-8">
-																<input type="file"   name="txtofferphoto" />
+																<input type="file"  class="form-control1" name="txtofferphoto" />
 															</div>
 														</div>
 														<div class="form-group">

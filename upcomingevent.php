@@ -142,6 +142,7 @@
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 	}
 			}
 				else if($m1>=$month)
@@ -157,13 +158,14 @@
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 			}
 			
 			
 		}
 		
 		}
-		$mng=$mng+1;
+		
 	}
 
 	?>

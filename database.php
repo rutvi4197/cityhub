@@ -13,6 +13,32 @@ class Database
 		return self::$con;
 	}
 	
+	public function getimage()
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from image_tbl",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
+	public function getWalletDetail($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from wallet_tbl where fk_email_id='$email'",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	public function getpastbookevent($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select b.*,e.*,v.*,c.* from book_tbl as b,event_tbl as e,venue_tbl as v,city_tbl as c  where b.fk_email_id='$email' and b.fk_event_id=e.pk_event_id and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id ",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	public function getCatByEvent($cat_id)
 	{
 		$con=database::connect();
