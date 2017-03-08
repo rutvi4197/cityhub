@@ -24,15 +24,15 @@
 							</div>
                             <div class="menu">
 									<ul id="menu" >
-										<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li> 
-										<li><a href="appdis.php"><i class="fa fa-tachometer"></i> <span>Approve/DisApprove</span></a></li> 
-										<li><a href="eventdis.php"><i class="lnr lnr-book"></i> <span>Event Display</span></a></li> 
-										<li><a href="userdis.php"><i class="lnr lnr-user"></i> <span>User Display</span></a></li> 
-										<li><a href="offerdis.php"><i class="lnr lnr-pencil"></i> <span>Offer Display</span></a></li> 
-										<li><a href="venuedis.php"><i class="lnr lnr-pencil"></i> <span>Venue Display</span></a></li> 
-										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span>Category Display</span></a></li>
-										<li><a href="pastevent.php"><i class="lnr lnr-picture"></i> <span>Past Events</span></a></li> 
-										<li><a href="disapproved.php"><i class="fa fa-tachometer"></i> <span>DisApproved Events</span></a></li> 
+										<li><a href="dashboard.php"><i class="fa fa-tachometer"></i> <span><font size="3" color="white">Dashboard</font></span></a></li> 
+										<li><a href="appdis.php"><i class="fa fa-tachometer"></i> <span><font size="3" color="white">Approve/DisApprove</font></span></a></li> 
+										<li><a href="eventdis.php"><i class="lnr lnr-book"></i> <span><font size="3" color="white">Event Display</font></span></a></li> 
+										<li><a href="userdis.php"><i class="lnr lnr-user"></i> <span><font size="3" color="white">User Display</font></span></a></li> 
+										<li><a href="offerdis.php"><i class="lnr lnr-pencil"></i> <span><font size="3" color="white">Offer Display</font></span></a></li> 
+										<li><a href="venuedis.php"><i class="lnr lnr-pencil"></i> <span><font size="3" color="white">Venue Display</font></span></a></li> 
+										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span><font size="3" color="white">Category Display</font></span></a></li>
+										<li><a href="pastevent.php"><i class="lnr lnr-picture"></i> <span><font size="3" color="white">Past Events</font></span></a></li> 
+										<li><a href="disapproved.php"><i class="fa fa-tachometer"></i> <span><font size="3" color="white">DisApproved Events</font></span></a></li> 
 									</ul>
 							</div>
 				</div>
