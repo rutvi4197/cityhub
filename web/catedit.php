@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Update Category  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Update Category  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														
 															<input type="text" class="form-control1" id="focusedinput" value="<?php echo $cat_name; ?>" name="txtcatname" placeholder="Category Name"/>
 															<input type="text" hidden class="form-control1" id="focusedinput" value="<?php echo $pk_cat_id; ?>" name="txtcatid" placeholder="Category Id"/>	
-															<button type="submit" class="btn btn-default" value="Update" name="btnupdate" >Update</button>
+															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Update" name="btnupdate" >Update</button></center>
 															</div>
 														</div>
 													</form>

@@ -91,12 +91,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<thead>
 				<tr class="active">
 					<td><font size="3" color=#FF6347><b>Event Name</b></font>
-					<td><font size="3" color=#FF6347><b>City Name</b></font>
+					<td><font size="3" color=#FF6347><b>City</b></font>
 					<td><font size="3" color=#FF6347><b>Event Venue</b></font>
 					<td><font size="3" color=#FF6347><b>Category</b></font>
 					<td><font size="3" color=#FF6347><b>Event Date</b></font>
 					<td><font size="3" color=#FF6347><b>Price</b></font>
-					<td><font size="3" color=#FF6347><b>Book Details</b></font>
+					<td><font size="3" color=#FF6347><b>Ticket Details</b></font>
 					<td><font size="3" color=#FF6347><b>Comments</b></font>
 			
 				</tr>
@@ -110,14 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["cat_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
-					echo '<td><a href="bookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: blue" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button></a>';
-					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: green" type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span></button></a>';
+					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_date"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_price"].'</font>';
+					echo '<td><a href="bookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align">Ticket Details</button></a>';
+					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-default" aria-label="Left Align">Comments</button></a>';
 					echo '</tr>';
 				}						
 				
