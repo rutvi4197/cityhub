@@ -83,33 +83,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">User Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">User Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<th><font size="3" color="blue"><b>User Email Id</b></font>
-					<th><font size="3" color="blue"><b>User Name</b></font>
-					<th><font size="3" color="blue"><b>City Name</b></font>
-					<th><font size="3" color="blue"><b>User Mobilie Number</b></font>
+					<th><font size="3" color="#FF6347"><b>User Email Id</b></font>
+					<th><font size="3" color="#FF6347"><b>User Name</b></font>
+					<th><font size="3" color="#FF6347"><b>City Name</b></font>
+					<th><font size="3" color="#FF6347"><b>User Mobilie Number</b></font>
+					<th><font size="3" color="#FF6347"><b>Delete</b></font>
 				</tr>
 				</thead>
 			
 			<tbody>
 				<?php
 							
-
 				$obj=new Database();
 				$res=$obj->getAllUsersAndCity();
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["pk_email_id"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["user_mobile_no"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["pk_email_id"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["user_mobile_no"].'</font>';
+					echo '<td><a href="userdel.php?id='.$row["pk_email_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 					echo '</tr>';
 				}						
 				

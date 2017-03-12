@@ -83,23 +83,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Offer Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Offer Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 												
 										<div>
-											<a href="addoffer.php"><font size="5"><span style="color:blue;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
+											<a href="addoffer.php"><font size="5"><span style="color:#FF6347;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
 										</div>		
 																		
 				<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<th><font size="3" color="blue"><b>Offer Name</b></font>
-					<th><font size="3" color="blue"><b>Offer Promodoe</b></font>
-					<th><font size="3" color="blue"><b>Offer Price</b></font>
-					<th><font size="3" color="blue"><b>Offer Photo</b></font>
-					<th><font size="3" color="blue"><b>Update</b></font>
-					<th><font size="3" color="blue"><b>Delete</b></font>
+					<th><font size="3" color="#FF6347"><b>Offer Name</b></font>
+					<th><font size="3" color="#FF6347"><b>Offer Promodoe</b></font>
+					<th><font size="3" color="#FF6347"><b>Offer Price</b></font>
+					<th><font size="3" color="#FF6347"><b>Offer Photo</b></font>
+					<th><font size="3" color="#FF6347"><b>Update</b></font>
+					<th><font size="3" color="#FF6347"><b>Delete</b></font>
 				</tr>
 				</thead>
 				
@@ -112,12 +112,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["offer_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["offer_promocode"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["offer_price"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["offer_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["offer_promocode"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["offer_price"].'</font>';
 					echo '<td><center><img src="../'.$row["offer_photo"].'" height="100px" width="100px"></center>';
-					echo '<td><a href="offeredit.php?id='.$row["pk_offer_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></font></a></td>';
-					echo '<td><a href="offerdel.php?id='.$row["pk_offer_id"].'"><font size="4" color="black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></font></a></td>';
+					echo '<td><a href="offeredit.php?id='.$row["pk_offer_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="offerdel.php?id='.$row["pk_offer_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 		
 					echo '</tr>';
 				}						

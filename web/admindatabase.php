@@ -183,6 +183,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function userDel($pk_email_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from user_tbl where pk_email_id='$pk_email_id'",$con);
+			return $res;
+			database::disconnect();
+	}
 	
 	public function eventApprove($pk_event_id)
 	{		$con=database::connect();

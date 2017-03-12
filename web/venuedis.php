@@ -84,17 +84,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Venue Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Venue Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<th><font size="3" color="blue"><b>Venue Name</b></font>
-					<th><font size="3" color="blue"><b>Venue Address</b></font>
-					<th><font size="3" color="blue"><b>City Name</b></font>
-					<th><font size="3" color="blue"><b>Pincode</b></font>
+					<th><font size="3" color="#FF6347"><b>Venue Name</b></font>
+					<th><font size="3" color="#FF6347"><b>Venue Address</b></font>
+					<th><font size="3" color="#FF6347"><b>City</b></font>
+					<th><font size="3" color="#FF6347"><b>Pincode</b></font>
 				</tr>
 				</thead>
 			
@@ -107,10 +107,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["venue_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["venue_address"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["pincode"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["venue_address"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["pincode"].'</font>';
 					echo '</tr>';
 				}						
 				

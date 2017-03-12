@@ -53,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Offer  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Offer  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<div class="form-group">
 															<div class="col-sm-8">
 																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
-																<button type="submit" class="btn btn-default" value="Add" name="btnadd" >Add</button>
+																<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btnadd" >Add</button></center>
 															</div>
 														</div>
 															<?php 
