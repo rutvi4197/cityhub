@@ -41,6 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//skycons-icons-->
 </head> 
 <body>
+
+<?php include 'sidebar.php' ?>
+
    <div class="page-container">
    <!--/content-inner-->
 	<div class="left-content">
@@ -99,12 +102,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</div>
 														<div class="col-md-3 widget states-last">
 															<div class="stats-left">
-																<h5>Total</h5>
-																<h4>City</h4>
+																<h5>Today's</h5>
+																<h4>Events</h4>
 															</div>
 															<?php 
 																$obj=new Database();
-																$res=$obj->getAllCity();
+																$d=date("d-m-Y");
+																$res=$obj->getAllEventByDate($d);
 																$count=mysql_num_rows($res);
 															?>
 															<div class="stats-right">
@@ -113,9 +117,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="clearfix"> </div>	
 														</div>
 														<div class="clearfix"> </div>	
+														
+														
+														
+														
+														
 													</div>
 												</div>
-									
+												
+												<br>
+											
 									</div>
 									 <!--footer section start-->
 										
@@ -124,9 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 				<!--//content-inner-->
-				<?php 
-				include 'sidebar.php';
-				?>
+				
 							<script>
 							
 							

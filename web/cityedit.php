@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	$pk_cat_id=$_REQUEST["id"];
 	include 'admindatabase.php';
 ?>
 <!DOCTYPE HTML>
@@ -53,47 +54,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Category  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Update City  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
 			
+													<?php
+														$obj=new Database();
+														$res=$obj->cityEdit1($pk_cat_id);
+														while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+														{
+															$pk_city_id=$row["pk_city_id"];		
+															$city_name=$row["city_name"];		
+														}
+														
+													 ?>
+							
 										<div class="set-1">
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addcat.php">
+													<form class="form-horizontal" method="post" action="cityedit1.php">
 														<div class="form-group">
-														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font><font color="red">*</font></label>
+														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>City Name</b></font></label>
 															<div class="col-sm-8">
-															
-															<input type="text" class="form-control1" id="focusedinput" name="txtcat" placeholder="Category Name"/>
-															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btncatadd" >Add</button></center>
-													</form>
-															<?php 
 														
-															if(isset($_POST["btncatadd"]))
-															{
-																
-																$cat=$_POST["txtcat"];
-																$obj=new Database();
-																$res=$obj->addCat($cat);
-																
-																if($res==1)
-																{
-																	header('location:catdis.php');
-																}
-																else
-																{
-																	echo $cat;
-																}
-															}	
-											
-															
-															
-															?>
+															<input type="text" class="form-control1" id="focusedinput" value="<?php echo $city_name; ?>" name="txtcityname" placeholder="City Name"/>
+															<input type="text" hidden class="form-control1" id="focusedinput" value="<?php echo $pk_city_id; ?>" name="txtcityid" placeholder="City Id"/>	
+															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Update" name="btncityupdate" >Update</button></center>
 															</div>
 														</div>
+													</form>
+													
+														
 													</div>
 												</div>
 											</div>

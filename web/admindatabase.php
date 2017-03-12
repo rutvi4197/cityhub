@@ -152,6 +152,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function addCity($city)
+	{		$con=database::connect();
+			$res=mysql_query("insert into city_tbl(city_name) values('$city')",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function userdetail($email)
 	{		$con=database::connect();
 			$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);
@@ -167,6 +173,12 @@ class Database
 	public function catDel($pk_cat_id)
 	{		$con=database::connect();
 			$res=mysql_query("delete from cat_tbl where pk_cat_id='$pk_cat_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function cityDel($pk_city_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from city_tbl where pk_city_id='$pk_city_id'",$con);
 			return $res;
 			database::disconnect();
 	}
@@ -214,6 +226,19 @@ class Database
 	public function catEdit1($pk_cat_id)
 	{		$con=database::connect();
 			$res=mysql_query("select * from cat_tbl where pk_cat_id='$pk_cat_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function cityEdit($pk_city_id,$city_name)
+	{		$con=database::connect();
+			$res=mysql_query("update city_tbl set city_name='$city_name' where pk_city_id='$pk_city_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	
+	public function cityEdit1($pk_city_id)
+	{		$con=database::connect();
+			$res=mysql_query("select * from city_tbl where pk_city_id='$pk_city_id'",$con);
 			return $res;
 			database::disconnect();
 	}

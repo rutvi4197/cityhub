@@ -53,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Category  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add City </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -62,30 +62,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addcat.php">
+													<form class="form-horizontal" method="post" action="addcity.php">
 														<div class="form-group">
-														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Category Name</b></font><font color="red">*</font></label>
+														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>City Name</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
 															
-															<input type="text" class="form-control1" id="focusedinput" name="txtcat" placeholder="Category Name"/>
-															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btncatadd" >Add</button></center>
+															<input type="text" class="form-control1" id="focusedinput" name="txtcity" placeholder="City Name"/>
+															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btncityadd" >Add</button></center>
 													</form>
 															<?php 
 														
-															if(isset($_POST["btncatadd"]))
+															if(isset($_POST["btncityadd"]))
 															{
 																
-																$cat=$_POST["txtcat"];
+																$city=$_POST["txtcity"];
 																$obj=new Database();
-																$res=$obj->addCat($cat);
+																$res=$obj->addCity($city);
 																
 																if($res==1)
 																{
-																	header('location:catdis.php');
+																	header('location:citydis.php');
 																}
 																else
 																{
-																	echo $cat;
+																	echo $city;
 																}
 															}	
 											
