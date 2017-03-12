@@ -77,7 +77,7 @@
 			</br>
 					<label><font color="black" size=2>Mobile Number</font></label>
 					</br>
-					<input type="text" placeholder="Enter Mobile Number" name="txtmob" class="form-control" required/> 
+					<input type="number" placeholder="Enter Mobile Number" name="txtmob" class="form-control" maxlength="11" required/> 
 					</br>
 					
 					<label><font color="black" size=2>User Name</font></label>
@@ -116,7 +116,11 @@
 	if(isset($_POST["btnsignup"]))
 	{
 		$email=$_POST["txtemail"];
-		$name=$_POST["txtuname"];
+		$obj=new database();
+		$res=$obj->signupcheck($email);
+		$cnt=mysql_num_rows($res);
+		if($cnt==0)
+		{$name=$_POST["txtuname"];
 		$pwd=$_POST["txtpwd"];
 		$repwd=$_POST["txtpwd1"];
 		$mobile=$_POST["txtmob"];
@@ -132,6 +136,7 @@
 			if($res==1)
 			{
 				$_SESSION["email"]=$email;
+				header('Location:index.php');
 			}
 			else
 			{
@@ -142,7 +147,11 @@
 		{		
 			echo"your Password and Confirm Password is wrong";
 		}
-	}	
+		}
+		else{
+				echo '<script>alert("Your Email Address already user");</script>';
+		}
+	}
 	?>
 	
 </body>

@@ -84,13 +84,7 @@
 					</br>
 					<input type="text" placeholder="Event Title" name="txtname" class="form-control" value="<?php echo $event_name; ?>" required/> 
 					</br>
-							
-	
-					<label><font color="black" size=2>Event Description</font></label>
-					</br>
-					<textarea rows="9" cols="76" name="txtdes"  placeholder="Event Description"  class="form-control"><?php echo $event_des; ?>
-					</textarea>
-					</br>
+						
 					
 					<label><font color="black" size=2>Venue Name</font></label>
 					</br>
@@ -101,6 +95,23 @@
 					</br>
 					<input type="text" placeholder="Venue Address" name="txtvenueaddress"value="<?php echo $venue_add; ?>" class="form-control" required/> 
 					</br>
+					<label><font color="black" size=2>Select City</font></label>
+					</br>
+					<select name="txtcity" class="form-control" >
+	
+								<?php
+									$obj=new database();
+									$res=$obj->getAllCity();
+									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+									{
+										echo '<option value="'.$row["pk_city_id"].'"'; 
+										if($row["pk_city_id"]==$city_id){
+										echo 'selected="selected"';
+										}
+										echo '>'.$row["city_name"].'</option>';
+									}
+								?>
+					</select>	
 					
 					
 					
@@ -130,28 +141,8 @@
 					<input type="text" placeholder="Event ticket" name="txtticket" class="form-control" value="<?php echo $event_ticket; ?>" required/> 
 					</br>
 				
-					<label><font color="black" size=2>Event Price</font></label>
-					</br>
-					<input type="number" placeholder="Event Price" name="txtprice" class="form-control" value="<?php echo $event_price; ?>" required/> 
-					</br>
+										
 					
-					<label><font color="black" size=2>Select City</font></label>
-					</br>
-					<select name="txtcity" class="form-control" >
-	
-								<?php
-									$obj=new database();
-									$res=$obj->getAllCity();
-									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
-									{
-										echo '<option value="'.$row["pk_city_id"].'"'; 
-										if($row["pk_city_id"]==$city_id){
-										echo 'selected="selected"';
-										}
-										echo '>'.$row["city_name"].'</option>';
-									}
-								?>
-					</select>	
 		
 					
 			
@@ -203,7 +194,6 @@
 		$event_date=$_POST["txtdate"];		
 		$event_time=$_POST["txttime"];		
 		$event_ticket=$_POST["txtticket"];
-		$event_price=$_POST["txtprice"];
 																					
 		$obj=new database();
 		$res1=$obj->updateevent($event_id,$event_des,$event_name,$event_date,$event_time,

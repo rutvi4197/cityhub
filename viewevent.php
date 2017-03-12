@@ -32,6 +32,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Cityhub</title>
 <link href="Content/bootstrap.css" rel="stylesheet"/>
 <script src="Scripts/jquery-1.9.1.js"></script>
 <script src="Scripts/bootstrap.js"></script>
@@ -58,13 +59,19 @@ else
 
 <div class="row">
 <div class="col-md-12 col-sm-12">
-<img src="<?php echo $event_image; ?>" height="300" width="1500">
+<center>
+<div width="1200">
+<img src="<?php echo $event_image; ?>">
+</div>
+</center>
 </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
 <div class="row" style="background-color: #8a0aa6  ; color:white;">
 <div class="col-md-12 col-sm-12">
+<center>
+
 <?php 
 echo ' <table width=100%>
 		<tr>
@@ -80,6 +87,8 @@ echo ' <table width=100%>
 </table>';
 
 ?>
+
+</center>
 </div>
 </div>
 </div>
@@ -178,23 +187,34 @@ echo ' <table width=100%>
 				if(isset($_POST["btncomment"]))
 				{
 					$obj1=new database();
-				$comment=$_POST["comment"];
-				
-				$date=date("d-m-Y");
-				if(isset($_SESSION["email"]))
+				$comment=trim($_POST["comment"]);
+				if($comment=="")
 				{
-				$email=$_SESSION["email"];
+						echo '<script>alert("Enter Comment");</script>';
+			
 				}
 				else
 				{
-					header('Location:login.php');
+					
+					$date=date("d-m-Y");
+				if(isset($_SESSION["email"])!="")
+				{
+					
+					$email=$_SESSION["email"];
+				}
+				else
+				{
+					header('Location:login.php?id='.$event_id.'');
 				}
 				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
 				if($res1==1)
 				{
-				header('Location:viewevent.php?id='.$event_id.'');
+					echo '<script>alert("Comment Successfully added");</script>';
+					header('Location:viewevent.php?id='.$event_id.'');
 				}
 				}
+			}
+				
 		
 		?>
 		
@@ -206,7 +226,14 @@ echo ' <table width=100%>
 </div>
 </div>
 
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
 
+require 'footer.php';
+?>
+</div>
+</div>
 </body>
 
 </html>

@@ -1,12 +1,10 @@
 
 
-<div class="row">
-<div class="col-md-12">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -16,12 +14,12 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-	 <li> <a  style="margin-right:30px; color:white;" href="aboutus.php">About Us</a></li>
-	 <li> <a  style="margin-right:30px; color:white;" href="contactus.php">Contact Us</a></li>
-	 <li> <a  style="margin-right:30px;  color:white;" href="feedbackform.php">Feedback</a></li>
-	 <li> <a  style="margin-right:30px; color:white;" href="privacypolicy.php">Privacy Policy</a></li>
+	 <li> <a  style="margin-right:30px; color:white; font-size:18px;" href="aboutus.php">About Us</a></li>
+	 <li> <a  style="margin-right:30px; color:white;font-size:18px;" href="contactus.php">Contact Us</a></li>
+	 <li> <a  style="margin-right:30px;  color:white;font-size:18px;" href="feedbackform.php">Feedback</a></li>
+	 <li> <a  style="margin-right:30px; color:white; font-size:18px;" href="privacypolicy.php">Privacy Policy</a></li>
 	 <p>
 </ul>   
       

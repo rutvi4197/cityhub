@@ -99,13 +99,7 @@ require 'catheader.php';
 
 	?>
 	</br></br>
-	<center>
-		<a href="moreoffer.php"><table class="table" border="2" style="width:50%;" >
-			<tr>
-				<td style="background-color:lightblue;width:150px"><center>More Offers</td>
-			</tr>
-			</table></a>
-			</center>
+	<a href="moreoffer.php" style="margin-left:100px"><button type="button" class="btn btn-success navbar-btn">More offers</button></a>
 </div>
 <div class="col-md-9 col-sm-9">
 </br>
@@ -151,7 +145,7 @@ require 'catheader.php';
 		echo '
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail" style="height:250px">
-      <img src="'.$row["event_logo"].'" style="height:100px;">
+      <img src="'.$row["event_logo"].'" style="height:150px;">
 	  <a href=viewevent.php?id='.$row["pk_event_id"].'>
       <div class="caption">
         <h4><b>'.$row["event_name"].'</b></h4>
@@ -175,13 +169,7 @@ require 'catheader.php';
 </div>
 <div class="row">
 <div class="col-md-12 col-sm-12">
-<center>
-		<a href="moreevent.php"><table class="table" border="2" style="width:20%;" >
-			<tr>
-				<td style="background-color:lightblue;width:150px"><center>More Event</td>
-			</tr>
-			</table></a>
-			</center>
+<a href="moreevent.php" style="margin-left:750px"><button type="button" class="btn btn-success navbar-btn">More Event</button></a>
 </div>
 </div>
 <div class="row">

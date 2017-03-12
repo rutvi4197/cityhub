@@ -83,6 +83,9 @@
 	<?php
 	$mng=0;
 	$res=$obj->getCatByEvent($cat_id);
+	$cnt=mysql_num_rows($res);
+	if($cnt>0)
+	{
 	while($row=mysql_fetch_assoc($res))
 	{
 		if($mng<12)
@@ -113,6 +116,7 @@
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 	}
 			}
 				else if($m1>=$month)
@@ -128,17 +132,31 @@
 	  </a>
     </div>
   </div>';
+  $mng=$mng+1;
 			}
 			
 			
 		}
 		
 		}
-		$mng=$mng+1;
+		
+	}
+	}
+	else{
+		echo '<script>alert("No Event");</script>';
+		
 	}
 
 	?>
+	</div>
+	</div>
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
 
-	
+require 'footer.php';
+?>
+</div>
+</div>
 </body>
 </html>
