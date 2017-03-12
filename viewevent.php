@@ -60,38 +60,34 @@ else
 <div class="row">
 <div class="col-md-12 col-sm-12">
 <center>
-<div width="1200">
+<div width="1200" class="thumbnail">
 <img src="<?php echo $event_image; ?>">
 </div>
 </center>
 </div>
 </div>
 
-<div class="container">
-<div class="row" style="background-color: #8a0aa6  ; color:white;">
+<div class="row" style="color:white;">
 <div class="col-md-12 col-sm-12">
 <center>
-
+<div class="alert alert-warning alert-dismissible"  width="100">
 <?php 
-echo ' <table width=100%>
-		<tr>
-		<td ><font size=6 >'.$event_name.' - '.$city_name.'</font>
+echo ' 
+		<font size=6 >'.$event_name.' - '.$city_name.'</font>
 		
-		<td style="text-align:right;" ><font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;&nbsp;</span></font>
-		</tr>
-		<tr>
-		<td><font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>
+		<h6 style="text-align:right;" ><font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;&nbsp;</span></font></h6>
 		
-		<td style="text-align:right"><font size=5">Direction</font>
-		</tr> 
-</table>';
+		<font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>
+		
+		<h5 style="text-align:right"><font size=5">Direction</font></h6>
+		';
 
 ?>
-
+</div>
 </center>
 </div>
 </div>
-</div>
+
 
 <div class="container">
 <div class="row">
