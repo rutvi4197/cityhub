@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	$id=$_REQUEST["id"];
 	require 'database.php';
 	$obj=new database();
 ?>
@@ -98,7 +99,13 @@
 			$_SESSION["email"]=$email;
 			if($type=="user")
 			{
-			header('Location:index.php');
+				if($id==0)
+				{
+				header('Location:index.php');
+				}
+				else{
+					header('Location:viewevent.php?id='.$id.'');
+				}
 			}
 			else{
 				header('Location:web/index.php');
@@ -110,7 +117,15 @@
 		}
 	}		
 	?>
-	
+	</br>
+	<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+
+require 'footer.php';
+?>
+</div>
+</div>
 	
 </body>
 </html>

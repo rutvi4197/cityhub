@@ -30,6 +30,16 @@ class Database
 	database::disconnect();
 	
 	}
+	
+	public function signupcheck($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	public function getpastbookevent($email)
 	{
 		$con=database::connect();

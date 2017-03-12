@@ -134,17 +134,12 @@
 		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
 
-			<a href="eventreport.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
-			<tr>
-				<td style="background-color:lightblue;"><center>Manage</td>
-			</tr>
-			</table></a>
+			<a href="eventreport.php?id='.$row["pk_event_id"].'">
+			<center><button type="button" class="btn btn-danger navbar-btn">Manage Event</button</a></center>
 		</br>
-		<a href="updateevent.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
-			<tr>
-				<td style="background-color:lightblue;"><center>Update</td>
-			</tr>
-			</table></a>
+		<a href="updateevent.php?id='.$row["pk_event_id"].'">
+				<center><button type="button" class="btn btn-danger navbar-btn">Update Event</button>
+			</a></center> 
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
@@ -186,17 +181,12 @@
 		<div class="col-md-3 col-sm-3">
 		</br>
 		<font size=4>Event Id     : &nbsp;'.$row["pk_event_id"].'</font></br><br>   
-		<a href="eventreport.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
-			<tr>
-				<td style="background-color:lightblue;"><center>Manage</td>
-			</tr>
-			</table></a>
-			</br>
-			<a href="updateevent.php?id='.$row["pk_event_id"].'"><table class="table" border="1">
-			<tr>
-				<td style="background-color:lightblue;"><center>Update</td>
-			</tr>
-			</table></a>
+		<a href="eventreport.php?id='.$row["pk_event_id"].'">
+			<center><button type="button" class="btn btn-danger navbar-btn">Manage Event</button</a></center>
+		</br>
+		<a href="updateevent.php?id='.$row["pk_event_id"].'">
+				<center><button type="button" class="btn btn-danger navbar-btn">Update Event</button>
+			</a></center> 
 		</div>
 		
 		<div class="col-md-9 col-sm-9">
@@ -225,7 +215,14 @@
 	</div>
 	</div>
 	</div>
-	
+<div class="row">
+<div class="col-md-12 col-sm-12">
+<?php 
+
+require 'footer.php';
+?>
+</div>
+</div>	
 	
 </body>
 </html>
