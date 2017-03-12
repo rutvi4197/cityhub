@@ -5,7 +5,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add Admin</title>
+<title>City Display</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -85,86 +85,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Admin </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">City Display </font></center></h3>
 									<div class="graph">
-								
-									
-									<div class="form">
+										<div class="tables" >		
 			
-									<form method="post" action="#">
-
-										<label><font color="black" size=2>Email Address</font></label>
-										</br>
-										<input type="email" placeholder="Enter Email Id" name="txtemail" class="form-control1" required/> 
-										</br>
-										
-										<label><font color="black" size=2>Password</font></label>
-										</br>
-										<input type="password" placeholder="Enter password" name="txtpwd" class="form-control1" required/> 
-										</br>
-										
-										<label><font color="black" size=2>Mobile Number</font></label>
-										</br>
-										<input type="text" placeholder="Enter Mobile Number" name="txtmob" class="form-control1" required/> 
-										</br>
-										
-										<label><font color="black" size=2>User Name</font></label>
-										</br>
-										<input type="text" placeholder="Enter User Name" name="txtuname" class="form-control1"required/> 
-										</br>
-										
-										<label><font color="black" size=2>Select City</font></label>
-										</br>
-										<select name="txtcity" class="form-control" >
-													<?php
-														$obj=new database();
-														$res=$obj->getAllCity();
-														while($row=mysql_fetch_array($res,MYSQL_ASSOC))
-														{
-															echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
-														}
-													?>
-										</select>	
-										</br>
-					
-					
-										<div>
-											<center><input type="submit" name="btnsignup" value="Add" class="btn btn-success"/></center>
+			
+				<div>
+					<a href="addcity.php"><font size="5"><span style="color:#FF6347;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></font></a>
+				</div>
+			<br>	
+			<table class="table table-bordered" id="dataTable">
+				
+				<thead>
+				<tr class="active">
+					<th><font size="3" color="#FF6347"><b>City Id</b></font>
+					<th><font size="3" color="#FF6347"><b>City Name</b></font>
+					<th><font size="3" color="#FF6347"><b>Update</b></font>
+					<th><font size="3" color="#FF6347"><b>Delete</b></font>
+				</tr>
+				</thead>
+				<tbody>
+			
+				<?php
+							
+				$obj=new Database();
+				$res=$obj->getAllCity();
+				while($row=mysql_fetch_assoc($res))
+				{
+					echo '<tr>';
+					echo '<td><font size="3" color="black">'.$row["pk_city_id"].'</font></td>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font></td>';
+					echo '<td><a href="cityedit.php?id='.$row["pk_city_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>';
+					echo '<td><a href="citydel.php?id='.$row["pk_city_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
+					echo '</tr>';
+				}						
+				
+				?>	
+			</tbody>
+			</table> 
+			
 										</div>
-									</form>
 									</div>
-									</div>
-							</div>
-	
-							<?php 
-							if(isset($_POST["btnsignup"]))
-							{
-								$email=$_POST["txtemail"];
-								$name=$_POST["txtuname"];
-								$pwd=$_POST["txtpwd"];
-								$mobile=$_POST["txtmob"];
-								$city=$_POST["txtcity"];
-								
-								$photo="";
-								$type="admin";
-								
-								$obj=new database();
-								$res=$obj->signup($email,$pwd,$mobile,$name,$city,$type,$photo);
-								if($res==1)
-								{
-									header('location:index.php');
-								}
-								else
-								{
-									echo"something went wrong";
-								}
-							}
-							?>
-	
-	
-			
-			
-		
 							</div>
 					</div>
 				</div>

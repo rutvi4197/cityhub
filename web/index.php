@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 session_start();
 include 'admindatabase.php';
 
@@ -6,7 +6,7 @@ include 'admindatabase.php';
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -41,6 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//skycons-icons-->
 </head> 
 <body>
+
+<?php include 'sidebar.php' ?>
+
    <div class="page-container">
    <!--/content-inner-->
 	<div class="left-content">
@@ -54,48 +57,76 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												   <div class="row-one">
 														<div class="col-md-3 widget">
 															<div class="stats-left ">
-																<h5>Today</h5>
-																<h4> Users</h4>
+																<h5>Total</h5>
+																<h4>Users</h4>
 															</div>
+															<?php 
+																$obj=new Database();
+																$res=$obj->getAllUsers();
+																$count=mysql_num_rows($res);
+															?>
 															<div class="stats-right">
-																<label>90</label>
+																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
 														</div>
 														<div class="col-md-3 widget states-mdl">
 															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Visitors</h4>
+																<h5>Active</h5>
+																<h4>Events</h4>
 															</div>
+															<?php 
+																$obj=new Database();
+																$res=$obj->getAllActiveEvent();
+																$count=mysql_num_rows($res);
+															?>
 															<div class="stats-right">
-																<label> 85</label>
+																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
 														</div>
 														<div class="col-md-3 widget states-thrd">
 															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Tasks</h4>
+																<h5>Active</h5>
+																<h4>Offers</h4>
 															</div>
+															<?php 
+																$obj=new Database();
+																$res=$obj->getAllOffers();
+																$count=mysql_num_rows($res);
+															?>
 															<div class="stats-right">
-																<label>51</label>
+																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
 														</div>
 														<div class="col-md-3 widget states-last">
 															<div class="stats-left">
-																<h5>Today</h5>
-																<h4>Alerts</h4>
+																<h5>Today's</h5>
+																<h4>Events</h4>
 															</div>
+															<?php 
+																$obj=new Database();
+																$d=date("d-m-Y");
+																$res=$obj->getAllEventByDate($d);
+																$count=mysql_num_rows($res);
+															?>
 															<div class="stats-right">
-																<label>30</label>
+																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
 														</div>
 														<div class="clearfix"> </div>	
+														
+														
+														
+														
+														
 													</div>
 												</div>
-									
+												
+												<br>
+											
 									</div>
 									 <!--footer section start-->
 										
@@ -104,9 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 				<!--//content-inner-->
-				<?php 
-				include 'sidebar.php';
-				?>
+				
 							<script>
 							
 							
