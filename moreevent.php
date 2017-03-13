@@ -99,7 +99,7 @@ require 'catheader.php';
 
 	?>
 	</br></br>
-	<a href="moreoffer.php" style="margin-left:100px"><button type="button" class="btn btn-success navbar-btn">More offers</button></a>
+	<a href="moreoffer.php" style="margin-left:100px"><button type="button" class="btn btn-info navbar-btn">More offers</button></a>
 </div>
 <div class="col-md-9 col-sm-9">
 </br>
@@ -169,7 +169,7 @@ require 'catheader.php';
 </div>
 <div class="row">
 <div class="col-md-12 col-sm-12">
-<a href="moreevent.php" style="margin-left:750px"><button type="button" class="btn btn-success navbar-btn">More Event</button></a>
+<a href="moreevent.php" style="margin-left:750px"><button type="button" class="btn btn-info navbar-btn">More Event</button></a>
 </div>
 </div>
 <div class="row">

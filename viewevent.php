@@ -12,6 +12,9 @@
 		echo 'pageview dnt work';
 	}
 	$res=$obj->eventbyiddis($event_id);
+	$cnt=mysql_num_rows($res);
+	if($cnt==1)
+	{
 	while($row=mysql_fetch_assoc($res))
 	{
 		$event_name=$row["event_name"];
@@ -26,6 +29,14 @@
 		$event_time=$row["event_time"];
 		$event_cnt=$row["event_cnt"];
 		$event_price=$row["event_price"];
+		$lastdate=$row["event_last_date"];
+	}
+	}
+	else
+	{
+		echo '<script>alert("Event Id is Wrong");</script>';
+		header('Location:index.php');
+		
 	}
 ?>
 
@@ -66,20 +77,21 @@ else
 </center>
 </div>
 </div>
-
+<div class="container">
 <div class="row" style="color:white;">
 <div class="col-md-12 col-sm-12">
 <center>
-<div class="alert alert-warning alert-dismissible"  width="100">
+<div class="alert alert-danger alert-dismissible" role="alert">
 <?php 
 echo ' 
-		<font size=6 >'.$event_name.' - '.$city_name.'</font>
+
+		<font size=7 color="red">'.$event_name.' - '.$city_name.'</font>
+		</br>
 		
-		<h6 style="text-align:right;" ><font size=5"><span  class="glyphicon glyphicon-map-marker">&nbsp;&nbsp;</span></font></h6>
 		
-		<font size=3>Date : '.$event_date.' | Time : '.$event_time.'</font>
+		<font size=4 color="red">Date : '.$event_date.' | Time : '.$event_time.'</font>
 		
-		<h5 style="text-align:right"><font size=5">Direction</font></h6>
+		
 		';
 
 ?>
@@ -87,7 +99,7 @@ echo '
 </center>
 </div>
 </div>
-
+</div>
 
 <div class="container">
 <div class="row">
@@ -95,19 +107,24 @@ echo '
 </br>
 <div class="col-md-8 col-sm-8">
 
-<div class="alert alert-info"> 
-<table class="tabel">
+<div class="alert alert-info" role="alert"> 
+<table class="tabel" width=100%>
 <tr>
 <td><font size=5><b>Ticket Per Person </font></b>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<td><font size=5><b>| INR <?php echo $event_price; ?></font></b>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<p>Last Date : <?php echo $lastdate; ?></p></td>
+<td><font size=5><b >| INR <?php echo $event_price; ?></font></b></td>
+<?php
+
+$date1=date("d-m-Y");
+if($lastdate<=$date1)
+{
+	echo '<td style="color:red;"><font size="3">SOLD OUT</font></td>';
+}
+else
+{
+echo '
 <td>
-<form  action ="viewevent.php?id=<?php echo $event_id;  ?>" method="post" >
+<form  action ="payment.php?id='.$event_id.'" method="post" >
 <select name="no" class="form-control">
 <option value="0">0</option>
 <option value="1">1</option>
@@ -120,12 +137,19 @@ echo '
 <option value="8">8</option>
 <option value="9">9</option>
 </select>
+</td>';
+}
+?>
 </tr>
 </table>
 </div>
 </br>
-			<center><a href="payment.php?id=<?php echo $event_id;?>"><input type="button" name="btnbook" class="btn btn-primary" value="Book Now" style="height:50px;width:130px;margin-right:20px;"> </a></center>
-			
+</label><font size="3"><b>Promocode(Optional)</b></font></label>
+<input type="text" name="promo" placeholder="Enter Promocode" class="form-control" />
+</br>
+			<center><input type="submit" name="btnbook" class="btn btn-primary" value="Book Now" style="height:50px;width:130px;margin-right:20px;"> </center>
+
+</form>			
 </br>
 </br>
  
@@ -160,13 +184,14 @@ echo '
 </div>
 <div class="col-md-4 col-sm-4">
 <center>
+<form method="post" action="viewevent.php?id=<?php echo $event_id; ?>">
 	 <div class="btn-group" role="group">
     <button type="button" class="btn btn-default"><font size=5>Event Id : <?php echo $event_id; ?></font></button>
 		
   </div>
 	</br></br>
 	
-	<font size=5>	<span class="glyphicon glyphicon-envelope" aria-hidden="true">Contact Us On: <?php echo $fk_email_id; ?></span></font>
+	<font size=5>Contact Us: <font color="red"><?php echo $fk_email_id; ?></font></font>
 	
   </br></br>
 	<font size=5>Page Views : <?php echo $event_cnt; ?>

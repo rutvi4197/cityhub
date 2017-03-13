@@ -58,7 +58,7 @@
 		</br>
 	
 	<table class="table">
-	<thead>
+	<thead style="color:red">
 		<th><font size=3>Event Date</font></th>
 		<th><font size=3>Event Name</font></th>
 		<th><font size=3>Event City</font></th>
@@ -97,8 +97,8 @@
 					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_ticket"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
+					echo '<td><center><font size="4" color="black">'.$row["ticket_cnt"].'</font></center>';
+					echo '<td><center><font size="4" color="black">'.$row["ticket_amnt"].'</font></center>';
 					echo '</tr>';
 					
 				}
@@ -109,8 +109,8 @@
 					echo '<td><font size="4" color="black">'.$row["event_date"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="4" color="black">'.$row["city_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_ticket"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["event_price"].'</font>';
+					echo '<td><center><font size="4" color="black">'.$row["ticket_cnt"].'</font></center>';
+					echo '<td><center><font size="4" color="black">'.$row["ticket_amnt"].'</font></center>';
 					echo '</tr>';
 			
 			}

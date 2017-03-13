@@ -22,6 +22,33 @@ class Database
 	
 	}
 	
+	public function checkpromo($promo)
+	{
+		$con=database::connect();
+		$res=mysql_query("select * from offer_tbl where offer_promocode='$promo'",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
+	public function addpayment($email,$cardnumber,$date,$cvv)
+	{
+		$con=database::connect();
+		$res=mysql_query("insert into payment_tbl values('Null','$email','$cardnumber','$date','$cvv')",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
+	public function bookticket($email,$event_id,$no,$amnt1,$dis,$date1)
+	{
+		$con=database::connect();
+		$res=mysql_query("insert into book_tbl values('Null','$email','$event_id','$no','$amnt1','$dis','$date1')",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	
 	public function getWalletDetail($email)
 	{
 		$con=database::connect();
