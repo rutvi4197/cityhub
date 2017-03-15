@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<!--custom-widgets-->
 												<div class="custom-widgets">
 												   <div class="row-one">
-														<div class="col-md-3 widget">
+														<a href="userdis.php"><div class="col-md-3 widget">
 															<div class="stats-left ">
 																<h5>Total</h5>
 																<h4>Users</h4>
@@ -69,8 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-mdl">
+														</div><a>
+														<a href="eventdis.php"><div class="col-md-3 widget states-mdl">
 															<div class="stats-left">
 																<h5>Active</h5>
 																<h4>Events</h4>
@@ -84,8 +84,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-thrd">
+														</div><a>
+														<a href="offerdis.php"><div class="col-md-3 widget states-thrd">
 															<div class="stats-left">
 																<h5>Active</h5>
 																<h4>Offers</h4>
@@ -99,8 +99,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div>
-														<div class="col-md-3 widget states-last">
+														</div><a>
+														<a href="todayevent.php"><div class="col-md-3 widget states-last">
 															<div class="stats-left">
 																<h5>Today's</h5>
 																<h4>Events</h4>
@@ -115,9 +115,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div>
+														</div></a>
 														<div class="clearfix"> </div>	
 														
+														<br>
+														
+														<a href="appdis.php"><div class="col-md-3 widget">
+															<div class="stats-left ">
+																<h5>Approve</h5>
+																<h4>DisApprove</h4>
+															</div>
+															<?php 
+																$obj=new Database();
+																$res=$obj->getAllEventByFlag();
+																$count=mysql_num_rows($res);
+															?>
+															<div class="stats-right">
+																<label><?php echo "$count" ?></label>
+															</div>
+															<div class="clearfix"> </div>	
+														</div><a>
+														
+														
+														<a href="disapproved.php"><div class="col-md-3 widget states-mdl">
+															<div class="stats-left">
+																<h5>DisApproved</h5>
+																<h4>Events</h4>
+															</div>
+															<?php 
+																$obj=new Database();
+																$res=$obj->getAllEventByDisApproved();
+																$count=mysql_num_rows($res);
+															?>
+															<div class="stats-right">
+																<label><?php echo "$count" ?></label>
+															</div>
+															<div class="clearfix"> </div>	
+														</div></a>
 														
 														
 														
@@ -125,9 +159,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</div>
 												</div>
 												
-												<br>
+										
+										
+		
 											
-									</div>
+					</div>
+										
+						</div>
 									 <!--footer section start-->
 										
 									<!--footer section end-->

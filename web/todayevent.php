@@ -1,20 +1,11 @@
 <?php 
 	session_start();
 	include 'admindatabase.php';
-	$pk_event_id=$_REQUEST["id"];
-	
-							
-	$obj=new Database();
-	$res=$obj->getEventById($pk_event_id);
-	while($row=mysql_fetch_assoc($res))
-	{
-		$event_name=$row["event_name"];
-	}
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+<title>Event Display</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -80,29 +71,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
 <body>
 
+
+
 <?php include 'sidebar.php' ?>
 
 
 		<div class="page-container">
 			<div class="left-content">
 				<div class="inner-content">
-						<?php include 'header.php'; ?>
-	
+					<?php include 'header.php'; ?>
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Comments </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Today's Event </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
-			<h4 class="inner-tittle two"><center><font size="5" color="red">Name : <?php echo "$event_name";?> </font></center></h4>
-								
+										<?php $d=date("d-m-Y"); ?>
+			<h4 class="inner-tittle two"><center><font size="5" color="red">Date : <?php echo "$d";?>
+			</font></center></h4>
+			
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<td><font size="3" color="#FF6347"><b>Users</b></font>
-					<td><font size="3" color="#FF6347"><b>Comment</b></font>
-					<td><font size="3" color="#FF6347"><b>Date</b></font>
-					
+					<td><font size="3" color=#FF6347><b>Event Name</b></font>
+					<td><font size="3" color=#FF6347><b>City</b></font>
+					<td><font size="3" color=#FF6347><b>Event Venue</b></font>
+					<td><font size="3" color=#FF6347><b>Category</b></font>
+					<td><font size="3" color=#FF6347><b>Price</b></font>
+					<td><font size="3" color=#FF6347><b>Ticket Details</b></font>
+					<td><font size="3" color=#FF6347><b>Comments</b></font>
+			
 				</tr>
 				</thead>
 				
@@ -110,13 +108,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 							
 				$obj=new Database();
-				$res=$obj->getAllCommentEvent($pk_event_id);
+				$d=date("d-m-Y"); 
+				$res=$obj->getAllEventByDate($d);
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["comment_desc"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["comment_date"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_price"].'</font>';
+					echo '<td><a href="todaybookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align">Ticket Details</button></a>';
+					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-default" aria-label="Left Align">Comments</button></a>';
 					echo '</tr>';
 				}						
 				

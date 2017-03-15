@@ -108,7 +108,7 @@
 				}
 			}
 			else{
-				header('Location:web/index.php');
+				header('Location:web/dashboard.php');
 			}
 		}
 		else

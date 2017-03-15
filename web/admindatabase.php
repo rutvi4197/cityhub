@@ -49,7 +49,7 @@ class Database
 	public function getAllEventByDate($d)
 	{	
 			$con=database::connect();
-			$res=mysql_query("select c.*,v.*,e.* from event_tbl as e,venue_tbl as v,city_tbl as c where event_date='$d' and e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id",$con);
+			$res=mysql_query("select c1.*,c.*,v.*,e.* from cat_tbl as c1,event_tbl as e,venue_tbl as v,city_tbl as c where event_date='$d' and e.fk_venue_id=v.pk_venue_id and e.fk_cat_id=c1.pk_cat_id and v.fk_city_id=c.pk_city_id",$con);
 			return $res;
 			database::disconnect();
 	}
@@ -85,7 +85,7 @@ class Database
 
 	public function getAllCity()
 	{		$con=database::connect();
-			$res=mysql_query("select * from city_tbl",$con);
+			$res=mysql_query("select * from city_tbl where flag=1",$con);
 			return $res;
 			database::disconnect();
 	}
@@ -172,19 +172,25 @@ class Database
 	}
 	public function catDel($pk_cat_id)
 	{		$con=database::connect();
-			$res=mysql_query("delete from cat_tbl where pk_cat_id='$pk_cat_id'",$con);
+			$res=mysql_query("update cat_tbl set flag=0 where pk_cat_id='$pk_cat_id'",$con);
 			return $res;
 			database::disconnect();
 	}
 	public function cityDel($pk_city_id)
 	{		$con=database::connect();
-			$res=mysql_query("delete from city_tbl where pk_city_id='$pk_city_id'",$con);
+			$res=mysql_query("update city_tbl set flag=0 where pk_city_id='$pk_city_id'",$con);
 			return $res;
 			database::disconnect();
 	}
 	public function eventDel($pk_event_id)
 	{		$con=database::connect();
 			$res=mysql_query("delete from event_tbl where pk_event_id='$pk_event_id'",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function venueDel($pk_venue_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from venue_tbl where pk_venue_id='$pk_venue_id'",$con);
 			return $res;
 			database::disconnect();
 	}
@@ -266,7 +272,7 @@ class Database
 	}
 	public function getAllCat()
 	{		$con=database::connect();
-			$res=mysql_query("select * from cat_tbl",$con);
+			$res=mysql_query("select * from cat_tbl where flag=1",$con);
 			return $res;
 			database::disconnect();
 	}

@@ -1,15 +1,6 @@
 <?php 
 	session_start();
 	include 'admindatabase.php';
-	$pk_event_id=$_REQUEST["id"];
-	
-							
-	$obj=new Database();
-	$res=$obj->getEventById($pk_event_id);
-	while($row=mysql_fetch_assoc($res))
-	{
-		$event_name=$row["event_name"];
-	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -45,6 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/skycons.js"></script>
 
 <script src="js/jquery.easydropdown.js"></script>
+
 <link href="../Content/bootstrap.min.css" rel="stylesheet">
     <link href="../css/jquery.dataTables_themeroller.css" rel="stylesheet">
     <link href="../css/endless.min.css" rel="stylesheet">
@@ -80,28 +72,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
 <body>
 
+
+
 <?php include 'sidebar.php' ?>
 
 
 		<div class="page-container">
 			<div class="left-content">
 				<div class="inner-content">
-						<?php include 'header.php'; ?>
-	
+				<?php include 'header.php'; ?>
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Comments </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Today's Book Details </font></center></h3>
 									<div class="graph">
-										<div class="tables">		
-			<h4 class="inner-tittle two"><center><font size="5" color="red">Name : <?php echo "$event_name";?> </font></center></h4>
+										<div class="tables">	
+											<?php 	$d=date("d-m-Y"); ?>
+			<h4 class="inner-tittle two"><center><font size="5" color="red">Date : <?php echo "$d";?>
+			</font></center></h4>
 								
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
 					<td><font size="3" color="#FF6347"><b>Users</b></font>
-					<td><font size="3" color="#FF6347"><b>Comment</b></font>
-					<td><font size="3" color="#FF6347"><b>Date</b></font>
+					<td><font size="3" color="#FF6347"><b>Ticket Count</b></font>
+					<td><font size="3" color="#FF6347"><b>Ticket Amount</b></font>
 					
 				</tr>
 				</thead>
@@ -110,22 +105,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 							
 				$obj=new Database();
-				$res=$obj->getAllCommentEvent($pk_event_id);
+				$d=date("d-m-Y");
+				$res=$obj->getAllEventByBookDate($d);
+				$totcnt=0;
+				$totamnt=0;
 				while($row=mysql_fetch_assoc($res))
 				{
+					$cnt=$row["ticket_cnt"];
+					$amnt=$row["ticket_amnt"];
+					$totcnt=$totcnt+$cnt;
+					$totamnt=$totamnt+$amnt;
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["comment_desc"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["comment_date"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["ticket_cnt"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["ticket_amnt"].'</font>';
 					echo '</tr>';
 				}						
 				
 				?>
 				
+		
 			</tbody>
 			</table> 
 			
 										</div>
+										<h4 class="inner-tittle two"><font size="5" color="red">Total Tickets Bought <b><u><?php echo "$totcnt "; ?></b></u> <br>Total Amount Paid <b><u><?php echo "$totamnt";?></u></b></font></h4>
+										
 									</div>
 							</div>
 					</div>

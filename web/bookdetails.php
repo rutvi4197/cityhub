@@ -93,19 +93,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Book Display </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Book Display </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
-			<h4 class="inner-tittle two"><center><font size="5" color="green">Name : <?php echo "$event_name";?>
+			<h4 class="inner-tittle two"><center><font size="5" color="red">Name : <?php echo "$event_name";?>
 			</font></center></h4>
 								
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
-					<td><font size="3" color="blue"><b>Users</b></font>
-					<td><font size="3" color="blue"><b>Ticket Count</b></font>
-					<td><font size="3" color="blue"><b>Ticket Amount</b></font>
-					<td><font size="3" color="blue"><b>Book Date</b></font>
+					<td><font size="3" color="#FF6347"><b>Users</b></font>
+					<td><font size="3" color="#FF6347"><b>Ticket Count</b></font>
+					<td><font size="3" color="#FF6347"><b>Ticket Amount</b></font>
+					<td><font size="3" color="#FF6347"><b>Book Date</b></font>
 					
 				</tr>
 				</thead>
@@ -124,10 +124,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$totcnt=$totcnt+$cnt;
 					$totamnt=$totamnt+$amnt;
 					echo '<tr>';
-					echo '<td><font size="4" color="black">'.$row["user_name"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["ticket_cnt"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["ticket_amnt"].'</font>';
-					echo '<td><font size="4" color="black">'.$row["book_date"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["user_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["ticket_cnt"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["ticket_amnt"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["book_date"].'</font>';
 					echo '</tr>';
 				}						
 				
@@ -138,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</table> 
 			
 										</div>
-										<h4 class="inner-tittle two"><font size="5" color="black">Total Tickets Bought <b><u><?php echo "$totcnt "; ?></b></u> <br>Total Amount Paid <b><u><?php echo "$totamnt";?></u></b></font></h4>
+										<h4 class="inner-tittle two"><font size="5" color="red">Total Tickets Bought <b><u><?php echo "$totcnt "; ?></b></u> <br>Total Amount Paid <b><u><?php echo "$totamnt";?></u></b></font></h4>
 										
 									</div>
 							</div>
