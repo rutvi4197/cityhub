@@ -96,7 +96,7 @@ class Database
 	public function maindis()
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.*,c.city_name from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ORDER BY pk_event_id DESC;",$con);
+		$res=mysql_query("select e.*,c.city_name from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and e.flag=1 ORDER BY pk_event_id DESC;",$con);
 		return $res;
 	database::disconnect();
 	
@@ -105,7 +105,7 @@ class Database
 	public function citywisedis($city)
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.*,c.* from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and c.pk_city_id='$city' and flag=1 ORDER BY pk_event_id DESC;",$con);
+		$res=mysql_query("select e.*,c.* from event_tbl as e,city_tbl as c,venue_tbl as v where e.fk_venue_id=v.pk_venue_id and v.fk_city_id=c.pk_city_id and c.pk_city_id='$city' and e.flag=1 ORDER BY pk_event_id DESC;",$con);
 		return $res;
 	database::disconnect();
 	
@@ -122,7 +122,7 @@ class Database
 	public function eventbyiddis($id)
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where pk_event_id='$id' and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ",$con);
+		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where pk_event_id='$id' and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and e.flag=1 ",$con);
 		return $res;
 	database::disconnect();
 	
@@ -160,7 +160,7 @@ class Database
 	public function getEventByUser($email)
 	{
 		$con=database::connect();
-		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where e.fk_email_id='$email'  and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and flag=1 ",$con);
+		$res=mysql_query("select e.*,v.*,c.* from event_tbl as e,venue_tbl as v,city_tbl as c where e.fk_email_id='$email'  and v.pk_venue_id=e.fk_venue_id and v.fk_city_id=c.pk_city_id and e.flag=1 ",$con);
 		return $res;
 	database::disconnect();
 	

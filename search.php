@@ -62,7 +62,11 @@
 									$res=$obj->getAllCity();
 									while($row=mysql_fetch_array($res,MYSQL_ASSOC))
 									{
-										echo '<option value='.$row["pk_city_id"].'>'.$row["city_name"].'</option>';
+										echo '<option value="'.$row["pk_city_id"].'"'; 
+										if($row["pk_city_id"]==$city){
+										echo 'selected="selected"';
+										}
+										echo '>'.$row["city_name"].'</option>';
 									}
 								?>
 					</select>	
