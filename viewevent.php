@@ -85,9 +85,10 @@ else
 <?php 
 echo ' 
 
-		<font size=7 color="red">'.$event_name.' - '.$city_name.'</font>
+		<font size=6 color="red">'.$event_name.' - '.$city_name.'</font>
 		</br>
-		
+		<font size=5 color="red">'.$venue_name.','.$venue_add.'</font>
+		</br>
 		
 		<font size=4 color="red">Date : '.$event_date.' | Time : '.$event_time.'</font>
 		
