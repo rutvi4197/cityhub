@@ -69,7 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div><a>
+														</div></a>
+														
 														<a href="eventdis.php"><div class="col-md-3 widget states-mdl">
 															<div class="stats-left">
 																<h5>Active</h5>
@@ -84,7 +85,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div><a>
+														</div></a>
+														
 														<a href="offerdis.php"><div class="col-md-3 widget states-thrd">
 															<div class="stats-left">
 																<h5>Active</h5>
@@ -99,7 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div><a>
+														</div></a>
+														
 														<a href="todayevent.php"><div class="col-md-3 widget states-last">
 															<div class="stats-left">
 																<h5>Total</h5>
@@ -133,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div><a>
+														</div></a>
 														
 														
 														<a href="disapproved.php"><div class="col-md-3 widget states-mdl">
@@ -167,7 +170,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<label><?php echo "$count" ?></label>
 															</div>
 															<div class="clearfix"> </div>	
-														</div><a>
+														</div></a>
+														
 														<a href="todayevent.php"><div class="col-md-3 widget states-last">
 															<div class="stats-left">
 																<h5>Today's</h5>

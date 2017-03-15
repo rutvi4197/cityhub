@@ -188,6 +188,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function bookDel($fk_event_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from book_tbl where fk_event_id='$fk_event_id'",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function venueDel($pk_venue_id)
 	{		$con=database::connect();
 			$res=mysql_query("delete from venue_tbl where pk_venue_id='$pk_venue_id'",$con);
