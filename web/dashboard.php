@@ -194,19 +194,260 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</div>
 												</div>
 												
+												
+												<div class="charts">
+												  <div class="chrt-inner">
+												    <div class="chrt-bars">
+														<div class="col-md-6 chrt-two">
+														 <h3 class="sub-tittle"><center><font size="8" color="#FF6347">Month wise Events</font></center> </h3>
+															<div id="chart2"></div>
+															<?php 
+															
+																$obj=new database();
+																$res=$obj->getAllActiveEvent();
+																$count=mysql_num_rows($res);
+																$cnt1=0;$cnt2=0;$cnt3=0;$cnt4=0;$cnt5=0;$cnt6=0;
+																while($row=mysql_fetch_assoc($res))
+																{
+																	
+																	$d=$row["event_date"];
+																	$arr=explode("-",$d);
+																	
+																	$m1=(int)$arr[1];
+																	
+																
+																	
+																	if($m1=="01")
+																	{
+																		$cnt1=$cnt1+1;;
+																	}
+																	if($m1=="02")
+																	{
+																		$cnt2=$cnt2+1;
+																	}
+																	if($m1=="03")
+																	{
+																		$cnt3=$cnt3+1;
+																	}	
+																	if($m1=="04")
+																	{
+																		$cnt4=$cnt4+1;
+																	}
+																	if($m1=="05")
+																	{
+																		$cnt5=$cnt5+1;
+																	}	
+																	if($m1=="12")
+																	{
+																		$cnt5=$cnt5+1;
+																	}
+																}
+															?>
+															<script src="js/fabochart.js"></script>
+															<script>
+															$(document).ready(function () {
+																data = {
+																 
+																  'January' : <?php echo $cnt1;?>,
+																  'February' : <?php echo $cnt2;?>,
+																  'March' : <?php echo $cnt3;?>,
+																  'April' : <?php echo $cnt4;?>,
+																  'May' : <?php echo $cnt5;?>,
+																  'June' : <?php echo $cnt6;?>
+																  
+																};
+
+																$("#chart1").faBoChart({
+																  time: 500,
+																  animate: true,
+																  instantAnimate: true,
+																  straight: false,
+																  data: data,
+																  labelTextColor : "#FF6347",
+																});
+																$("#chart2").faBoChart({
+																  time: 2500,
+																  animate: true,
+																  data: data,
+																  straight: true,
+																  labelTextColor : "#FF6347",
+																});
+															});
+															</script>
+														</div>
+														
+														
+														<div class="col-md-6 chrt-three">
+														 <h3 class="sub-tittle"><center><font size="8" color="#FF6347">Month wise Bookings</font></center> </h3>
+															<div id="chart3"></div>
+															
+																<?php 
+															
+																$obj=new database();
+																$res=$obj->getAllBook();
+																$count=mysql_num_rows($res);
+																$cnt1=0;$cnt2=0;$cnt3=0;$cnt4=0;$cnt5=0;$cnt6=0;
+																while($row=mysql_fetch_assoc($res))
+																{
+																	
+																	$d=$row["book_date"];
+																	$arr=explode("-",$d);
+																	
+																	$m1=(int)$arr[1];
+
+																	if($m1=="01")
+																	{
+																		$cnt1=$cnt1+1;;
+																	}
+																	if($m1=="02")
+																	{
+																		$cnt2=$cnt2+1;
+																	}
+																	if($m1=="03")
+																	{
+																		$cnt3=$cnt3+1;
+																	}	
+																	if($m1=="04")
+																	{
+																		$cnt4=$cnt4+1;
+																	}
+																	if($m1=="05")
+																	{
+																		$cnt5=$cnt5+1;
+																	}	
+																	if($m1=="12")
+																	{
+																		$cnt5=$cnt5+1;
+																	}
+																}
+															?>
 										
+															<script src="js/fabochart.js"></script>
+															<script>
+															$(document).ready(function () {
+																data = {
+																 
+																  'January' : <?php echo $cnt1;?>,
+																  'February' : <?php echo $cnt2;?>,
+																  'March' : <?php echo $cnt3;?>,
+																  'April' : <?php echo $cnt4;?>,
+																  'May' : <?php echo $cnt5;?>,
+																  'June' : <?php echo $cnt6;?>
+																
+																  
+																};
+
+																$("#chart1").faBoChart({
+																  time: 500,
+																  animate: true,
+																  instantAnimate: true,
+																  straight: false,
+																  data: data,
+																  labelTextColor : "#FF6347",
+																});
+																$("#chart3").faBoChart({
+																  time: 2500,
+																  animate: true,
+																  data: data,
+																  straight: true,
+																  labelTextColor : "#FF6347",
+																});
+															});
+															</script>
+														</div>
+														
+													</div>
+													
+													
+										<div class="bottom-grids">
+										<div class="dev-table">    
+										<div class="col-md-4 dev-col mid">                                    
 										
-		
+										<?php 
+															
+											$obj=new database();
+											$d=date("d-m-Y");
+											$res=$obj->getAllBookByToday($d);
+											$count=mysql_num_rows($res);
+											$tot=0;
+											while($row=mysql_fetch_assoc($res))
+											{			
+												$ticket_amnt=$row["ticket_amnt"];
+												$tot=$tot+$ticket_amnt;
+											}
+										?>
+                                            <div class="dev-widget dev-widget-transparent dev-widget-success">
+                                                <h3 class="inner">Today's Earnings</h3>
+                                                <p>This is Today's earnings </p>                                        
+                                                <div class="dev-stat">INR <span class="counter"><?php echo $tot;?></span></div>                                                                                
+                                                <div class="progress progress-bar-xs">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 79%;"></div>
+                                                </div>                                        
+											</div>
+                                        </div>
 											
-					</div>
+											
+											<div class="col-md-4 dev-col mid">
+											<?php 
+															
+											$obj=new database();
+											$d=date("d-m-Y");
+											$res=$obj->getAllEventByDate($d);
+											$count=mysql_num_rows($res);
+											
+										?>
+											 <div class="dev-widget dev-widget-transparent dev-widget-success">
+                                                <h3 class="inner">Today's Events</h3>
+                                                <p>This is Today's Events </p>                                        
+                                                <div class="dev-stat">Today <span class="counter"><?php echo $count;?> Event</span></div>                                                                                
+                                                <div class="progress progress-bar-xs">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 3%;"></div>
+                                                </div>                                        
+
+                                            
+											</div>
+										
+										</div>
+										
+										<div class="col-md-4 dev-col mid">
+											<?php 
+															
+											$obj=new database();
+											$res=$obj->getAllEventByFlag();
+											$count=mysql_num_rows($res);
+											
+										?>
+											 <div class="dev-widget dev-widget-transparent dev-widget-success">
+                                                <h3 class="inner">Approve/DisApprove</h3>
+                                                <p>This is Approve/DisApprove Box </p>                                        
+                                                <div class="dev-stat">You have <span class="counter"><?php echo $count;?> Approval/DisApproval</span></div>                                                                                
+                                                <div class="progress progress-bar-xs">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 3%;"></div>
+                                                </div>                                        
+
+                                            
+											</div>
+										
+										</div>
+										
+										</div>
+												
+													</div>
+												</div>
+												
+												
+												
+												
+											
+				
 										
 						</div>
 									 <!--footer section start-->
 										
 									<!--footer section end-->
-								</div>
-							</div>
-						</div>
+					</div>
+				</div>
+			</div>
 				<!--//content-inner-->
 				
 							<script>

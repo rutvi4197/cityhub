@@ -119,6 +119,18 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function getAllBook()
+	{		$con=database::connect();
+			$res=mysql_query("select * from book_tbl",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function getAllBookByToday($d)
+	{		$con=database::connect();
+			$res=mysql_query("select * from book_tbl where book_date='$d'",$con);
+			return $res;
+			database::disconnect();
+	}	
 	
 	public function getAllBookEvent($pk_event_id)
 	{		$con=database::connect();
