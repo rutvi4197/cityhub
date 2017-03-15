@@ -13,8 +13,13 @@
 	$obj2=new database();
 	$res2=$obj1->venueDel($fk_venue_id);
 	
+	$obj3=new database();
+	$res3=$obj3->bookDel($pk_event_id);
+	
 	$obj=new database();
 	$res=$obj->eventDel($pk_event_id);
+	
+	
 	
 	if($res==1)
 	{
