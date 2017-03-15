@@ -94,6 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<table class="table table-bordered" id="dataTable">
 				<thead>
 				<tr class="active">
+					<td><font size="3" color="#FF6347"><b>Event Name</b></font>
 					<td><font size="3" color="#FF6347"><b>Users</b></font>
 					<td><font size="3" color="#FF6347"><b>Ticket Count</b></font>
 					<td><font size="3" color="#FF6347"><b>Ticket Amount</b></font>
@@ -116,6 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$totcnt=$totcnt+$cnt;
 					$totamnt=$totamnt+$amnt;
 					echo '<tr>';
+					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="3" color="black">'.$row["user_name"].'</font>';
 					echo '<td><font size="3" color="black">'.$row["ticket_cnt"].'</font>';
 					echo '<td><font size="3" color="black">'.$row["ticket_amnt"].'</font>';

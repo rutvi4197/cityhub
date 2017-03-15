@@ -138,6 +138,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function getAllBookEventByDate($d)
+	{		$con=database::connect();
+			$res=mysql_query("select e.*,b.*,u.* from event_tbl as e,book_tbl as b,user_tbl as u where e.pk_event_id=b.fk_event_id and b.fk_email_id=u.pk_email_id and b.book_date='$d'",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function getAllCommentEvent($pk_event_id)
 	{		$con=database::connect();
 			$res=mysql_query("select e.*,c.*,u.* from event_tbl as e,comment_tbl as c,user_tbl as u where e.pk_event_id=c.fk_event_id and c.fk_email_id=u.pk_email_id and c.fk_event_id='$pk_event_id'",$con);

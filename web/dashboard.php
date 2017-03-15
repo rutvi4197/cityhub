@@ -1,7 +1,6 @@
  <?php 
 session_start();
 include 'admindatabase.php';
-
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -41,7 +40,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//skycons-icons-->
 </head> 
 <body>
-
+<?php 
+ $page = $_SERVER['PHP_SELF'];
+ $sec = "10";
+ header("Refresh: $sec; url=$page");
+?>
 <?php include 'sidebar.php' ?>
 
    <div class="page-container">
