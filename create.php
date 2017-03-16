@@ -5,7 +5,7 @@
 	}
 	else{
 		
-		header('Location:login.php');
+		header('Location:login.php?id=0');
 	}
 	require 'database.php';
 	$obj=new database();
