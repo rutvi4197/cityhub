@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="clearfix"> </div>	
 														</div></a>
 														
-														<a href="todayevent.php"><div class="col-md-3 widget states-last">
+														<a href="citydis.php"><div class="col-md-3 widget states-last">
 															<div class="stats-left">
 																<h5>Total</h5>
 																<h4>City</h4>

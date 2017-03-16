@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	$email=$_SESSION["email"];
 	include 'admindatabase.php';
 ?>
 <!DOCTYPE HTML>
@@ -54,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Offer  </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Paid Advertisement  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -63,65 +62,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addoffer.php" enctype="multipart/form-data">
-																										
+													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data">
+
 														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font><font color="red">*</font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Image Photo</b></font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtoffername" placeholder="Offer Name"/>
+																<input type="file"  class="form-control1" name="txtimagephoto" />
 															</div>
 														</div>
 														
 														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font><font color="red">*</font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Select Event</b></font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtofferprice" placeholder="Offer Price"/>
+																<select name="txteventid" class="form-control1" >
+																	<?php
+																		$obj=new database();
+																		$res=$obj->getAllActiveEvent();
+																		while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+																		{
+																			echo '<option value="'.$row["pk_event_id"].'">'.$row["event_name"].'</option>';
+																		}
+																	?>
+														</select>
 															</div>
 														</div>
 														
-														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Promocode</b></font><font color="red">*</font></label>
-															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtofferpromocode" placeholder="Offer Promocode" required/>
-															</div>
-														</div>
 														
-														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Photo</b></font></label>
-															<div class="col-sm-8">
-																<input type="file"  class="form-control1" name="txtofferphoto" />
-															</div>
-														</div>
+														
 														<div class="form-group">
 															<div class="col-sm-8">
 																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
 																<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btnadd" >Add</button></center>
 															</div>
 														</div>
+														
+																																							
+														
+														
 															<?php 
 														
 															if(isset($_POST["btnadd"]))
 															{
-																$pk_offer_id="NULL";
-																$fk_email_id=$email;
-																$offer_name=$_POST["txtoffername"];
-																$offer_price=$_POST["txtofferprice"];
-																$offer_promocode=$_POST["txtofferpromocode"];															
-																$offer_photo="../offerimage/".$_FILES["txtofferphoto"]["name"];
-																$ext=pathinfo($offer_photo,PATHINFO_EXTENSION);
-																$fk_event_id=0;
+																$image_id="NULL";
+																$fk_event_id=$_POST["txteventid"];
+																$image_photo="image/".$_FILES["txtimagephoto"]["name"];
+																$ext=pathinfo($image_photo,PATHINFO_EXTENSION);
+															
 																if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
 																{
-																	if(move_uploaded_file($_FILES["txtofferphoto"]["tmp_name"],$offer_photo))
+																	if(move_uploaded_file($_FILES["txtimagephoto"]["tmp_name"],$image_photo))
 																	{
-																		$offer_photo="offerimage/".$_FILES["txtofferphoto"]["name"];
+																		$image_photo="image/".$_FILES["txtimagephoto"]["name"];
 																$obj=new Database();
-																$res=$obj->addOffer($pk_offer_id,$fk_email_id,$offer_price,
-																$offer_promocode,$offer_photo,$fk_event_id,$offer_name);
+																$res=$obj->addImage($image_id,$image_photo,$fk_event_id);
 																
 																if($res==1)
 																{
-																	header('location:offerdis.php');
+																	header('location:imagedis.php');
 																}
 																else
 																{

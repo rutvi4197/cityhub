@@ -1,4 +1,4 @@
-<?php
+<?php 
 	session_start();
 	include 'database.php';
 ?>
@@ -37,26 +37,27 @@ require 'catheader.php';
 </div>
 </div>
 
+
 <div class="container"> 
 <div class="row">
-		<h1 style="color:blue; font-size:50px;"><center>About Us</center></h1>
-	
-	</div>
+	<h1 style="color:blue; font-size:50px;"><center>About Us</center></h1>
+</div>
 </div>
 
 <p>
-<li>AskMe, the flagship product from Getit Infomedia, is your one stop destination to find information related to anything and everything; be it restaurants, travel, matrimony, jobs, education, mobile, gadgets, etc. We cater to your immediate and impulsive requirement of information on mobile, internet and voice. AskMe has an extensive directory of information from across India that is both accurate as well as diverse.</li></br></br>
+<br>
+<li>  The idea crossed the mind of Rutvi Shah when she was attending professional conferences to identify a B2C activity to set up a business. </li></br></br>
 
-<li>AskMe, launched in June 2011, is available 24X7 for consumers across all major cities in India. Users can call on 4444 4444 44 (10 times 4) or logon to www.askme.com for information on companies, products, and services. AskMe Voice service boasts of an extremely consumer friendly call flow, which works to ensure that the customer gets real-time and accurate information.</li></br></br>
+<li>  Just 5 enthusiastic staffers have begun listing various events together. The baby steps were made by CITYHUB as an event discovery platform. </li></br></br>
 
-<li>As a business, you can reach your customers whenever and wherever they are looking for you using our robust and cost-effective service which is available across channels viz. mobile, internet, print and voice.</li></br></br>
+<li>  Ticket has been enabled and transactions have been commenced in a humble manner and the first milestone was achieved in first four months. </li></br></br>
 
-<li>Askme.com is an online social community for IT professionals and developers to exchange their knowledge and experience using various methods such as contributing articles, forums, blogs, and videos. Askme.com reaches 3+ million monthly users worldwide.Recently announced Askme.com Corner News Section keeps you up to date with the latest technology news. A big thank you to all of Askme.com
-members and authors who have been giving back to the community for years.</li>
+<li>  Major Accounts are Entertainment Professional sector Sports. </li></br></br>
+
+<li>  We will continue to grow with an equal focus on customers, clients relaibility and professionalism. </li>
 </p>
 
-<br>
-<br>
+<br><br>
 
 <?php include'footer.php'; ?>
 
