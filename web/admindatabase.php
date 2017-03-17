@@ -176,6 +176,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function addImage($image_id,$image_photo,$fk_event_id)
+	{		$con=database::connect();
+			$res=mysql_query("insert into image_tbl(image_id,image_photo,fk_event_id) values('$image_id','$image_photo','$fk_event_id')",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function userdetail($email)
 	{		$con=database::connect();
 			$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);

@@ -11,6 +11,8 @@
 																			<span>
 																			<a href="adminadd.php"><button  type="button" style="margin-top:20px;" class="btn btn-default" aria-label="Left Align"><font size="4" >Add new Admin</font></button></a>
 																			
+																			<a href="addadvertisement.php"><button  type="button"  style="margin-top:20px;" class="btn btn-default" aria-label="Left Align"><font size="4" >Add Advertisement</font></button></a>
+																			
 																			<a href="logout.php"><button  type="button"  style="margin-top:20px;" class="btn btn-default" aria-label="Left Align"><font size="4" >Logout</font></button></a>		
 																			
 																			</span>

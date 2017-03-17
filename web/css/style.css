@@ -474,7 +474,7 @@ cursor: pointer;
 /*--- User Panel---*/
 .profile_details_left {
         float: right;
-           width: 25%;
+           width: 50%;
 }
 .dropdown {
     position: relative;
@@ -1503,8 +1503,8 @@ text.highcharts-title {
 }
 .dev-widget:hover {
     z-index: 10;
-    background:#002561;
-    color: #f0f4f6;
+    background:#FF6347;
+    color: #000;
 }
 .dev-widget:hover .dev-drop {
     text-decoration: none;
@@ -5471,7 +5471,7 @@ footer  p a:hover ,.footer p a:hover{
 	}
 	.profile_details_left {
 		float: right;
-		width: 29%;
+		width: 50%;
 	}
 	.page-container.sidebar-collapsed-back .left-content {
 		float: right;
