@@ -62,12 +62,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data">
+													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data"">
 
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Image Photo</b></font></label>
 															<div class="col-sm-8">
-																<input type="file"  class="form-control1" name="txtimagephoto" />
+																<input type="file"   name="txtimagephoto" />
 															</div>
 														</div>
 														
@@ -105,20 +105,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															{
 																$image_id="NULL";
 																$fk_event_id=$_POST["txteventid"];
-																$image_photo="image/".$_FILES["txtimagephoto"]["name"];
+																$image_photo="../images/".$_FILES["txtimagephoto"]["name"];
 																$ext=pathinfo($image_photo,PATHINFO_EXTENSION);
 															
 																if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
 																{
 																	if(move_uploaded_file($_FILES["txtimagephoto"]["tmp_name"],$image_photo))
 																	{
-																		$image_photo="image/".$_FILES["txtimagephoto"]["name"];
+																		$image_photo="images/".$_FILES["txtimagephoto"]["name"];
+																		
 																$obj=new Database();
 																$res=$obj->addImage($image_id,$image_photo,$fk_event_id);
 																
 																if($res==1)
 																{
-																	header('location:imagedis.php');
+																	header('location:index.php');
 																}
 																else
 																{
