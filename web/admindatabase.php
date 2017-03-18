@@ -82,6 +82,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function getOfferById($pk_offer_id)
+	{		$con=database::connect();
+			$res=mysql_query("select * from offer_tbl where pk_offer_id='$pk_offer_id'",$con);
+			return $res;
+			database::disconnect();
+	}
 
 	public function getAllCity()
 	{		$con=database::connect();
