@@ -82,6 +82,18 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function getAllImageByEvent()
+	{		$con=database::connect();
+			$res=mysql_query("select e.*,i.* from image_tbl as i,event_tbl as e where i.fk_event_id=e.pk_event_id",$con);
+			return $res;
+			database::disconnect();
+	}
+	public function getOfferById($pk_offer_id)
+	{		$con=database::connect();
+			$res=mysql_query("select * from offer_tbl where pk_offer_id='$pk_offer_id'",$con);
+			return $res;
+			database::disconnect();
+	}
 
 	public function getAllCity()
 	{		$con=database::connect();

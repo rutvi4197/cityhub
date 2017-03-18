@@ -38,7 +38,96 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/jquery.easydropdown.js"></script>
 
-<!--//skycons-icons-->
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Offerprice must have Numbers only");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+
+</script>
+
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			uname.focus();
+			
+			alert('Offername must have Alphabetic characters only');
+			return false;
+	}
+}
+
+
+
+
+
+function passid_validation(passid,mx,my)
+{
+	var pl=passid.value.length;
+	if(pl==0 || pl>=my || pl<mx)
+	{
+		alert("password should not be empty/length must be between "+5+" to "+12);
+		passid.focus();
+		return false;
+	}
+	return true;
+}
+
+function allnumeric(unum)
+{
+		var number=/^[0-9]+$/;
+		if(unum.value.match(number))
+		{
+			return true;
+		}
+		else
+		{
+				alert('Mobile number must have numeric characters only');
+				unum.focus();
+				return false;
+				
+		}
+}
+
+function mess()
+{
+	alert("enter correct captcha code");
+
+}
+
+function allzip(uzip)
+{
+		var numbers=/^[0-9]+$/;
+		if(uzip.value.match(numbers))
+		{
+			return true;
+		}
+		else
+		{
+				alert('ZIP code must have numeric characters only');
+				uzip.focus();
+				return false;
+				
+		}
+}
+
+
+
+</script>
+
 </head> 
 <body>
 
@@ -68,14 +157,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Name</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtoffername" placeholder="Offer Name"/>
+																<input type="text" class="form-control1" name="txtoffername" placeholder="Offer Name" onblur="return allLetter(txtoffername);"/>
 															</div>
 														</div>
 														
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font><font color="red">*</font></label>
 															<div class="col-sm-8">
-																<input type="text" class="form-control1"  name="txtofferprice" placeholder="Offer Price"/>
+																<input type="text" class="form-control1" id="test"  name="txtofferprice" placeholder="Offer Price"/>
 															</div>
 														</div>
 														

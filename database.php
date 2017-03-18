@@ -1,15 +1,25 @@
 <?php
 class Database
 {
+<<<<<<< HEAD
 	private static $host="priyansh.db.9462939.hostedresource.com";
 	private static $uname="priyansh";
 	private static $pwd="Demo9@1212";
+=======
+	private static $host='localhost';
+	private static $uname='root';
+	private static $pwd='';
+>>>>>>> 2fd3007984129ee7910087653c72bcf6a1c1686b
 	private static $con=NULL;
 	
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
+<<<<<<< HEAD
 		mysql_select_db('priyansh',self::$con);
+=======
+		mysql_select_db('cityhub',self::$con);
+>>>>>>> 2fd3007984129ee7910087653c72bcf6a1c1686b
 		return self::$con;
 	}
 	

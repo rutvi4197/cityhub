@@ -62,12 +62,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data"">
+													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data">
 
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Image Photo</b></font></label>
 															<div class="col-sm-8">
-																<input type="file"   name="txtimagephoto" />
+																<input type="file" class="form-control1" name="txtimagephoto" />
 															</div>
 														</div>
 														
@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																
 																if($res==1)
 																{
-																	header('location:index.php');
+																	header('location:adddis.php');
 																}
 																else
 																{

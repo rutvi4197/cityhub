@@ -8,8 +8,16 @@
 	while($row=mysql_fetch_assoc($res1))
 	{
 		$fk_venue_id=$row["fk_venue_id"];
-		echo "$fk_venue_id";
+		$event_image=$row["event_image"];
+		$event_logo=$row["event_logo"];
 	}
+	
+	$event_image="../".$event_image;
+	unlink($event_image);
+	
+	$event_logo="../".$event_logo;
+	unlink($event_logo);
+	
 	$obj2=new database();
 	$res2=$obj1->venueDel($fk_venue_id);
 	
