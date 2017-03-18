@@ -171,6 +171,11 @@
 	
 	?>	
 	</table>
+	<center>
+	<form method="post" action="mail1.php?id=<?php echo $pk_event_id; ?>">
+	<input type="submit" name="submit" value="Send Reminder" class="btn btn-danger">
+	</center>
+	</form>
 	</div>
 
 	

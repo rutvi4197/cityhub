@@ -342,9 +342,9 @@
 		
 		$pk_event_id="Null";
 		$event_name=$_POST["txtname"];
-		$event_logo="eventlogo/".$_FILES["txtlogo"]["name"];
+		$event_logo="eventlogo/".basename($_FILES["txtlogo"]["name"]);
 		$ext=pathinfo($event_logo,PATHINFO_EXTENSION);
-		$event_image="eventimage/".$_FILES["txtimage"]["name"];
+		$event_image="eventimage/".basename($_FILES["txtimage"]["name"]);
 		$ext1=pathinfo($event_image,PATHINFO_EXTENSION);
 		
 		$event_des=trim($_POST["txtdes"]);
