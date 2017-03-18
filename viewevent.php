@@ -115,13 +115,28 @@ echo '
 	<p>Last Date : <?php echo $lastdate; ?></p></td>
 <td><font size=5><b >| INR <?php echo $event_price; ?></font></b></td>
 <?php
-
-$date1=date("d-m-Y");
-if($lastdate<=$date1)
-{
-	echo '<td style="color:red;"><font size="3">SOLD OUT</font></td>';
-}
-else
+	$flag=1;
+	$da=(int)date("d");
+		$month=(int)date("m");
+		$year=(int)date("Y");
+		$d=$lastdate;
+		$arr=explode("-",$d);
+		$d1=(int)$arr[0];
+		$m1=(int)$arr[1];
+		$y1=(int)$arr[2];
+			if($m1==$month)
+			{
+				if($d1>=$da)
+				{
+						$flag=0;
+				}
+			}
+			 if($m1>$month)
+				{
+						$flag=0;
+				}
+				
+if($flag==0)
 {
 echo '
 <td>
@@ -139,6 +154,9 @@ echo '
 <option value="9">9</option>
 </select>
 </td>';
+}
+else{
+	echo '<td style="color:red;"><font size="3">SOLD OUT</font></td>';
 }
 ?>
 </tr>
