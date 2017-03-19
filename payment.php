@@ -77,6 +77,86 @@ $promo=$_POST["promo"];
 	<title>
 		Payment Page
 	</title>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test4").keyup(function() {
+    var val = $("#test4").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test4").val("");
+        $("#test4").focus();
+    }
+});
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test5").keyup(function() {
+    var val = $("#test5").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test5").val("");
+        $("#test5").focus();
+    }
+});
+});
+</script>
+
+  <script type="text/javascript">
+        function numberOnly(txt, e) {
+            var arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+            var code;
+            if (window.event)
+                code = e.keyCode;
+            else
+                code = e.which;
+            var char = keychar = String.fromCharCode(code);
+            if (arr.indexOf(char) == -1)
+                return false;
+            
+        }
+    </script>
+
+
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			
+			uname.value="";
+			uname.focus();
+			alert('Owner Name must have Alphabetic characters only');
+			return false;
+	}
+}
+function passid_validation(passid,mx,my)
+{
+	mx=16;
+	my=16;
+	var pl=passid.value.length;
+	if(pl==0 || pl!=my || pl!=mx)
+	{
+		alert("Card Number should be of 16 digits only ");
+		passid.value="";
+		passid.focus();
+		return false;
+	}
+	return true;
+}
+
+</script>
+
+
 </head>
 
 <body>
@@ -140,16 +220,17 @@ echo '
             <div class="payment">
                 <form method="post" action="payment.php?id=<?php echo $event_id; ?>">
                     <div class="form-group owner">
-                        <label for="owner">Owner</label>
-                        <input type="text" class="form-control" id="owner" name="owner">
+                        <label for="owner">Name</label>
+                        <input type="text" class="form-control"  name="owner" onblur="return allLetter(owner);" required/> 
+						<!--onkeypress="return numberOnly(this, event)" >-->
                     </div>
                     <div class="form-group CVV">
                         <label for="cvv">CVV</label>
-                        <input type="text" class="form-control" id="cvv" name="cvv" maxlength="3">
+                        <input type="password" class="form-control" id="test4" name="cvv" maxlength="3" required/>
                     </div>
                     <div class="form-group" id="card-number-field">
                         <label for="cardNumber">Card Number</label>
-                        <input type="text" class="form-control" id="cardNumber" name="cardnumber" maxlength="16">
+                        <input type="text" class="form-control" id="test5" name="cardnumber" onblur="return passid_validation(cardnumber);" maxlength="16" required/>
                     </div>
                     <div class="form-group" id="expiration-date" >
                         <label>Expiration Date</label>
@@ -168,11 +249,11 @@ echo '
                             <option value="12">December</option>
                         </select>
                         <select name="year">
-                            <option value="2017"> 2017</option>
-                            <option value="2018"> 2018</option>
-                            <option value="2019"> 2019</option>
-                            <option value="2020"> 2020</option>
-                            <option value="2021"> 2021</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
 							<option value="2022">2022</option>
                         </select>
                     </div>
@@ -213,25 +294,39 @@ echo '
 	
 		if(isset($_POST["confirm"]))
 		{
+			$d=date("d-m-Y");
+			$arr=explode("-",$d);
+			$m1=(int)$arr[1];
+			
 			$cardnumber=$_POST["cardnumber"];
 			$cvv=$_POST["cvv"];
 			$month=$_POST["month"];
-			$year=$_POST["year"];
-			$date=$month."-".$year;
-			$res=$obj->addpayment($email,$cardnumber,$date,$cvv);
-			if($res==1)
+			if($month<$m1)
 			{
-					$date1=date("d-m-Y");
-					$res=$obj->bookticket($email,$event_id,$no,$amnt1,$dis,$date1);
-					if($res==1)
-					{
-						echo '<script>alert("Successfull Booked Your ticket");</script>';
-						header('Location:index.php');
-					}
+				$month1=$month;
+				$year=$_POST["year"];
+				$date=$month1."-".$year;
+				$res=$obj->addpayment($email,$cardnumber,$date,$cvv);
+				if($res==1)
+				{
+						$date1=date("d-m-Y");
+						$res=$obj->bookticket($email,$event_id,$no,$amnt1,$dis,$date1);
+						if($res==1)
+						{
+							echo '<script>alert("Successfull Booked Your ticket");</script>';
+							header('Location:index.php');
+						}
+				}
+				else
+				{
+					echo 'something went wrong';
+				}
 			}
-			else{
-				echo 'something went wrong';
+			else
+			{
+				alert("Invalid Expiration Month");
 			}
+			
 		}
 	
 	

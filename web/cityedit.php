@@ -37,6 +37,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/skycons.js"></script>
 
 <script src="js/jquery.easydropdown.js"></script>
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			uname.focus();
+			
+			alert('Cityname must have Alphabetic characters only');
+			return false;
+	}
+}
+
+</script>
 
 <!--//skycons-icons-->
 </head> 
@@ -79,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>City Name</b></font></label>
 															<div class="col-sm-8">
 														
-															<input type="text" class="form-control1" id="focusedinput" value="<?php echo $city_name; ?>" name="txtcityname" placeholder="City Name"/>
+															<input type="text" class="form-control1" id="focusedinput" value="<?php echo $city_name; ?>" name="txtcityname" placeholder="City Name" onblur="return allLetter(txtcityname);"/>
 															<input type="text" hidden class="form-control1" id="focusedinput" value="<?php echo $pk_city_id; ?>" name="txtcityid" placeholder="City Id"/>	
 															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Update" name="btncityupdate" >Update</button></center>
 															</div>

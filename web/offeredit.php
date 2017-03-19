@@ -39,6 +39,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.easydropdown.js"></script>
 
 <!--//skycons-icons-->
+<script type="text/javascript">
+	
+	function allLetter(uname)
+{
+	var letters=/^[A-Za-z]+$/;
+	if(uname.value.match(letters))
+	{
+			return true;
+	}
+	else
+	{
+			uname.focus();
+			
+			alert('Cityname must have Alphabetic characters only');
+			return false;
+	}
+}
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Offerprice must have Numbers only");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+</script>
+
 </head> 
 <body>
 
@@ -95,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Offer Price</b></font></label>
 															<div class="col-sm-8">
-																<input type="text" value="<?php echo $offer_price; ?>" class="form-control1"  name="txtofferprice" placeholder="Offer Price"/>
+																<input type="text" value="<?php echo $offer_price; ?>" class="form-control1" id="test" name="txtofferprice" placeholder="Offer Price"/>
 															</div>
 														</div>
 														
