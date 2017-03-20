@@ -21,6 +21,49 @@
 	<title>
 		Create an Event
 	</title>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test1").keyup(function() {
+    var val = $("#test1").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test1").val("");
+        $("#test1").focus();
+    }
+});
+});
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test2").keyup(function() {
+    var val = $("#test2").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test2").val("");
+        $("#test2").focus();
+    }
+});
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test3").keyup(function() {
+    var val = $("#test3").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test3").val("");
+        $("#test3").focus();
+    }
+});
+});
+
+</script>
+
 </head>
 
 <body>
@@ -85,7 +128,7 @@
 					
 					<label><font color="black" size=2>Pincode</font><font color="red">*</font></label>
 					</br>
-					<input type="number" placeholder="Pincode" name="txtpincode" maxlength=6 class="form-control" required/> 
+					<input type="text" placeholder="Pincode" id="test1" name="txtpincode" maxlength=6  class="form-control" required/> 
 					</br>
 					
 					
@@ -222,12 +265,12 @@
 
 					<label><font color="black" size=2>Event Ticket</font><font color="red">*</font></label>
 					</br>
-					<input type="number" placeholder="Event Price" name="txtticket" class="form-control" required/> 
+					<input type="text" placeholder="Event Price" id="test2" name="txtticket" class="form-control" required/> 
 					</br>
 				
 					<label><font color="black" size=2>Event Price</font><font color="red">*</font></label>
 					</br>
-					<input type="number" placeholder="Event Price" name="txtprice" class="form-control" required/> 
+					<input type="text" placeholder="Event Price" id="test3" name="txtprice" class="form-control" required/> 
 					</br>
 					
 					<label><font color="black" size=2>Select City</font><font color="red">*</font></label>
