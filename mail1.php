@@ -45,7 +45,7 @@ $obj=new database();
 	while($row=mysql_fetch_assoc($res))
 	{
 		$mail->addAddress($row["fk_email_id"],$row["user_name"]);
-		echo $row["fk_email_id"];
+		
 	}
 $mail->MsgHTML($message);
 
@@ -58,7 +58,8 @@ try {
 	
     $mail->Send();
     $msg = "Mail send successfully";
-	echo $msg;
+	echo '<script>alert("'.$msg.'");</script>';
+	header("location:dashboard.php");
 } catch (phpmailerException $e) {
     $msg = $e->getMessage();
 	echo $msg.'in 1';
