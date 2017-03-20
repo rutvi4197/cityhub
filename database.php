@@ -14,7 +14,7 @@ class Database
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
-		mysql_select_db('priyansh',self::$con);
+		mysql_select_db('cityhub',self::$con);
 		return self::$con;
 	}
 	

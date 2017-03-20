@@ -16,7 +16,41 @@
 		Login
 	</title>
 </head>
-
+<?php
+	if(isset($_POST["btnlogin"]))
+	{
+		$email=$_POST["txtemail"];
+		$pwd=$_POST["txtpwd"];
+		$obj=new Database();
+		$res=$obj->login($email,$pwd);
+		while($row=mysql_fetch_assoc($res))
+		{
+			$type=$row["user_type"];
+		}
+		$cnt=mysql_num_rows($res);
+		if($cnt==1)
+		{
+			$_SESSION["email"]=$email;
+			if($type=="user")
+			{
+				if($id==0)
+				{
+				header("Location:index.php");
+				}
+				else{
+					header("Location:viewevent.php?id='.$id.'");
+				}
+			}
+			else{
+				header("Location:web/dashboard.php");
+			}
+		}
+		else
+		{
+			echo"something went wrong";
+		}
+	}		
+	?>
 <body>
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
@@ -48,7 +82,7 @@
 		<div class="form">
 			</br>
 			</br>
-			<form method="post" action="#">
+			<form method="post" action="login.php?id=<?php echo $id; ?>">
 
 					<label><font color="black" size=2>Email Address</font></label>
 					</br>
@@ -82,41 +116,7 @@
 	</div>
 	</div>
 	
-	<?php
-	if(isset($_POST["btnlogin"]))
-	{
-		$email=$_POST["txtemail"];
-		$pwd=$_POST["txtpwd"];
-		$obj=new Database();
-		$res=$obj->login($email,$pwd);
-		while($row=mysql_fetch_assoc($res))
-		{
-			$type=$row["user_type"];
-		}
-		$cnt=mysql_num_rows($res);
-		if($cnt==1)
-		{
-			$_SESSION["email"]=$email;
-			if($type=="user")
-			{
-				if($id==0)
-				{
-				header('Location:index.php');
-				}
-				else{
-					header('Location:viewevent.php?id='.$id.'');
-				}
-			}
-			else{
-				header('Location:web/dashboard.php');
-			}
-		}
-		else
-		{
-			echo"something went wrong";
-		}
-	}		
-	?>
+	
 	</br></br></br>
 	<div class="row">
 <div class="col-md-12 col-sm-12">
