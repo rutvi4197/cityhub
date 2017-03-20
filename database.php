@@ -1,6 +1,7 @@
 <?php
 class Database
 {
+<<<<<<< HEAD
 	/*private static $host="priyansh.db.9462939.hostedresource.com";
 	private static $uname="priyansh";
 	private static $pwd="Demo9@1212";*/
@@ -8,12 +9,25 @@ class Database
 	private static $host='localhost';
 	private static $uname='root';
 	private static $pwd='';
+=======
+	/*private static $host='priyansh.db.9462939.hostedresource.com';
+	private static $uname='priyansh';
+	private static $pwd='Demo9@1212';
+	private static $con=NULL;*/
+	
+	private static $host="localhost";
+	private static $uname="root";
+	private static $pwd="";
+>>>>>>> 8274c82d22518805f7eebeba6199083f6fb000b3
 	private static $con=NULL;
 	
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
+<<<<<<< HEAD
 		//mysql_select_db('priyansh',self::$con);
+=======
+>>>>>>> 8274c82d22518805f7eebeba6199083f6fb000b3
 		mysql_select_db('cityhub',self::$con);
 		return self::$con;
 	}

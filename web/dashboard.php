@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <?php 
  $page = $_SERVER['PHP_SELF'];
- $sec = "10";
+ $sec = "1000";
  header("Refresh: $sec; url=$page");
 ?>
 <?php include 'sidebar.php' ?>

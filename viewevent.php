@@ -50,6 +50,42 @@
 </head>
 
 <body>
+<?php 
+			
+				if(isset($_POST["btncomment"]))
+				{
+					$obj1=new database();
+				$comment=trim($_POST["comment"]);
+				if($comment=="")
+				{
+						echo '<script>alert("Enter Comment");</script>';
+			
+				}
+				else
+				{
+					
+					$date=date("d-m-Y");
+				if(isset($_SESSION["email"])!="")
+				{
+					
+					$email=$_SESSION["email"];
+				}
+				else
+				{
+					header('location:login.php?id='.$event_id.'');
+				}
+				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
+				if($res1==1)
+				{
+					//echo '<script>alert("Comment Successfully added");</script>';
+					header('location:viewevent.php?id='.$event_id.'');
+				}
+				}
+			}
+				
+		
+		?>
+		
 <div class="row">
 <div class="col-md-12 col-sm-12">
 <?php 
@@ -222,41 +258,6 @@ else{
 			<input type="submit" class="form-control btn btn-info" name="btncomment" value="Submit">
 			</div>
 		</form>
-		<?php 
-			
-				if(isset($_POST["btncomment"]))
-				{
-					$obj1=new database();
-				$comment=trim($_POST["comment"]);
-				if($comment=="")
-				{
-						echo '<script>alert("Enter Comment");</script>';
-			
-				}
-				else
-				{
-					
-					$date=date("d-m-Y");
-				if(isset($_SESSION["email"])!="")
-				{
-					
-					$email=$_SESSION["email"];
-				}
-				else
-				{
-					header('Location:login.php?id='.$event_id.'');
-				}
-				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
-				if($res1==1)
-				{
-					echo '<script>alert("Comment Successfully added");</script>';
-					header('Location:viewevent.php?id='.$event_id.'');
-				}
-				}
-			}
-				
-		
-		?>
 		
 			</br></br>
 		

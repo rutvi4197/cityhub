@@ -1,6 +1,10 @@
 <?php
 class Database
 {
+	/*private static $host='priyansh.db.9462939.hostedresource.com';
+	private static $uname='priyansh';
+	private static $pwd='Demo9@1212';
+	private static $con=NULL;*/
 	private static $host='localhost';
 	private static $uname='root';
 	private static $pwd='';

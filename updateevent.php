@@ -40,7 +40,60 @@
 		Edit Your Event
 	</title>
 </head>
-
+<?php
+	if(isset($_POST["btncreate"]))
+	{
+			$flag=0;
+		if($venue_name!=$row["txtvenuename"])
+		{
+			$venue_name=$_POST["txtvenuename"];
+			$flag=1;
+		}
+		if($venue_add!=$row["txtvenueaddress"])
+		{
+				$venue_add=$_POST["txtvenueaddress"];
+				$flag=1;
+		}
+		if($pincode!=$row["pincode"])
+		{
+			$pincode=$_POST["txtpincode"];
+			$flag=1;
+		}		
+		if($city_id!=$row["txtcity"])
+		{
+			$city_id=$_POST["txtcity"];
+			$flag=1;
+		}
+		if($flag==1)
+		{
+			$obj=new database();
+		$res1=$obj->updatevenue($venue_id,$venue_name,$venue_add,$pincode,$city_id);
+		}
+					
+				
+		
+		$event_name=$_POST["txtname"];
+		$event_des=$_POST["txtdes"];
+		$event_date=$_POST["txtdate"];		
+		$event_time=$_POST["txttime"];		
+		$event_ticket=$_POST["txtticket"];
+																					
+		$obj=new database();
+		$res1=$obj->updateevent($event_id,$event_des,$event_name,$event_date,$event_time,
+		$event_ticket,$event_price);																																														
+		if($res1==1)
+		{
+			header('Location:dashboard.php');
+		}
+		else
+		{
+			echo"something went wrong";
+		}
+		
+		
+	}		
+	?>
+	
 <body>
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
@@ -157,60 +210,14 @@
 			</form>
 		</div>
 	
-	<?php
-	if(isset($_POST["btncreate"]))
-	{
-			$flag=0;
-		if($venue_name!=$row["txtvenuename"])
-		{
-			$venue_name=$_POST["txtvenuename"];
-			$flag=1;
-		}
-		if($venue_add!=$row["txtvenueaddress"])
-		{
-				$venue_add=$_POST["txtvenueaddress"];
-				$flag=1;
-		}
-		if($pincode!=$row["pincode"])
-		{
-			$pincode=$_POST["txtpincode"];
-			$flag=1;
-		}		
-		if($city_id!=$row["txtcity"])
-		{
-			$city_id=$_POST["txtcity"];
-			$flag=1;
-		}
-		if($flag==1)
-		{
-			$obj=new database();
-		$res1=$obj->updatevenue($venue_id,$venue_name,$venue_add,$pincode,$city_id);
-		}
-					
-				
-		
-		$event_name=$_POST["txtname"];
-		$event_des=$_POST["txtdes"];
-		$event_date=$_POST["txtdate"];		
-		$event_time=$_POST["txttime"];		
-		$event_ticket=$_POST["txtticket"];
-																					
-		$obj=new database();
-		$res1=$obj->updateevent($event_id,$event_des,$event_name,$event_date,$event_time,
-		$event_ticket,$event_price);																																														
-		if($res1==1)
-		{
-			header('Location:dashboard.php');
-		}
-		else
-		{
-			echo"something went wrong";
-		}
-		
-		
-	}		
-	?>
-	
+</br></br>	
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+	<?php 
+		require 'footer.php';
+	?> 
+	</div>
+	</div>		
 	
 </body>
 </html>

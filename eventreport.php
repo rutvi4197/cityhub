@@ -172,12 +172,21 @@
 	?>	
 	</table>
 	<center>
+	</br>
 	<form method="post" action="mail1.php?id=<?php echo $pk_event_id; ?>">
 	<input type="submit" name="submit" value="Send Reminder" class="btn btn-danger">
 	</center>
 	</form>
+	
+</br></br>
 	</div>
 
-	
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+	<?php 
+		require 'footer.php';
+	?> 
+	</div>
+	</div>		
 </body>
 </html>
