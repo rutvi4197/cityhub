@@ -1,25 +1,20 @@
 <?php
 class Database
 {
-<<<<<<< HEAD
-	private static $host="priyansh.db.9462939.hostedresource.com";
+	/*private static $host="priyansh.db.9462939.hostedresource.com";
 	private static $uname="priyansh";
-	private static $pwd="Demo9@1212";
-=======
+	private static $pwd="Demo9@1212";*/
+	
 	private static $host='localhost';
 	private static $uname='root';
 	private static $pwd='';
->>>>>>> 2fd3007984129ee7910087653c72bcf6a1c1686b
 	private static $con=NULL;
 	
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
-<<<<<<< HEAD
-		mysql_select_db('priyansh',self::$con);
-=======
+		//mysql_select_db('priyansh',self::$con);
 		mysql_select_db('cityhub',self::$con);
->>>>>>> 2fd3007984129ee7910087653c72bcf6a1c1686b
 		return self::$con;
 	}
 	
@@ -72,6 +67,22 @@ class Database
 	{
 		$con=database::connect();
 		$res=mysql_query("select * from user_tbl where pk_email_id='$email'",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	public function profiledetail($email)
+	{
+		$con=database::connect();
+		$res=mysql_query("select u.*,c.* from user_tbl as u,city_tbl as c where u.pk_email_id='$email' and u.fk_city_id=c.pk_city_id",$con);
+		return $res;
+	database::disconnect();
+	
+	}
+	public function editprofile($email,$user_mobile_no,$user_name,$city,$photo)
+	{
+		$con=database::connect();
+		$res=mysql_query("update user_tbl set user_name='$user_name',user_mobile_no='$user_mobile_no',user_photo='$photo',fk_city_id='$city' where pk_email_id='$email'",$con);
 		return $res;
 	database::disconnect();
 	

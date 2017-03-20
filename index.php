@@ -188,7 +188,7 @@ require 'catheader.php';
 		{
 			if($m1==$month)
 			{
-				if($d1>=$da)
+				if($d1>$da)
 				{
 				
 		echo '

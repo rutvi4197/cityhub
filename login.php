@@ -15,6 +15,37 @@
 	<title>
 		Login
 	</title>
+<script type="text/javascript">
+function passid_validation(passid,mx,my)
+{
+	mx=5;
+	my=12;
+	var pl=passid.value.length;
+	if(pl==0 || pl<=my || pl>=mx)
+	{
+		alert("Password should be of 5-12 digits only ");
+		passid.value="";
+		passid.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+
+</script>
+	
 </head>
 
 <body>
@@ -56,7 +87,7 @@
 					</br>
 					<label><font color="black" size=2>Password</font></label>
 					</br>
-					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" required/> 
+					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" onblur="return passid_validation(txtpwd);" required/> 
 					</br>
 					<div class="word-in">
 				  		<a class="forgot" href="#">Forgot Your Password?</a></br>
@@ -117,11 +148,12 @@
 		}
 	}		
 	?>
-	</br></br></br>
+	
 	<div class="row">
 <div class="col-md-12 col-sm-12">
 <?php 
 
+echo "</br></br></br><br>";
 require 'footer.php';
 ?>
 </div>

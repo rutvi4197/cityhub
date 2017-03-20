@@ -34,6 +34,7 @@
 										<li><a href="catdis.php"><i class="lnr lnr-picture"></i> <span><font size="3" color="white">Category Display</font></span></a></li>
 										<li><a href="pastevent.php"><i class="lnr lnr-picture"></i> <span><font size="3" color="white">Past Events</font></span></a></li> 
 										<li><a href="disapproved.php"><i class="fa fa-tachometer"></i> <span><font size="3" color="white">DisApproved Events</font></span></a></li> 
+										<li><a href="adddis.php"><i class="fa fa-tachometer"></i> <span><font size="3" color="white">Paid Add</font></span></a></li> 
 									</ul>
 							</div>
 				</div>

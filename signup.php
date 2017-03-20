@@ -14,6 +14,53 @@
 	<title>
 		Signup
 	</title>
+
+<script type="text/javascript">
+function passid_validation(passid,mx,my)
+{
+	mx=5;
+	my=12;
+	var pl=passid.value.length;
+	if(pl==0 || pl>=my || pl<=mx)
+	{
+		alert("Password should be of 5-12 digits only ");
+		passid.value="";
+		passid.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+
+	
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+
+</script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test6").keyup(function() {
+    var val = $("#test6").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test6").val("");
+        $("#test6").focus();
+    }
+});
+});
+
+</script>
+	
 </head>
 
 <body>
@@ -57,13 +104,13 @@
 					
 					<label><font color="black" size=2>Password</font></label>
 					</br>
-					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" required/> 
+					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" onblur="return passid_validation(txtpwd);" required/> 
 					</br>
 					
 					
 					<label><font color="black" size=2>Type Your Password Again</font></label>
 					</br>
-					<input type="password" placeholder="Type Your Password Again" name="txtpwd1" class="form-control" required/> 
+					<input type="password" placeholder="Type Your Password Again" name="txtpwd1" class="form-control" onblur="return passid_validation(txtpwd1);" required/> 
 					</br>
 			
 		</div>
@@ -77,7 +124,7 @@
 			</br>
 					<label><font color="black" size=2>Mobile Number</font></label>
 					</br>
-					<input type="number" placeholder="Enter Mobile Number" name="txtmob" class="form-control" maxlength="11" required/> 
+					<input type="test" placeholder="Enter Mobile Number" name="txtmob" class="form-control" id="test6" maxlength="10" required/> 
 					</br>
 					
 					<label><font color="black" size=2>User Name</font></label>
@@ -153,6 +200,16 @@
 		}
 	}
 	?>
+	
+	<div class="row">
+	<div class="col-md-12 col-sm-12">
+	<?php 
+
+	echo "<br><br><br>";
+	require 'footer.php';
+	?>
+	</div>
+	</div>
 	
 </body>
 </html>

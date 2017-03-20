@@ -48,8 +48,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	else
 	{
-			uname.focus();
 			
+			uname.focus();
 			alert('Category Name must have Alphabetic characters only');
 			return false;
 	}

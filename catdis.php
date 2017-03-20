@@ -15,6 +15,20 @@
 	<title>
 		Category Wise Display
 	</title>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+
+</script>
+
 </head>
 
 <body>

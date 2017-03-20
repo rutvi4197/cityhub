@@ -53,7 +53,8 @@
 		?> "height=40px width=40px   class="img-circle" style="margin-top:5px;"/><font size="4" color="red" ><?php echo $name; ?></font> <span class="caret"></span></a>
 		
 		 <ul class="dropdown-menu">
-            <li><a href="changepass.php">Change Your Password</a></li>
+            <li><a href="changepro.php">Change Your Profile</a></li> 
+			<li><a href="changepass.php">Change Your Password</a></li>
 			<li><a href="pasteventuser.php">Past Event</a></li>
             <li><a href="logout.php">Logout</a></li> 
 			

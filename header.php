@@ -19,7 +19,7 @@
 		</ul>
 		<form class="navbar-form navbar-left" style="margin-left:100px;" method="post" >
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search By Event Id" name="search">
+          <input type="text" class="form-control" placeholder="Search By Event Id" id="test" name="search">
         </div>
         <button type="submit" class="btn btn-default" name="submit">Submit</button>
       </form>

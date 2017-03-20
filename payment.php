@@ -294,18 +294,15 @@ echo '
 	
 		if(isset($_POST["confirm"]))
 		{
-			$d=date("d-m-Y");
-			$arr=explode("-",$d);
-			$m1=(int)$arr[1];
-			
+			$m1=date("m");
 			$cardnumber=$_POST["cardnumber"];
 			$cvv=$_POST["cvv"];
 			$month=$_POST["month"];
-			if($month<$m1)
+			if($month>$m1)
 			{
-				$month1=$month;
+				
 				$year=$_POST["year"];
-				$date=$month1."-".$year;
+				$date=$month."-".$year;
 				$res=$obj->addpayment($email,$cardnumber,$date,$cvv);
 				if($res==1)
 				{
@@ -324,7 +321,7 @@ echo '
 			}
 			else
 			{
-				alert("Invalid Expiration Month");
+				echo '<script>alert("Invalid Expiration Month")</script>';
 			}
 			
 		}

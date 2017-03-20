@@ -178,13 +178,13 @@ class Database
 	}
 	public function addCat($cat)
 	{		$con=database::connect();
-			$res=mysql_query("insert into cat_tbl(cat_name) values('$cat')",$con);
+			$res=mysql_query("insert into cat_tbl(cat_name,flag) values('$cat',1)",$con);
 			return $res;
 			database::disconnect();
 	}
 	public function addCity($city)
 	{		$con=database::connect();
-			$res=mysql_query("insert into city_tbl(city_name) values('$city')",$con);
+			$res=mysql_query("insert into city_tbl(city_name,flag) values('$city',1)",$con);
 			return $res;
 			database::disconnect();
 	}
