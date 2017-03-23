@@ -16,8 +16,11 @@
 	<title>
 		Login
 	</title>
+<<<<<<< HEAD
 
 	
+=======
+>>>>>>> 1a63f218c9b21c0d1787e22a17afbcdf5c4fd8f5
 <script type="text/javascript">
 $(document).ready(function(){
 $("#test").keyup(function() {
@@ -110,7 +113,7 @@ $("#test").keyup(function() {
 					</br>
 					<label><font color="black" size=2>Password</font></label>
 					</br>
-					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" onblur="return passid_validation(txtpwd);" required/> 
+					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" required/> 
 					</br>
 					<div class="word-in">
 				  		<a class="forgot" href="#">Forgot Your Password?</a></br>
