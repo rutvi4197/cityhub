@@ -16,23 +16,6 @@
 		Login
 	</title>
 <script type="text/javascript">
-function passid_validation(passid,mx,my)
-{
-	mx=5;
-	my=12;
-	var pl=passid.value.length;
-	if(pl==0 || pl<=my || pl>=mx)
-	{
-		alert("Password should be of 5-12 digits only ");
-		passid.value="";
-		passid.focus();
-		return false;
-	}
-	return true;
-}
-</script>
-	
-<script type="text/javascript">
 $(document).ready(function(){
 $("#test").keyup(function() {
     var val = $("#test").val();
@@ -121,7 +104,7 @@ $("#test").keyup(function() {
 					</br>
 					<label><font color="black" size=2>Password</font></label>
 					</br>
-					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" onblur="return passid_validation(txtpwd);" required/> 
+					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" required/> 
 					</br>
 					<div class="word-in">
 				  		<a class="forgot" href="#">Forgot Your Password?</a></br>
