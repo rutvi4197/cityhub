@@ -34,9 +34,9 @@
 	}
 	else
 	{
-		echo '<script>alert("Event Id is Wrong");</script>';
-		header('Location:index.php');
-		
+		echo '<script>alert("Event Id is Wrong");
+		window.location.href="index.php";
+		</script>';
 	}
 ?>
 
@@ -77,8 +77,9 @@
 				$res1=$obj1->insertcomment($event_id,$email,$comment,$date);
 				if($res1==1)
 				{
-					//echo '<script>alert("Comment Successfully added");</script>';
-					header('location:viewevent.php?id='.$event_id.'');
+					echo '<script>alert("Comment Successfully added");
+					window.location.href="viewevent.php?id='.$event_id.'";
+					</script>';
 				}
 				}
 			}

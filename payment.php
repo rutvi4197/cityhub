@@ -155,7 +155,44 @@ function passid_validation(passid,mx,my)
 }
 
 </script>
-
+<?php 
+	
+		if(isset($_POST["confirm"]))
+		{
+			$m1=date("m");
+			$cardnumber=$_POST["cardnumber"];
+			$cvv=$_POST["cvv"];
+			$month=$_POST["month"];
+			if($month>$m1)
+			{
+				
+				$year=$_POST["year"];
+				$date=$month."-".$year;
+				$res=$obj->addpayment($email,$cardnumber,$date,$cvv);
+				if($res==1)
+				{
+						$date1=date("d-m-Y");
+						$res=$obj->bookticket($email,$event_id,$no,$amnt1,$dis,$date1);
+						if($res==1)
+						{
+							echo '<script>alert("Successfull Booked Your ticket");</script>';
+							header('Location:index.php');
+						}
+				}
+				else
+				{
+					echo 'something went wrong';
+				}
+			}
+			else
+			{
+				echo '<script>alert("Invalid Expiration Month")</script>';
+			}
+			
+		}
+	
+	
+	?>
 
 </head>
 
@@ -290,44 +327,7 @@ echo '
 	</div>
 	</form>
 	</center>
-	<?php 
 	
-		if(isset($_POST["confirm"]))
-		{
-			$m1=date("m");
-			$cardnumber=$_POST["cardnumber"];
-			$cvv=$_POST["cvv"];
-			$month=$_POST["month"];
-			if($month>$m1)
-			{
-				
-				$year=$_POST["year"];
-				$date=$month."-".$year;
-				$res=$obj->addpayment($email,$cardnumber,$date,$cvv);
-				if($res==1)
-				{
-						$date1=date("d-m-Y");
-						$res=$obj->bookticket($email,$event_id,$no,$amnt1,$dis,$date1);
-						if($res==1)
-						{
-							echo '<script>alert("Successfull Booked Your ticket");</script>';
-							header('Location:index.php');
-						}
-				}
-				else
-				{
-					echo 'something went wrong';
-				}
-			}
-			else
-			{
-				echo '<script>alert("Invalid Expiration Month")</script>';
-			}
-			
-		}
-	
-	
-	?>
 	
 </body>
 </html>
