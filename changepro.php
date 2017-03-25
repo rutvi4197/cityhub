@@ -38,18 +38,25 @@
 							$photo=$user_photo;
 					}
 					else{
+						if($photo!=NULL)
+						{
 						unlink($user_photo);
 					$ext=pathinfo($photo,PATHINFO_EXTENSION);
-					
+						}
 					}
+					
 					
 				if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
 				{	
+			echo $photo;
 			move_uploaded_file($_FILES["photo"]["tmp_name"],$photo);
 					$res=$obj->editprofile($email,$user_mobile_no,$user_name,$city,$photo);
 					if($res==1)
 					{
-							header("Location:index.php");
+						echo '<script>alert("Successfully changed Your profile");
+		window.location.href="index.php";
+		</script>';
+							
 					}
 					else{
 							echo '<script>alert("NOT EDITED YOUR PROFILE");</script>';

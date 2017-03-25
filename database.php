@@ -1,23 +1,11 @@
 <?php
 class Database
 {
-<<<<<<< HEAD
-	/*private static $host='localhost';
-	private static $uname='root';
-	private static $pwd='';*/
+
 
 	private static $host='priyansh.db.9462939.hostedresource.com';
 	private static $uname='priyansh';
 	private static $pwd='Demo9@1212';
-=======
-	private static $host='localhost';
-	private static $uname='root';
-	private static $pwd='';
-
-	/*private static $host='priyansh.db.9462939.hostedresource.com';
-	private static $uname='priyansh';
-	private static $pwd='Demo9@1212';*/
->>>>>>> 1a63f218c9b21c0d1787e22a17afbcdf5c4fd8f5
 	private static $con=NULL;
 	
 	
@@ -25,11 +13,7 @@ class Database
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
-<<<<<<< HEAD
 		mysql_select_db('priyansh',self::$con);
-=======
-		mysql_select_db('cityhub',self::$con);
->>>>>>> 1a63f218c9b21c0d1787e22a17afbcdf5c4fd8f5
 		return self::$con;
 	}
 	

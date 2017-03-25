@@ -16,7 +16,46 @@
 		Change Password
 	</title>
 </head>
-
+<?php 
+		if(isset($_POST["btnpass"]))
+		{
+			$pwd=$_POST["txtoldpwd"];
+					
+			$res=$obj->login($email,$pwd);
+			$cnt=mysql_num_rows($res);
+			
+			if($cnt==1)
+			{
+				$new=$_POST["txtnewpwd"];
+				$renew=$_POST["txtrepwd"];
+					
+				if($new==$renew)
+				{		
+					$obj=new database();
+					$res=$obj->changePassword($email,$new);
+					if($res==1)
+					{
+						echo '<script>alert("Successfully changed password");
+		window.location.href="index.php";
+		</script>';
+						
+					}
+					else
+					{
+						echo"<script>alert('Your password is not match plz try again');</script>";
+					}		
+				}
+				else
+				{
+						echo "<script>alert('Your password is not match plz try again');</script>";
+				}
+			}
+			else
+			{
+				echo"<script>alert('Your Old password is wrong plz try again');</script>";
+			}	
+		}
+	?>
 <body>
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
@@ -95,43 +134,7 @@
 	</div>
 	</div>
 	
-	<?php 
-		if(isset($_POST["btnpass"]))
-		{
-			$pwd=$_POST["txtoldpwd"];
-					
-			$res=$obj->login($email,$pwd);
-			$cnt=mysql_num_rows($res);
-			
-			if($cnt==1)
-			{
-				$new=$_POST["txtnewpwd"];
-				$renew=$_POST["txtrepwd"];
-					
-				if($new==$renew)
-				{		
-					$obj=new database();
-					$res=$obj->changePassword($email,$new);
-					if($res==1)
-					{
-						header('Location:index.php');
-					}
-					else
-					{
-						echo"Your password is not match plz try again";
-					}		
-				}
-				else
-				{
-						echo"Your password is not match plz try again";
-				}
-			}
-			else
-			{
-				echo"Your Old password is wrong plz try again";
-			}	
-		}
-	?>
+	
 </br>
 <div class="row">
 <div class="col-md-12 col-sm-12">

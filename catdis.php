@@ -157,7 +157,10 @@ $("#test").keyup(function() {
 	}
 	}
 	else{
-		echo '<script>alert("No Event");</script>';
+		echo '<script>alert("No Event");
+		
+		window.location.href="index.php";
+		</script>';
 		
 	}
 

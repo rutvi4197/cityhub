@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$id=$_REQUEST["id"];
+	
 	require 'database.php';
 	$obj=new database();
 ?>
@@ -31,44 +31,7 @@ $("#test").keyup(function() {
 </script>
 	
 </head>
-<?php
-	if(isset($_POST["btnlogin"]))
-	{
-		$email=$_POST["txtemail"];
-		$pwd=$_POST["txtpwd"];
-		$obj=new Database();
-		$res=$obj->login($email,$pwd);
-		while($row=mysql_fetch_assoc($res))
-		{
-			$type=$row["user_type"];
-		}
-		$cnt=mysql_num_rows($res);
-		if($cnt==1)
-		{
-			$_SESSION["email"]=$email;
-			if($type=="user")
-			{
-				
-				if($id==0)
-				{
-					
-				header("Location:index.php");
-				}
-				else{
-					
-					header("Location:viewevent.php?id=".$id);
-				}
-			}
-			else{
-				header("Location:web/dashboard.php");
-			}
-		}
-		else
-		{
-			echo '<script>alert("something went wrong");</script>';
-		}
-	}		
-	?>
+
 <body>
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
@@ -95,41 +58,24 @@ $("#test").keyup(function() {
 
 	<div class="container">
 	<div class="row">
-	<div class="col-md-6 col-sm-6">
+	<div class="col-md-12 col-sm-12">
 		
 		<div class="form">
 			</br>
 			</br>
-			<form method="post" action="login.php?id=<?php echo $id; ?>">
+			<form method="post" action="mail2.php">
 
 					<label><font color="black" size=2>Email Address</font></label>
 					</br>
 					<input type="email" placeholder="Enter Email Id" name="txtemail" class="form-control" required/> 
 					</br>
-					<label><font color="black" size=2>Password</font></label>
-					</br>
-					<input type="password" placeholder="Enter password" name="txtpwd" class="form-control" required/> 
-					</br>
-					<div class="word-in">
-				  		<a class="forgot" href="forgetpass.php">Forgot Your Password?</a></br>
-						</br>
-				 		<input type="submit" name="btnlogin" value="Login" class="btn btn-success"/>				 
+				 		<input type="submit" name="btnlogin" value="Continue" class="btn btn-success"/>				 
 				  	</div>
 			</form>
 		</div>
 	</div>
 	
-	<div class="col-md-6 col-sm-6">
-		</br>
-		</br>
-		<div>
-			<h4><b>NEW CUSTOMERS</b></h4>
-			<p>By creating an account with our Website, you will be able to
-			   book and create Events and do payment procedures faster...
-			</p>
-			<a class="btn btn-success" href="signup.php">Create an Account</a>
-		</div>
-	</div>
+	
 	
 	</div>
 	</div>

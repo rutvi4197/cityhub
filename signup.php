@@ -62,7 +62,47 @@ $("#test6").keyup(function() {
 </script>
 	
 </head>
-
+<?php 
+	if(isset($_POST["btnsignup"]))
+	{
+		$email=$_POST["txtemail"];
+		$obj=new database();
+		$res=$obj->signupcheck($email);
+		$cnt=mysql_num_rows($res);
+		if($cnt==0)
+		{$name=$_POST["txtuname"];
+		$pwd=$_POST["txtpwd"];
+		$repwd=$_POST["txtpwd1"];
+		$mobile=$_POST["txtmob"];
+		$city=$_POST["txtcity"];
+		
+		$photo="";
+		$type="user";
+		
+		if($pwd==$repwd)
+		{
+			$obj=new database();
+			$res=$obj->signup($email,$pwd,$mobile,$name,$city,$type,$photo);
+			if($res==1)
+			{
+				$_SESSION["email"]=$email;
+				header('Location:index.php');
+			}
+			else
+			{
+				echo"something went wrong";
+			}
+		}
+		else
+		{		
+			echo'<script>alert("your Password and Confirm Password is wrong");</script>';
+		}
+		}
+		else{
+				echo '<script>alert("Your Email Address already user");</script>';
+		}
+	}
+	?>
 <body>
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
@@ -159,47 +199,7 @@ $("#test6").keyup(function() {
 	</div>
 	</div>
 	
-	<?php 
-	if(isset($_POST["btnsignup"]))
-	{
-		$email=$_POST["txtemail"];
-		$obj=new database();
-		$res=$obj->signupcheck($email);
-		$cnt=mysql_num_rows($res);
-		if($cnt==0)
-		{$name=$_POST["txtuname"];
-		$pwd=$_POST["txtpwd"];
-		$repwd=$_POST["txtpwd1"];
-		$mobile=$_POST["txtmob"];
-		$city=$_POST["txtcity"];
-		
-		$photo="";
-		$type="user";
-		
-		if($pwd==$repwd)
-		{
-			$obj=new database();
-			$res=$obj->signup($email,$pwd,$mobile,$name,$city,$type,$photo);
-			if($res==1)
-			{
-				$_SESSION["email"]=$email;
-				header('Location:index.php');
-			}
-			else
-			{
-				echo"something went wrong";
-			}
-		}
-		else
-		{		
-			echo"your Password and Confirm Password is wrong";
-		}
-		}
-		else{
-				echo '<script>alert("Your Email Address already user");</script>';
-		}
-	}
-	?>
+	
 	
 	<div class="row">
 	<div class="col-md-12 col-sm-12">

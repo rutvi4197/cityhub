@@ -53,7 +53,7 @@ require 'catheader.php';
 	  
       <div class="caption">
         <h3>Promocode :<font color="red"> '.$row["offer_promocode"].'</font></h3>
-        <h3>Price :<font color="red"> '.$row["offer_price"].'</font></h3>
+      
       </div>
 	
     </div>

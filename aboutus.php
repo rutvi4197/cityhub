@@ -1,7 +1,4 @@
-<?php 
-	session_start();
-	include 'database.php';
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,56 +8,57 @@
 <script src="Scripts/bootstrap.js"></script>
 
 </head>
-<form action="aboutus.php" method="post">
+
 <body>
-<div class="row">
-<div class="col-md-12 col-sm-12">
-<?php 
-if(isset($_SESSION["email"]))
-{
-	require 'headerwithlogin.php';
+
+	<div class="row">
+	<div class="col-md-12 col-sm-12">
+	<?php 
+		if(isset($_SESSION["email"])!="")
+		{
+		require 'headerwithlogin.php';
 	
-}
-else
-{
+	}
+	else
+	{
 	require 'header.php';
-}
-
-?>	
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 col-sm-12">
-<?php 
-require 'catheader.php';
-?> 
-</div>
-</div>
-
-
+	}
+	?>		
+	</div>
+	</div>
 <div class="container"> 
 <div class="row">
-	<h1 style="color:blue; font-size:50px;"><center>About Us</center></h1>
+	<h1 style="color:blue; font-size:50px;"><center>The Cityhub Story</center></h1>
 </div>
 </div>
 
-<p>
-<br>
-<li>  The idea crossed the mind of Rutvi Shah when she was attending professional conferences to identify a B2C activity to set up a business. </li></br></br>
+<h3 style="color:blue;"><center>Launched in March 2017 </center></h3>
+<h4 style="color:blue;"><center>Cityhub is an e-commerce market place where tickets can be bought </center></h4>
+<h4 style="color:blue;"><center>and sold all over India. </center></h4>
 
-<li>  Just 5 enthusiastic staffers have begun listing various events together. The baby steps were made by CITYHUB as an event discovery platform. </li></br></br>
+<center> <img src="image/flip.png "  style="height:300px; width:300px;"> </center>
 
-<li>  Ticket has been enabled and transactions have been commenced in a humble manner and the first milestone was achieved in first four months. </li></br></br>
+<a style="margin-right:100px; font-size:15px;">
+<li>  The idea crossed the mind of Rutvi Shah when she was attending professional conferences to identify a B2C activity to set up a business.</li></br>
 
-<li>  Major Accounts are Entertainment Professional sector Sports. </li></br></br>
+<li>  Just 5 enthusiastic staffers have begun listing various events together. The baby steps were made by CITYHUB as an event discovery platform. </li></br>
+
+<li>  Ticket has been enabled and transactions have been commenced in a humble manner and the first milestone was achieved in first four months. </li></br>
+
+<li>  Major Accounts are Entertainment Professional sector Sports. </li></br>
 
 <li>  We will continue to grow with an equal focus on customers, clients relaibility and professionalism. </li>
-</p>
-
+</a>
 <br><br>
+<div class="row">
+<div class="col-md-12 col-sm-12">
 
 <?php include'footer.php'; ?>
+</div>
+</div>
 
 </body>
-</form>
+
+</html>
+</html>
 </html>

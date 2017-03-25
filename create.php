@@ -134,8 +134,10 @@ $("#test3").keyup(function() {
 		$event_price,$fk_cat_id,$fk_email_id,$fk_offer_id,$event_cnt,$flag,$event_last_date);
 		if($res1==1)
 		{
-			echo '<script>alert("Your Event Display After Some Time");</script>';
-			//header('Location:index.php');
+			echo '<script>alert("Your Event Display After Some Time");
+			window.location.href="index.php";
+			</script>';
+			
 		}
 		else
 		{

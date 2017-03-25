@@ -1,7 +1,4 @@
-<?php 
-	session_start();
-	include 'database.php';
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,30 +10,9 @@
 </head>
 <form action="contactus.php" method="post">
 <body>
-<div class="row">
-<div class="col-md-12 col-sm-12">
 <?php 
-if(isset($_SESSION["email"]))
-{
-	require 'headerwithlogin.php';
-	
-}
-else
-{
-	require 'header.php';
-}
-
-?>	
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 col-sm-12">
-<?php 
-require 'catheader.php';
-?> 
-</div>
-</div>
-
+include 'header.php';
+?>
 
 <div class="container"> 
 <div class="row">
@@ -44,32 +20,35 @@ require 'catheader.php';
 </div>
 </div>
 
-<h3>Here Cityhub members are always ready to help : </h3>
+<br><br>
+<a style="color:black; font-size:25px;"> Have a question?  Write us! </a>
+<br><br>
 
-<table>
+<a style="color:black; margin-right:100px; font-size:15px;">
+Fill out the form below and we will contact you or use the information on this page to contact us directly. <br>
+We look forward to speaking with you about your needs!
+</a>
+<br><br><br>
 
-<tr>
-	<td><img src="profilephoto/Priyansh.JPG" style="height:150px;width:130px">
-	<td>Priyansh's background is in enterprise software, he works in a data company in the UK, dealing with performant mobile apps on one end of the scale, and big data on the other. He is a chartered 
-	engineer, a Fellow of the British Computing Society, a Microsoft Insider and a CodeProject MVP. 
-	Priyansh is a proponent of lifelong learning and his technology interests include Mobile, Security,
-	and Data science/Machine Learning.
-</tr>
+<label>
+<input type="name" class="form-control" id="exampleInputName1" placeholder="Name*"> </input>
+</label> <br><br>
 
-<tr>
-	<td><img src="profilephoto/Rutvi.JPG" style="height:150px;width:130px">
-	<td>Tech Writer at CITYHUB Rutvi have worked as a freelance writer for the past 3 years. She aspire to generate interesting and productive ideas to the readers through my writing. Her objective is to share information with the readers, informing them about the current news.Twitter: @shahritu.
-</tr>
+<label>
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email*"> </input>
+</label> <br><br>
 
-<tr>
-	<td><img src="profilephoto/Swara.png" style="height:150px;width:130px">
-	<td>Swara is a Senior Technical Editor at CITYHUB. She is a writer and developer from India with an experience of web development and content writing for 20+ websites. Successfully delivered various assignments in Java, Java Servlets, Python, C Standard Library, JSON, HTML5, Android, WordPress, Online Tools, Testing, etc. She has done Master of Computer Applications, Bachelor of Computer Applications, and Bachelor of Commerce.
-</tr>
+<label>
+<input type="phone" class="form-control" id="exampleInputPhone1" placeholder="Phone*"> </input>
+</label> <br><br>
 
-</table>
+<textarea class="form-control" rows="3" placeholder="Message"></textarea>
+<br><br>
 
-<br>
-<br>
+<center>
+<button type="button" class="btn btn-primary">Send</button>
+</center>
+<br><br>
 
 <?php include'footer.php'; ?>
 </body>

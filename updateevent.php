@@ -83,11 +83,14 @@
 		$event_ticket,$event_price);																																														
 		if($res1==1)
 		{
-			header('Location:dashboard.php');
+			echo '<script>alert("Successfully updated");
+		window.location.href="dashboard.php";
+		</script>';
+			
 		}
 		else
 		{
-			echo"something went wrong";
+			echo '<script>alert("Not updated");</script>';
 		}
 		
 		

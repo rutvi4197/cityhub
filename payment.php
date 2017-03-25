@@ -175,13 +175,17 @@ function passid_validation(passid,mx,my)
 						$res=$obj->bookticket($email,$event_id,$no,$amnt1,$dis,$date1);
 						if($res==1)
 						{
-							echo '<script>alert("Successfull Booked Your ticket");</script>';
-							header('Location:index.php');
+							echo '<script>alert("Successfull Booked Your ticket");
+							window.location.href="index.php";
+							
+							</script>';
+							
+							
 						}
 				}
 				else
 				{
-					echo 'something went wrong';
+					echo '<script>alert("something went wrong");</script>';
 				}
 			}
 			else

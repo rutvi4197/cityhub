@@ -129,6 +129,9 @@ $("#test").keyup(function() {
 		
 		$obj=new database();
 		$res=$obj->citywisedis($city);
+		$cnt=mysql_num_rows($res);
+		if($cnt>0)
+		{
 		while($row=mysql_fetch_assoc($res))
 	{
 		if($mng<9)
@@ -184,8 +187,17 @@ $("#test").keyup(function() {
 		
 		}
 	$flag=1;
-		
 	}
+		}
+	else
+	{
+		echo '<script>alert("No Event");
+		
+		window.location.href="index.php";
+		</script>';
+	}
+		
+	
 	
 	
 	?>	
