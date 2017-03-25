@@ -8,11 +8,22 @@
 <script src="Scripts/bootstrap.js"></script>
 
 </head>
-<form action="contactus.php" method="post">
 <body>
-<?php 
-include 'header.php';
-?>
+	<div class="row">
+	<div class="col-md-12 col-sm-12">
+	<?php 
+		if(isset($_SESSION["email"])!="")
+		{
+		require 'headerwithlogin.php';
+	
+	}
+	else
+	{
+	require 'header.php';
+	}
+	?>		
+	</div>
+	</div>
 
 <div class="container"> 
 <div class="row">
@@ -29,6 +40,8 @@ Fill out the form below and we will contact you or use the information on this p
 We look forward to speaking with you about your needs!
 </a>
 <br><br><br>
+
+<form action="contactus.php" method="post">
 
 <label>
 <input type="name" class="form-control" id="exampleInputName1" placeholder="Name*"> </input>
@@ -51,6 +64,7 @@ We look forward to speaking with you about your needs!
 <br><br>
 
 <?php include'footer.php'; ?>
-</body>
 </form>
+</body>
+
 </html>

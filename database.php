@@ -134,7 +134,7 @@ class Database
 	public function catdis()
 	{
 		$con=database::connect();
-		$res=mysql_query("select * from cat_tbl",$con);
+		$res=mysql_query("select * from cat_tbl where flag=1",$con);
 		return $res;
 	database::disconnect();
 	

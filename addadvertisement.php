@@ -1,11 +1,11 @@
-<?php 
+<?php
 	session_start();
 	include 'admindatabase.php';
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add City</title>
+<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -38,29 +38,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery.easydropdown.js"></script>
 
 <!--//skycons-icons-->
-<script type="text/javascript">
-	
-	function allLetter(uname)
-{
-	var letters=/^[A-Za-z]+$/;
-	if(uname.value.match(letters))
-	{
-			return true;
-	}
-	else
-	{
-			
-			uname.value="";
-			uname.focus();
-			alert('City Name must have Alphabetic characters only');
-			return false;
-	}
-}
-</script>
-	
-
-</script>
-
 </head> 
 <body>
 
@@ -76,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add City </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Paid Advertisement  </font></center></h3>
 									<div class="graph">
 										<div class="tables">		
 			
@@ -85,39 +62,79 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="graph-2 general">
 												<div class="grid-1">
 													<div class="form-body">
-													<form class="form-horizontal" method="post" action="addcity.php">
+													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data">
+
 														<div class="form-group">
-														<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>City Name</b></font><font color="red">*</font></label>
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Image Photo</b></font></label>
 															<div class="col-sm-8">
-															
-															<input type="text" class="form-control1" id="focusedinput" name="txtcity" placeholder="City Name" onblur="return allLetter(txtcity);"/>
-															
-															<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btncityadd" >Add</button></center>
-													</form>
+																<input type="file" class="form-control1" name="txtimagephoto" />
+															</div>
+														</div>
+														
+														<div class="form-group">
+															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Select Event</b></font></label>
+															<div class="col-sm-8">
+																<select name="txteventid" class="form-control1" >
+																	<?php
+																		$obj=new database();
+																		$res=$obj->getAllActiveEvent();
+																		while($row=mysql_fetch_array($res,MYSQL_ASSOC))
+																		{
+																			echo '<option value="'.$row["pk_event_id"].'">'.$row["event_name"].'</option>';
+																		}
+																	?>
+														</select>
+															</div>
+														</div>
+														
+														
+														
+														<div class="form-group">
+															<div class="col-sm-8">
+																<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b></b></font></label>
+																<center><button type="submit" style="background-color: lightgreen" class="btn btn-default" value="Add" name="btnadd" >Add</button></center>
+															</div>
+														</div>
+														
+																																							
+														
+														
 															<?php 
 														
-															if(isset($_POST["btncityadd"]))
+															if(isset($_POST["btnadd"]))
 															{
-																
-																$city=$_POST["txtcity"];
+																$image_id="NULL";
+																$fk_event_id=$_POST["txteventid"];
+																$image_photo="../images/".$_FILES["txtimagephoto"]["name"];
+																$ext=pathinfo($image_photo,PATHINFO_EXTENSION);
+															
+																if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
+																{
+																	if(move_uploaded_file($_FILES["txtimagephoto"]["tmp_name"],$image_photo))
+																	{
+																		$image_photo="images/".$_FILES["txtimagephoto"]["name"];
+																		
 																$obj=new Database();
-																$res=$obj->addCity($city);
+																$res=$obj->addImage($image_id,$image_photo,$fk_event_id);
 																
 																if($res==1)
 																{
-																	header('location:citydis.php');
+																	header('location:adddis.php');
 																}
 																else
 																{
-																	echo $city;
+																	echo "error";
+																}
+																	}
 																}
 															}	
 											
 															
 															
 															?>
-															</div>
+															
 														</div>
+															</form>
 													</div>
 												</div>
 											</div>

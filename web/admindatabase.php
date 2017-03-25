@@ -222,6 +222,12 @@ class Database
 			return $res;
 			database::disconnect();
 	}
+	public function imageDel($image_id)
+	{		$con=database::connect();
+			$res=mysql_query("delete from image_tbl where image_id='$image_id'",$con);
+			return $res;
+			database::disconnect();
+	}
 	public function eventDel($pk_event_id)
 	{		$con=database::connect();
 			$res=mysql_query("delete from event_tbl where pk_event_id='$pk_event_id'",$con);

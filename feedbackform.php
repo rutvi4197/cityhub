@@ -18,22 +18,6 @@
 <div class="row">
 <div class="col-md-12 col-sm-12">
 <?php 
-if(isset($_SESSION["email"]))
-{
-	require 'headerwithlogin.php';
-	
-}
-else
-{
-	require 'header.php';
-}
-
-?>	
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 col-sm-12">
-<?php 
 require 'catheader.php';
 ?> 
 </div>
@@ -49,6 +33,7 @@ require 'catheader.php';
 <center>
 
 <h3><font color="orange"> We would love to hear your thoughts, concern or problems with anything so we can improve. </font></h3></br>
+<form action="contactus.php" method="post">
 
 <table>
 <tr>
@@ -153,6 +138,7 @@ require 'catheader.php';
 <br>
 
 <?php include'footer.php'; ?>
-</body>
 </form>
+
+</body>
 </html>
