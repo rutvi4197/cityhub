@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+	session_start();
+	include 'database.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +9,20 @@
 <link href="Content/bootstrap.css" rel="stylesheet"/>
 <script src="Scripts/jquery-1.9.1.js"></script>
 <script src="Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#test").keyup(function() {
+    var val = $("#test").val();
+    if (parseInt(val) < 0 || isNaN(val)) {
+        alert("Please Enter Only Numeric Values");
+        $("#test").val("");
+        $("#test").focus();
+    }
+});
+});
+
+</script>
 
 </head>
 
