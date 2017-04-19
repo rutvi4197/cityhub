@@ -75,14 +75,14 @@ require 'catheader.php';
 	  if($img==1)
 	  {
 	  echo '<div class="item active">
-      <a href="viewevent.php?id='.$row["fk_event_id"].'"><img src="'.$row["image_photo"].'" alt="..."><a href="'.$row["fk_event_id"].'">
+         <a href="viewevent.php?id='.$row["fk_event_id"].'"><img src="'.$row["event_image"].'" alt="..."></a>
       
     </div>';
 	  }
 	 else
 	 {		 
     echo '<div class="item">
-      <a href="viewevent.php?id='.$row["fk_event_id"].'"><img src="'.$row["image_photo"].'" alt="..."></a>
+      <a href="viewevent.php?id='.$row["fk_event_id"].'"><img src="'.$row["event_image"].'" alt="..."></a>
       
     </div>';
 	 }

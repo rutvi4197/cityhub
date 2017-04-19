@@ -1,19 +1,16 @@
 <?php
 class Database
 {
-	/*private static $host='priyansh.db.9462939.hostedresource.com';
+	private static $host='priyansh.db.9462939.hostedresource.com';
 	private static $uname='priyansh';
 	private static $pwd='Demo9@1212';
-	private static $con=NULL;*/
-	private static $host='localhost';
-	private static $uname='root';
-	private static $pwd='';
 	private static $con=NULL;
+	
 	
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
-		mysql_select_db('cityhub',self::$con);
+		mysql_select_db('priyansh',self::$con);
 		return self::$con;
 	}
 	public function signup($email,$pwd,$mobile,$name,$city,$type,$photo)
@@ -192,9 +189,9 @@ class Database
 			return $res;
 			database::disconnect();
 	}
-	public function addImage($image_id,$image_photo,$fk_event_id)
+	public function addImage($image_id,$fk_event_id)
 	{		$con=database::connect();
-			$res=mysql_query("insert into image_tbl(image_id,image_photo,fk_event_id) values('$image_id','$image_photo','$fk_event_id')",$con);
+			$res=mysql_query("insert into image_tbl(image_id,fk_event_id) values('$image_id','$fk_event_id')",$con);
 			return $res;
 			database::disconnect();
 	}

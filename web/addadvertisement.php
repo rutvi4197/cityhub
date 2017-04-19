@@ -41,7 +41,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
 <body>
 
-
+<?php 
+														
+															if(isset($_POST["btnadd"]))
+															{
+																$image_id="NULL";
+																$fk_event_id=$_POST["txteventid"];
+																		
+																		
+																$obj=new Database();
+																$res=$obj->addImage($image_id,$fk_event_id);
+																
+																if($res==1)
+																{
+																	header('location:adddis.php');
+																}
+																else
+																{
+																	echo "error";
+																}
+																	
+																
+															}	
+											
+															
+															
+															?>
 
 <?php include 'sidebar.php' ?>
 
@@ -63,14 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<div class="grid-1">
 													<div class="form-body">
 													<form class="form-horizontal" method="post" action="addadvertisement.php" enctype="multipart/form-data">
-
-														<div class="form-group">
-															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Image Photo</b></font></label>
-															<div class="col-sm-8">
-																<input type="file" class="form-control1" name="txtimagephoto" />
-															</div>
-														</div>
-														
+	
 														<div class="form-group">
 															<label for="focusedinput" class="col-sm-2 control-label"><font size="3" color="black"><b>Select Event</b></font></label>
 															<div class="col-sm-8">
@@ -99,39 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																																							
 														
 														
-															<?php 
-														
-															if(isset($_POST["btnadd"]))
-															{
-																$image_id="NULL";
-																$fk_event_id=$_POST["txteventid"];
-																$image_photo="../images/".$_FILES["txtimagephoto"]["name"];
-																$ext=pathinfo($image_photo,PATHINFO_EXTENSION);
 															
-																if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
-																{
-																	if(move_uploaded_file($_FILES["txtimagephoto"]["tmp_name"],$image_photo))
-																	{
-																		$image_photo="images/".$_FILES["txtimagephoto"]["name"];
-																		
-																$obj=new Database();
-																$res=$obj->addImage($image_id,$image_photo,$fk_event_id);
-																
-																if($res==1)
-																{
-																	header('location:adddis.php');
-																}
-																else
-																{
-																	echo "error";
-																}
-																	}
-																}
-															}	
-											
-															
-															
-															?>
 															
 														</div>
 															</form>

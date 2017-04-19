@@ -118,6 +118,11 @@ $("#test3").keyup(function() {
 		$event_cnt="0";
 		$flag="0";
 		$cnt=1;
+		if(empty($_FILES["txtlogo"]["name"]) && empty($_FILES["txtimage"]["name"]))
+		{
+			echo '<script>alert("Please Attach Images ");</script>';
+		}
+		else{
 		if($ext=="jpg" || $ext=="jpeg" || $ext=="png" || $ext1=="jpg" || $ext1=="png" || $ext1=="jpeg")
 		{
 			if(move_uploaded_file($_FILES["txtlogo"]["tmp_name"],$event_logo))
@@ -165,7 +170,7 @@ $("#test3").keyup(function() {
 		}
 		}
 		
-		
+		}
 	}		
 	?>
 <body>

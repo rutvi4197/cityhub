@@ -15,7 +15,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Login
+		Upcoming Event
 	</title>
 <script type="text/javascript">
 $(document).ready(function(){

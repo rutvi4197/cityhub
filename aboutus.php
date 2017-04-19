@@ -53,19 +53,31 @@ $("#test").keyup(function() {
 <h4 style="color:blue;"><center>Cityhub is an e-commerce market place where tickets can be bought </center></h4>
 <h4 style="color:blue;"><center>and sold all over India. </center></h4>
 
-<center> <img src="image/flip.png "  style="height:300px; width:300px;"> </center>
-
+<center> <img src="logo.png "  style="height:300px; width:300px;"> 
+<table border="0">
 <a style="margin-right:100px; font-size:15px;">
-<li>  The idea crossed the mind of Rutvi Shah when she was attending professional conferences to identify a B2C activity to set up a business.</li></br>
-
+<tr>
+<td><li>  The idea crossed the mind of Company the Owner when he was attending professional conferences to identify a B2C activity to set up a business.</li></br>
+</tr>
+<tr>
+<td>
 <li>  Just 5 enthusiastic staffers have begun listing various events together. The baby steps were made by CITYHUB as an event discovery platform. </li></br>
-
+</tr>
+<tr>
+<td>
 <li>  Ticket has been enabled and transactions have been commenced in a humble manner and the first milestone was achieved in first four months. </li></br>
-
+</tr>
+<tr>
+<td>
 <li>  Major Accounts are Entertainment Professional sector Sports. </li></br>
-
+</tr>
+<tr>
+<td>
 <li>  We will continue to grow with an equal focus on customers, clients relaibility and professionalism. </li>
+</tr>
 </a>
+</table>
+</center>
 <br><br>
 <div class="row">
 <div class="col-md-12 col-sm-12">

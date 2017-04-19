@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				while($row=mysql_fetch_assoc($res))
 				{
 					echo '<tr>';
-					echo '<td><center><img src="../'.$row["image_photo"].'" height="100px" width="100px"></center>';
+					echo '<td><center><img src="../'.$row["event_image"].'" height="100px" width="100px"></center>';
 					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
 					echo '<td><a href="adddel.php?id='.$row["image_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>';
 		

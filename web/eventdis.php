@@ -109,6 +109,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$res=$obj->getAllEventJoin();
 				while($row=mysql_fetch_assoc($res))
 				{
+					$da=(int)date("d");
+		$month=(int)date("m");
+		$year=(int)date("Y");
+		$d=$row["event_date"];
+		$arr=explode("-",$d);
+		$d1=(int)$arr[0];
+		$m1=(int)$arr[1];
+		$y1=(int)$arr[2];
+		if($y1>=$year)
+		{
+			if($m1==$month)
+			{
+				if($d1>$da)
+				{
 					echo '<tr>';
 					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
 					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
@@ -119,6 +133,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '<td><a href="bookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align">Ticket Details</button></a>';
 					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-default" aria-label="Left Align">Comments</button></a>';
 					echo '</tr>';
+					
+				}
+			}
+		}
+					if($m1>$month)
+				{
+					echo '<tr>';
+					echo '<td><font size="3" color="black">'.$row["event_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["city_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["venue_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["cat_name"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_date"].'</font>';
+					echo '<td><font size="3" color="black">'.$row["event_price"].'</font>';
+					echo '<td><a href="bookdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: #FF6347" type="button" class="btn btn-info" aria-label="Left Align">Ticket Details</button></a>';
+					echo '<td><a href="commentdetails.php?id='.$row["pk_event_id"].'"><button style="background-color: lightgreen" type="button" class="btn btn-default" aria-label="Left Align">Comments</button></a>';
+					echo '</tr>';
+
+				}
+				
 				}						
 				
 				?>

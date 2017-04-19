@@ -35,6 +35,10 @@ $("#test").keyup(function() {
 	{
 	require 'header.php';
 	}
+	if(isset($_SESSION["btnsend"]))
+	{
+		header('location:mail1.php');
+	}
 	?>		
 	</div>
 	</div>
@@ -44,7 +48,7 @@ $("#test").keyup(function() {
 	<h1 style="color:blue; font-size:50px;"><center>Contact Us</center></h1>
 </div>
 </div>
-
+<center>
 <br><br>
 <a style="color:black; font-size:25px;"> Have a question?  Write us! </a>
 <br><br>
@@ -69,11 +73,11 @@ We look forward to speaking with you about your needs!
 <input type="phone" class="form-control" id="exampleInputPhone1" placeholder="Phone*"> </input>
 </label> <br><br>
 
-<textarea class="form-control" rows="3" placeholder="Message"></textarea>
+<textarea rows="3" cols="27" placeholder="Message"></textarea>
 <br><br>
 
-<center>
-<button type="button" class="btn btn-primary">Send</button>
+
+<button type="button" class="btn btn-primary" name="btnsend">Send</button>
 </center>
 <br><br>
 

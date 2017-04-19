@@ -65,7 +65,7 @@ $("#test").keyup(function() {
 		}
 		else
 		{
-			echo '<script>alert("something went wrong");</script>';
+			echo '<script>alert("Your Email Address or password is wrong");</script>';
 		}
 	}		
 	?>

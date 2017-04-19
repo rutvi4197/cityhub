@@ -13,7 +13,7 @@
 <script src="Scripts/bootstrap.js"></script>
 
 	<title>
-		Category Wise Display
+		City Wise Display
 	</title>
 <script type="text/javascript">
 $(document).ready(function(){

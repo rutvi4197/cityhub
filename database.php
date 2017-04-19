@@ -3,29 +3,26 @@ class Database
 {
 
 
-	/*private static $host='priyansh.db.9462939.hostedresource.com';
+	private static $host='priyansh.db.9462939.hostedresource.com';
 	private static $uname='priyansh';
 	private static $pwd='Demo9@1212';
-	private static $con=NULL;*/
-	
-	private static $host='localhost';
-	private static $uname='root';
-	private static $pwd='';
 	private static $con=NULL;
+	
+	
 	
 	
 	
 	public static function connect()
 	{
 		self::$con=mysql_connect(self::$host,self::$uname,self::$pwd);
-		mysql_select_db('cityhub',self::$con);
+		mysql_select_db('priyansh',self::$con);
 		return self::$con;
 	}
 	
 	public function getimage()
 	{
 		$con=database::connect();
-		$res=mysql_query("select * from image_tbl",$con);
+		$res=mysql_query("select e.*,i.* from image_tbl as i,event_tbl as e where i.fk_event_id=e.pk_event_id",$con);
 		return $res;
 	database::disconnect();
 	
@@ -269,7 +266,7 @@ class Database
 	public function getAllCity()
 	{
 		$con=database::connect();
-		$res=mysql_query("select * from city_tbl",$con);
+		$res=mysql_query("select c.*,e.* from city_tbl as c,venue_tbl as v,event_tbl as e where  c.pk_city_id=v.fk_city_id and v.pk_venue_id=e.fk_venue_id and e.flag=1 group by(c.city_name) ",$con);
 		return $res;
 	database::disconnect();
 	}
