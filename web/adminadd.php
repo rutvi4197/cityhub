@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="outter-wp">
 						<div class="sub-heard-part"></div>
 							<div class="graph-visual tables-main">
-								<h3 class="inner-tittle two"><center><font size="10" color="blue">Add Admin </font></center></h3>
+								<h3 class="inner-tittle two"><center><font size="10" color="#FF6347">Add Admin </font></center></h3>
 									<div class="graph">
 								
 									

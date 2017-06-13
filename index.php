@@ -164,7 +164,7 @@ require 'catheader.php';
 
 	?>
 	</br></br>
-	<a href="moreoffer.php" style="margin-left:100px"><button type="button" class="btn btn-info navbar-btn">More offers</button></a>
+	<a href="moreoffer.php" style="margin-left:100px"><button type="button" class="btn btn-info navbar-btn">Show offers</button></a>
 </div>
 <div class="col-md-9 col-sm-9">
 </br>

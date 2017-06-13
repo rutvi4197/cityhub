@@ -140,7 +140,7 @@ $("#test").keyup(function() {
 	
 	<div class="row">
 	<div class="col-md-12 col-sm-12">
-		<center><font font size="15" color="red"> Create Your Event </font></center>
+		<center><font font size="15" color="red"> Edit Your Event </font></center>
 	</div>
 	</div>
 	

@@ -46,25 +46,23 @@ $("#test").keyup(function() {
 					$user_mobile_no=$_POST["txtmob"];
 					$city=$_POST["txtcity"];
 					$user_name=$_POST["txtname"];
-					$photo="userphoto/".$_FILES["photo"]["name"];
-					if($photo==$user_photo)
+					$photo=$_FILES["photo"]["name"];
+					if(empty($photo))
 					{
+						$photo=$user_photo;
 							
-							$photo=$user_photo;
 					}
-					else{
-						if($photo!=NULL)
-						{
-						unlink($user_photo);
-					$ext=pathinfo($photo,PATHINFO_EXTENSION);
-						}
-					}
+				else{
+				$photo="userphoto/".$_FILES["photo"]["name"];
+				move_uploaded_file($_FILES["photo"]["tmp_name"],$photo);
+				}
 					
 					
-				if($ext=="jpg" || $ext=="jpeg" || $ext=="png")
-				{	
-			echo $photo;
-			move_uploaded_file($_FILES["photo"]["tmp_name"],$photo);
+					
+					
+					
+			
+			
 					$res=$obj->editprofile($email,$user_mobile_no,$user_name,$city,$photo);
 					if($res==1)
 					{
@@ -78,7 +76,7 @@ $("#test").keyup(function() {
 					}
 					
 				}
-				}
+				
 		?>
 <body>
 	<div class="row">

@@ -138,9 +138,9 @@ $("#test5").keyup(function() {
 
 <script type="text/javascript">
 	
-	function allLetter(uname)
+function allLetter(uname)
 {
-	var letters=/^[A-Za-z]+$/;
+	var letters=/^[A-Za-z ]+$/;
 	if(uname.value.match(letters))
 	{
 			return true;
@@ -347,6 +347,13 @@ echo '
 	</form>
 	</center>
 	
-	
+<div class="row">
+<div class="col-md-12">
+<?php
+require 'footer.php';
+
+ ?>
+</div>	
+</div>
 </body>
 </html>
